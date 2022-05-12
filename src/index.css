@@ -1,0 +1,186 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.blured{
+  /* Any browser which supports CSS3 */
+  filter: blur(10px);
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+   -webkit-filter: blur(1px);
+   
+   
+}
+
+.main{
+  margin: auto;
+  width: 80%;
+  height: auto;
+  margin-top: 100px;
+  background: #C4C4C4;
+  border-radius: 34px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.leftbar{
+  position: relative;
+  width: 355px;
+  height: 326px;
+  margin: 10px;
+  
+  background: #c7d4d4;
+}
+
+
+.game{
+  position: relative;
+  width: 441px;
+  height: 329px;
+
+  
+  background: #F8D3D3
+}
+
+.rightbar{
+
+  position: relative;
+  width: 355px;
+  height: 326px;
+ 
+  
+  background: #921313;
+}
+
+.startbtn{
+  position: relative;
+width: 268px;
+height: 96px;
+top:40%;
+left: 40%;
+background: #50D300;
+border-radius: 33px;
+text-align: center;
+vertical-align: middle;
+line-height: 90px;
+font-size: large;
+}
+
+.gameEllipse{
+  position: relative;
+width: 40px;
+height: 40px;
+border-radius: 100%;
+
+background: #337809;
+}
+
+.myPos{
+  border: 4px solid magenta;
+}
+
+.stagefour{
+  background: #337809;
+}
+.stagethree{
+  background: gray;
+}
+.stagetwo{
+  background: black;
+}
+.stageone{
+  background: red;
+}
+.stagefour#first{
+  position: absolute;
+  margin-top: 100px;
+  margin-left: 300px;
+}
+.stagefour#second{
+  position: absolute;
+  margin-top: 20px;
+  margin-left: 200px;
+
+}
+.stagefour#third{
+  position: absolute;
+  margin-top: 20px;
+  margin-left: 120px;
+}
+.stagefour#fourth{
+  position: absolute;
+  margin-top: 100px;
+  margin-left: 20px;
+}
+.stagefour#fifth{
+  position: absolute;
+  margin-top: 170px;
+  margin-left: 20px;
+}
+.stagefour#sixth{
+  position: absolute;
+  margin-top: 270px;
+  margin-left: 120px;
+}
+.stagefour#seventh{
+  position: absolute;
+  margin-top: 270px;
+  margin-left: 200px;
+}
+.stagefour#eight{
+  position: absolute;
+  margin-top: 170px;
+  margin-left: 300px;
+}
+
+.stagethree#first{
+  position: absolute;
+  margin-top: 80px;
+  margin-left: 235px;
+}
+.stagethree#second{
+  position: absolute;
+  margin-top: 80px;
+  margin-left: 80px;
+}
+.stagethree#third{
+  position: absolute;
+  margin-top: 215px;
+  margin-left: 80px;
+}
+.stagethree#fourth{
+  position: absolute;
+  margin-top: 215px;
+  margin-left: 235px;
+}
+
+.stagetwo#first{
+  position: absolute;
+  margin-top: 150px;
+  margin-left: 120px;
+}
+.stagetwo#second{
+  position: absolute;
+  margin-top: 150px;
+  margin-left: 200px;
+}
+
+.stageone#first{
+  position: absolute;
+  margin-top: 150px;
+  margin-left: 160px;
+}
+
