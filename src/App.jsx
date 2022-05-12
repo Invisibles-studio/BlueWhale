@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import Login from './components/auth/auth.jsx'
 import Game from './components/game';
+import {addNewUser, editUserByLogin, getUserByLogin} from './components/firebase/api.tsx'
 
 function App() {
   const [token, setToken] = useState();
@@ -12,10 +13,13 @@ function App() {
       alert("Rules!")
   }
   function startGame(){
-   
-    setGameStart(true);
+      //addNewUser("test", "test", true).then()
+      //console.log(getUserByLogin("test"))
+      //console.log(editUserByLogin("test", "12323232", 22223, true))
+      setGameStart(true);
 
   }
+
   if(!token) {
     return <Login setToken={setToken} />
   }
