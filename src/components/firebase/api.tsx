@@ -23,7 +23,6 @@ export async function getUserByLogin(username: string){
     let id = "id-"+username
 
     let user;
-
     await get(child(ref(database), "Users/"+id)).then((snapshot) => {
         if (snapshot.exists()){
             let json = snapshot.val()
