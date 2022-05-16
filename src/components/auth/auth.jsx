@@ -8,7 +8,7 @@ function register(username, password){
 
 
 
-export default function Login({ setToken , setUser}) {
+export default function Login({ setToken , SetUser}) {
   const [username, setUserName] = useState();
   const [password, setPassword] = useState();
 
@@ -17,12 +17,14 @@ export default function Login({ setToken , setUser}) {
 
     const handleRegister = async e => {
     e.preventDefault();
-    let user = addNewUser(username, password, false);
-    if (user !== undefined){
+     addNewUser(username, password, false).then((json)=>{
+        if (json !== undefined){
 
-        setUser(user);
-        setToken(1);
-    }
+            SetUser(json);
+            setToken(1);
+        }
+    });
+
   }
 
   const handleLogIn = async e =>{
@@ -31,7 +33,7 @@ export default function Login({ setToken , setUser}) {
 
           if (json.password == MD5(password)){
 
-              setUser(json);
+              SetUser(json);
               setToken(1);
           }
       });
