@@ -5,7 +5,7 @@ import {useEffect, useState} from "react";
 
 export default function Game({ user}){
 
-    const [gameUser, SetGameUser] = useState({});
+    const [gameUser, setGameUser] = useState(null);
     const [circlesInfo, setCirclesInfo] = useState( {});
     const [checkPressed, SetCheckPressed] = useState(false)
 
@@ -17,17 +17,11 @@ export default function Game({ user}){
              //SetUser(userrr)
             SetCheckPressed(true)
              SetGameUser(userr)
-             //console.log(userr)
          });
-        //getUserByLogin(user.login).then(res =>{
-       //     SetUserr(res)
-       //     console.log(res)
-       // })
-        //SetUser(editUserByLogin(user.login, user.stage, user.lastUpdate, true))
 
     }
 
-    function Check(){
+    function Check(gameUser){
         console.log(gameUser)
         if(gameUser == undefined) return;
 
@@ -35,9 +29,10 @@ export default function Game({ user}){
             let date = gameUser.lastUpdate;
             let st = gameUser.stage;
             let interval = (Date.now() - date)/1000;
-            console.log(circlesInfo)
+           // console.log(circlesInfo)
             interval = Math.round(interval / 60 );
             let kol= 0;
+
             //console.log( interval)
            let checkState = gameUser.checkState // ______________________________________Переделывай
             if(st =="stagefour" && interval < 90){
@@ -49,6 +44,13 @@ export default function Game({ user}){
                     stagetwo: 2,
                     stageone: 1
                 });
+                return {
+                    stage: st,
+                    stagefour: 2,
+                    stagethree: 4,
+                    stagetwo: 2,
+                    stageone: 1
+                }
             }
             else if (st === "stagefour"){
                // console.log("1")
@@ -60,7 +62,9 @@ export default function Game({ user}){
                             SetGameUser(__user)
                         })
                     })
-                }else if(kol>=8) {kol = 8;}
+
+
+                }else if(kol>=8) {kol = 8;} // перестановка на третью позицию.
                 setCirclesInfo({
                     stage: st,
                     stagefour: kol,
@@ -68,6 +72,13 @@ export default function Game({ user}){
                     stagetwo: 2,
                     stageone: 1
                 });
+                return {
+                    stage: st,
+                    stagefour: kol,
+                    stagethree: 4,
+                    stagetwo: 2,
+                    stageone: 1
+                }
             }
             else if(st === "stagethree"){
                 let kol3 =  Math.floor((interval) / 90 + 1);
@@ -89,7 +100,15 @@ export default function Game({ user}){
                     stagethree: kol3,
                     stagetwo: 2,
                     stageone: 1
-                });}
+                });
+                return{
+                    stage: st,
+                    stagefour: kol4,
+                    stagethree: kol3,
+                    stagetwo: 2,
+                    stageone: 1
+                }
+                }
             }else if(st=="stagetwo"  ){
                 let kol2 = 2;
                 let kol3 = Math.floor((interval) / 110 + 1);
@@ -142,28 +161,26 @@ export default function Game({ user}){
     }
 
 
-    if (circlesInfo.stage === undefined ){
-        if (window.ge === undefined){
-            Check()
-            setInterval(Check, 2000)
-            getUserByLogin(user.login).then(res =>{
-                    window.jopa = res;
-               // console.log(res);
-            })
-            window.ge = 1;
+    //  const [data, setData] = useState();
+    useEffect(()=>{
+        const fetchData = async () => {
+            const gameUser = await getUserByLogin(user.login);
+           // console.log(gameUser);
+            setGameUser(gameUser);
+            let jopa = Check(gameUser);
+            console.log(jopa)
+            document.getElementById("gameWindow").value = <Ellipse stage={jopa.stage} circlesInfo={jopa}/>
+            //console.log(circlesInfo)
+            setTimeout(fetchData, 2000);
         }
-        return <div style={{"display": "flex"}}>
-            <div className='leftbar'><p className="stage">wait</p><p className="position">wait</p><p className="codeleft">code Lorem ipsum dolor, sit amet consectetur adipisicing elit. </p></div>
-            <div className='game'>
-                wait
-            </div>
-            <div className='rightbar'><p className="coderight">wait </p></div>
-        </div>
-    }
+        fetchData();
+    }, [])
+
+
 
     return <div style={{"display": "flex"}}>
         <div className='leftbar'><p className="stage">stage 1</p><p className="position">position 4</p><p className="codeleft">code Lorem ipsum dolor, sit amet consectetur adipisicing elit. </p></div>
-        <div className='game'>
+        <div className='game' id="gameWindow">
             <Ellipse stage={circlesInfo.stage} circlesInfo={circlesInfo}/>
         </div>
         <div className='rightbar'><p className="coderight">code Lorem ipsum dolor, sit amet consectetur adipisicing elit. </p>{!checkPressed && <button onClick={changeCheckState}>CHECK</button>}</div>
