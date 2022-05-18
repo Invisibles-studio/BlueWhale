@@ -37,7 +37,7 @@ export async function getUserByLogin(username: string){
 
 }
 
-export async function addNewUser(username: string, passwordNotHashed: string, isAdmin: boolean = false){
+export async function addNewUser(username: string, passwordNotHashed: string, isAdmin: boolean = false, personalCode: string = ""){
 
     let id = "id-" + username
 
@@ -58,7 +58,9 @@ export async function addNewUser(username: string, passwordNotHashed: string, is
             stage: "",
             lastUpdate: Date.now(),
             checkState: false,
-            isAdmin: isAdmin
+            isAdmin: isAdmin,
+            checkTime: 0,
+            personalCode: personalCode
         }
 
         await set(ref(database, "Users/" + id + "/"), user)
@@ -72,7 +74,7 @@ export async function addNewUser(username: string, passwordNotHashed: string, is
 
 }
 
-export async function editUserByLogin(username: string, stage: string = "", lastUpdate: number = 1, checkState: boolean = undefined){
+export async function editUserByLogin(username: string, stage: string = "", lastUpdate: number = 1, checkState: boolean = undefined, checkTime: number = 1){
 
     let user = await getUserByLogin(username)
 
@@ -82,6 +84,7 @@ export async function editUserByLogin(username: string, stage: string = "", last
         if (stage !== "") user["stage"] = stage
         if (lastUpdate !== 1) user["lastUpdate"] = lastUpdate
         if (checkState !== undefined) user["checkState"] = checkState
+        if (checkTime !== 1) user["checkTime"] = checkTime
 
         let updates = {}
         updates["/Users/"+id] = user
