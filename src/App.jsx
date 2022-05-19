@@ -19,11 +19,14 @@ function App() {
       SetUser(json)
       console.log("HI")
   }
+    function getTime(){
+        return Date.now()+10800000;
+    }
   function startGame(){
       //addNewUser("test", "test", true).then()
       getUserByLogin(user.login).then((_user)=>{
           if(_user.stage === ""){
-              editUserByLogin(user.login, "stagefour", Date.now(), false).then((json)=>{
+              editUserByLogin(user.login, "stagefour", getTime(), false).then((json)=>{
                   sets(json)
 
               });

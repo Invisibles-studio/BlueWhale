@@ -2,6 +2,7 @@
 import leftBg from "./images/leftbg.svg"
 import {editUserByLogin, getUserByLogin} from "./firebase/api.tsx";
 import {useEffect, useState} from "react";
+import Admin from "./Admin";
 
 export default function Game({ user}){
 
@@ -10,10 +11,14 @@ export default function Game({ user}){
     const [checkPressed, SetCheckPressed] = useState(false)
 
 
+    function getTime(){
+        return Date.now()+10800000;
+    }
+
     function changeCheckState(){
        // console.log(user)
         if(gameUser.checkState == true) {SetCheckPressed(true);return;}
-        editUserByLogin(gameUser.login, gameUser.stage, gameUser.lastUpdate, true).then(userr=>{
+        editUserByLogin(gameUser.login, gameUser.stage, gameUser.lastUpdate, true, getTime()).then(userr=>{
              //SetUser(userrr)
             SetCheckPressed(true)
              SetGameUser(userr)
@@ -27,15 +32,18 @@ export default function Game({ user}){
 
         if (gameUser.lastUpdate !== 1){
             let date = gameUser.lastUpdate;
+
             let st = gameUser.stage;
-            let interval = (Date.now() - date)/1000;
-           // console.log(circlesInfo)
+            let interval = (getTime() - date)/1000;
+            console.log(interval + " interval")
             interval = Math.round(interval / 60 );
             let kol= 0;
+            let fullDaysGone = Math.floor(interval  /1440);
 
             //console.log( interval)
            let checkState = gameUser.checkState // ______________________________________Переделывай
             if(st =="stagefour" && interval < 90){
+
                 console.log('f')
                 setCirclesInfo({
                     stage: st,
@@ -53,15 +61,40 @@ export default function Game({ user}){
                 }
             }
             else if (st === "stagefour"){
+                let workMinutesPreviousDays = fullDaysGone*840; // 840 - количество рабочих часов в минутах
+                console.log(workMinutesPreviousDays /60 + "workHoursPrevious")
+                let todayWorkMinutes = (interval % 1440) - 36000000; // 36.. то 10 часов в секундах
+                if(todayWorkMinutes <0) todayWorkMinutes=0;
+                else if((getTime()%1440)/60 > 20) todayWorkMinutes = 36000000;
+                console.log("today " + todayWorkMinutes); // будет работать только на следующий день после регистрации. // или нормально
+                kol = Math.floor(workMinutesPreviousDays/90 + 2)
+                if (kol<2) kol=2;
+                kol += Math.floor(todayWorkMinutes/90)
                // console.log("1")
-                kol = Math.floor(interval / 90 + 2);
+                //kol = Math.floor(interval / 90 + 2);
                 console.log(kol)
                 if (kol >= 8 && checkState==true) {
-                    getUserByLogin(gameUser.login).then((_user)=>{
-                        editUserByLogin(gameUser.login, "stagethree", Date.now(), false).then((__user)=>{
-                            SetGameUser(__user)
-                        })
-                    })
+                    //if (5*fullDaysGone > 8)
+                    let i = gameUser.lastUpdate + 5*f; // хуйня ебаная, смотри ком ниже.
+                    //let timeOfLastIcon = 6 * 5400000 + gameUser.lastUpdate; //надо учитывать что они в разные дни создаются
+                    if (gameUser.checkTime < timeOfLastIcon){
+                        if (getTime()-timeOfLastIcon> 5*60*60*1000 && (getTime()/360000) % 24 < 20 && (getTime()/360000) % 24 > 10){
+                            getUserByLogin(gameUser.login).then((_user)=>{
+                                editUserByLogin(gameUser.login, "stagethree", getTime(), false).then((__user)=>{
+                                    SetGameUser(__user)
+                                })
+                            })
+                        }
+                    }else{
+                        if(getTime()-gameUser.checkTime > 10800000 && (getTime()/360000) % 24 < 20 && (getTime()/360000) % 24 > 10){
+                            getUserByLogin(gameUser.login).then((_user)=>{
+                                editUserByLogin(gameUser.login, "stagethree", getTime(), false).then((__user)=>{
+                                    SetGameUser(__user)
+                                })
+                            })
+                        }
+                    }
+
 
 
                 }else if(kol>=8) {kol = 8;} // перестановка на третью позицию.
@@ -81,18 +114,39 @@ export default function Game({ user}){
                 }
             }
             else if(st === "stagethree"){
-                let kol3 =  Math.floor((interval) / 90 + 1);
+                let workMinutesPreviousDays = fullDaysGone*840;
+
+                let todayWorkMinutes = (interval % 1440) - 39600000;
+                if(todayWorkMinutes <0) todayWorkMinutes=0;
+                else if((getTime()%1440)/60 > 20) todayWorkMinutes = 39600000;
+                let kol3 = Math.floor(workMinutesPreviousDays/90 + 1)
+
+                kol3 +=  Math.floor(todayWorkMinutes / 90);
                 if (kol3>4) kol3 =4;
-                let kol4 = Math.floor((interval) / 90-kol3);
+                let kol4 = Math.floor(workMinutesPreviousDays / 90 - kol3);
+                kol4 += Math.floor(todayWorkMinutes / 90);
                 if (kol4 > 8) kol4 = 8;
                 //console.log(kol3)
                 //console.log("HI")
                 if(kol4 >=8 && kol3>=4){
-                    getUserByLogin(gameUser.login).then((_user)=>{
-                        editUserByLogin(gameUser.login, "stagetwo", Date.now(), false).then((__user)=>{
-                            SetGameUser(__user)
-                        })
-                    })
+                    let timeOfLastIcon = 8 * 5400000 + 3* + gameUser.lastUpdate; // хуйня ебаная
+                    if (gameUser.checkTime < timeOfLastIcon){
+                        if (getTime()-timeOfLastIcon> 5*60*60*1000 && (getTime()/360000) % 24 < 20 && (getTime()/360000) % 24 > 10){
+                            getUserByLogin(gameUser.login).then((_user)=>{
+                                editUserByLogin(gameUser.login, "stagetwo", getTime(), false).then((__user)=>{
+                                    SetGameUser(__user)
+                                })
+                            })
+                        }
+                    }else{
+                        if(getTime()-gameUser.checkTime > 10800000 && (getTime()/360000) % 24 < 20 && (getTime()/360000) % 24 > 10){
+                            getUserByLogin(gameUser.login).then((_user)=>{
+                                editUserByLogin(gameUser.login, "stagetwo", getTime(), false).then((__user)=>{
+                                    SetGameUser(__user)
+                                })
+                            })
+                        }
+                    }
                 }else{
                 setCirclesInfo( {
                     stage: st,
@@ -119,8 +173,9 @@ export default function Game({ user}){
                 //console.log(kol3)
                 //console.log("HI")
                 if(kol4 >=8 && kol3>=4){
+
                     getUserByLogin(gameUser.login).then((_user)=>{
-                        editUserByLogin(gameUser.login, "stageone", Date.now(), false).then((__user)=>{
+                        editUserByLogin(gameUser.login, "stageone", getTime(), false, 0).then((__user)=>{
                             SetGameUser(__user)
                         })
 
@@ -145,7 +200,7 @@ export default function Game({ user}){
             }
 
         }else{
-            let date = Date.now();
+
             //console.log("HI")
             setCirclesInfo( {
                 stage: "stageone",
@@ -167,18 +222,23 @@ export default function Game({ user}){
             const gameUser = await getUserByLogin(user.login);
            // console.log(gameUser);
             setGameUser(gameUser);
-            let jopa = Check(gameUser);
-            console.log(jopa)
-            document.getElementById("gameWindow").value = <Ellipse stage={jopa.stage} circlesInfo={jopa}/>
-            //console.log(circlesInfo)
-            setTimeout(fetchData, 2000);
+            if (!gameUser.isAdmin){
+                let jopa = Check(gameUser);
+                console.log(jopa)
+                document.getElementById("gameWindow").value = <Ellipse stage={jopa.stage} circlesInfo={jopa}/>
+                //возможно нужно innerHTML
+                setTimeout(fetchData, 2000);
+            }else{
+                document.getElementById("main-div").innerHTML = "{<Admin />}";
+
+            }
         }
         fetchData();
     }, [])
 
 
 
-    return <div style={{"display": "flex"}}>
+    return <div id="main-div" style={{"display": "flex"}}>
         <div className='leftbar'><p className="stage">stage 1</p><p className="position">position 4</p><p className="codeleft">code Lorem ipsum dolor, sit amet consectetur adipisicing elit. </p></div>
         <div className='game' id="gameWindow">
             <Ellipse stage={circlesInfo.stage} circlesInfo={circlesInfo}/>
@@ -189,7 +249,7 @@ export default function Game({ user}){
 
 const Ellipse = (props) => {
 
-   // console.log(props.stage)
+    // console.log(props.stage)
     var classes = ["stagefour", "stagethree", "stagetwo", "stageone"];
     var ids = ["first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eight"];
     var ellipses = [];
@@ -213,6 +273,3 @@ const Ellipse = (props) => {
 
     return ellipses;
 }
-
-
-
