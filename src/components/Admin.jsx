@@ -29,13 +29,22 @@ const EllipseAdmin = (props) => {
 
 export default function Admin(){
 
-    const [textId, setTextId] = useState()
+    const [textId, setTextId] = useState("")
     const [textValue, setTextValue] = useState()
 
 
     const changeText = async e => {
         e.preventDefault()
-        document.getElementById(textId).text = textValue;
+        console.log(e)
+        let textnameId;
+        switch (textId ) {
+            case 1: textnameId = "stage";
+            case 2: textnameId = "position";
+            case 3: textnameId = "codeleft";
+            case 4: textnameId = "coderight";
+        }
+        console.log(textnameId + " " + textValue + " " + textId);
+        document.getElementById(textnameId).innerText = textValue;
     }
     function enableCircle(name){
         document.querySelector(name).classList.remove("hidden")
@@ -69,11 +78,11 @@ export default function Admin(){
                 <form onSubmit={changeText}>
                     <label>
                         <p>Choose Text</p>
-                        <select name="textId" onChange={e => setTextId(e.target.value)}>
-                            <option value="stage">Stage text</option>
-                            <option value="position">Position text</option>
-                            <option value="codeleft">Code left</option>
-                            <option value="coderight">Code right</option>
+                        <select name="textId" onChange={e => setTextId(parseInt( e.target.value.toString()))}>
+                            <option value="1">Stage text</option>
+                            <option value="2">Position text</option>
+                            <option value="3">Code left</option>
+                            <option value="3">Code right</option>
                         </select>
                     </label>
                     <label>

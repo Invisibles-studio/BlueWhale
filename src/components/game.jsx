@@ -9,7 +9,7 @@ export default function Game({ user}){
     const [gameUser, setGameUser] = useState(null);
     const [circlesInfo, setCirclesInfo] = useState( {});
     const [checkPressed, SetCheckPressed] = useState(false)
-
+    const [isAdmin, setAdmin] = useState(false);
 
     function getTime(){
         return Date.now()+10800000;
@@ -23,6 +23,20 @@ export default function Game({ user}){
             SetCheckPressed(true)
              SetGameUser(userr)
          });
+
+    }
+
+    function timeOfLastIcon(){
+        let lastUpdate;
+        let temp
+        // if lastupdate.hours < 10 {
+        //      temp =10 chasov - lastupdate%1440;
+        // }
+        // else if(lastupdate.hours > 20){
+        //      temp  = 10 часов следующего дня - lastupdate типа ночные часы считаем
+        // }
+        // let timeLastIcon = 840 + temp;
+        // if timeLastIcon.hours > 20 or < 10 => добираем до следующего дняё
 
     }
 
@@ -229,7 +243,8 @@ export default function Game({ user}){
                 //возможно нужно innerHTML
                 setTimeout(fetchData, 2000);
             }else{
-                document.getElementById("main-div").innerHTML = "{<Admin />}";
+                setAdmin(true);
+                //document.getElementById("main-div").innerHTML = <Admin />;
 
             }
         }
@@ -239,12 +254,15 @@ export default function Game({ user}){
 
 
     return <div id="main-div" style={{"display": "flex"}}>
+        {!isAdmin ?<div>
         <div className='leftbar'><p className="stage">stage 1</p><p className="position">position 4</p><p className="codeleft">code Lorem ipsum dolor, sit amet consectetur adipisicing elit. </p></div>
         <div className='game' id="gameWindow">
             <Ellipse stage={circlesInfo.stage} circlesInfo={circlesInfo}/>
         </div>
         <div className='rightbar'><p className="coderight">code Lorem ipsum dolor, sit amet consectetur adipisicing elit. </p>{!checkPressed && <button onClick={changeCheckState}>CHECK</button>}</div>
-    </div>
+            </div>:
+            <Admin /> }
+        </div>
 }
 
 const Ellipse = (props) => {

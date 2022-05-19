@@ -15,31 +15,19 @@ function App() {
   function Rules(){
       alert("Rules!")
   }
-  function sets(json){
-      SetUser(json)
-      console.log("HI")
-  }
-    function getTime(){
+  function getTime(){
         return Date.now()+10800000;
     }
   function startGame(){
-      //addNewUser("test", "test", true).then()
       getUserByLogin(user.login).then((_user)=>{
           if(_user.stage === ""){
               editUserByLogin(user.login, "stagefour", getTime(), false).then((json)=>{
-                  sets(json)
-
+                  SetUser(json)
               });
 
 
           }
       })
-      //console.log(editUserByLogin("test", "12323232", 22223, true))
-      //console.log(user)
-
-      //editUserByLogin(user.login, code.toString(), Date.now(), false); //типа если не нулл то изменять код и добавить код надо
-
-
       setGameStart(true);
 
   }
