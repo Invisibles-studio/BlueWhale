@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import Login from './components/auth/auth.jsx'
-import Game from './components/game';
+import Game from './components/game.jsx';
 import RulesPng from "./components/images/rules.png"
 import {editUserByLogin, getUserByLogin} from './components/firebase/api.tsx'
 
@@ -58,7 +58,7 @@ function App() {
   }
   return (
     <div className="background" >
-        <Game  user={user} />
+        <Game  />
     <input className="rulesBtn" type="image" src={RulesPng} alt="Login" onClick={Rules}></input>
     </div>
   );

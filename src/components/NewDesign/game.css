@@ -1,0 +1,478 @@
+.gameWindow {
+    width: 100%;
+    height: 100%;
+}
+
+.gameRadarW {
+    position: absolute;
+    background: linear-gradient(180deg, rgba(145, 255, 209, 0.17) 0%, rgba(59, 130, 140, 0.18) 100%);
+    border: 0.417vw solid #60ECFF;
+    box-shadow: 0px 0px 4.844vw #91FFD1;
+    border-radius: 27.396vw;
+    width: 41.667vw;
+    height: 41.667vw;
+
+    top: 7.292vw;
+    left: 29.167vw;
+
+}
+
+.radarImage {
+    background-image: url("../images/radar.png");
+    width: 41.667vw;
+    height: 41.667vw;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.gameRadarTitle {
+    position: absolute;
+
+    width: 15.156vw;
+    height: 5.417vw;
+    left: 42.448vw;
+    top: 0.573vw;
+
+    font-size: 4.479vw;
+    white-space: nowrap;
+
+    text-align: center;
+    line-height: 5.417vw;
+
+    margin: 0;
+    color: #60ECFF;
+
+    text-shadow: 0px 0px 2.656vw #60ECFF, 0px 0.208vw 0px #51A4AF;
+}
+
+.gameCodeBlockLabel {
+    position: absolute;
+
+    width: 2.969vw;
+    height: 1.250vw;
+
+    left: 9.844vw;
+    top: 14.063vw;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.042vw;
+    line-height: 1.250vw;
+
+    color: #FFFFFF;
+    margin: 0;
+
+}
+
+.gameCodeBlock {
+    position: absolute;
+    background-image: url("../images/rectangleBlue.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    width: 19.141vw;
+    height: 3.776vw;
+
+    left: 7.057vw;
+    top: 15.833vw;
+}
+
+.gameCodeBlock p {
+    position: absolute;
+    width: 19.271vw;
+    height: 1.250vw;
+    left: 1.563vw;
+    top: 1.198vw;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.042vw;
+    line-height: 1.250vw;
+
+    color: #FCFF7F;
+    margin: 0;
+}
+
+.gameLeftBlock {
+    position: absolute;
+    background-image: url("../images/leftBlock.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    width: 26.042vw;
+    height: 15.625vw;
+
+    top: 20.365vw;
+    left: 3.125vw;
+}
+
+.gameLeftBlockTop {
+    position: absolute;
+    background-image: url("../images/leftBlockTop.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    width: 19.271vw;
+    height: 3.021vw;
+
+    top: 1.042vw;
+    left: 2.161vw;
+}
+
+.gameLeftBlockTop p {
+    position: absolute;
+    width: 7.396vw;
+    height: 2.292vw;
+    left: 1.267vw;
+    top: 0.365vw;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.875vw;
+    line-height: 2.292vw;
+
+    color: #FFFFFF;
+    margin: 0;
+}
+
+.gameLeftBlockMiddle {
+    position: absolute;
+    background-image: url("../images/leftBlockMiddle.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    width: 18.620vw;
+    height: 3.021vw;
+
+    top: 5.156vw;
+    left: 1.718vw;
+}
+
+.gameLeftBlockMiddle p {
+    position: absolute;
+    width: 10.625vw;
+    height: 2.292vw;
+    left: 1.267vw;
+    top: 0.365vw;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.875vw;
+    line-height: 2.292vw;
+
+    color: #FFFFFF;
+    margin: 0;
+}
+
+.gameLeftBlockButton {
+    position: absolute;
+    background-image: url("../images/myCodeRectangle.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    width: 19.505vw;
+    height: 5.260vw;
+
+    top: 9.271vw;
+    left: 1.849vw;
+
+    cursor: pointer;
+}
+
+.gameLeftBlockButton p {
+    position: absolute;
+
+    top: 1.510vw;
+    left: 4.766vw;
+
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.875vw;
+    line-height: 2.292vw;
+
+    color: #4C4761;
+
+    margin: 0;
+
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
+}
+
+.gameRightBlock {
+    position: absolute;
+    background-image: url("../images/rightBlock.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    width: 26.042vw;
+    height: 15.625vw;
+
+    top: 20.365vw;
+    left: 70.833vw;
+}
+
+.gameRightBlockTop {
+    position: absolute;
+    background-image: url("../images/rightBlockTop.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    width: 19.688vw;
+    height: 5.260vw;
+
+    top: 1.615vw;
+    left: 4.688vw;
+    right: 1.667vw;
+
+    cursor: pointer;
+
+}
+
+.gameRightBlockTop p {
+    position: absolute;
+
+    top: 1.510vw;
+    left: 2.005vw;
+
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.875vw;
+    line-height: 2.292vw;
+
+    color: #4C4761;
+
+    margin: 0;
+
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
+}
+
+.gameRightBlockBottom {
+    position: absolute;
+    background-image: url("../images/rightBlockBottom.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    width: 19.583vw;
+    height: 5.260vw;
+
+    top: 8.698vw;
+    left: 4.688vw;
+    right: 1.771vw;
+
+    cursor: pointer;
+}
+
+.gameRightBlockBottom p{
+    position: absolute;
+
+    top: 1.510vw;
+    left: 6.458vw;
+
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.875vw;
+    line-height: 2.292vw;
+
+    color: #4C4761;
+
+    margin: 0;
+
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
+}
+
+.gameEllipse{
+    position: relative;
+    width: 4.167vw;
+    height: 4.167vw;
+    border-radius: 100%;
+}
+
+.myPos{
+    border: 4px solid magenta;
+}
+
+.stagefour{
+    background-image: url("../images/stageFour.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.stagethree{
+
+    width: 2.969vw;
+    height: 2.969vw;
+
+    background: #A43276;
+
+    box-shadow: 0px 0.208vw 0.208vw rgba(0, 0, 0, 0.5);
+    transform: rotate(157.5deg);
+
+    border: 0.260vw solid #3166A7;
+    filter: drop-shadow(0px 0.208vw 0.208vw rgba(0, 0, 0, 0.5));
+}
+
+.stagetwo{
+    background-image: url("../images/stageTwo.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.stageone{
+    background: red;
+
+    width: 5.208vw;
+    height: 5.208vw;
+}
+
+.stagefour#first{
+    position: absolute;
+
+    top: 2.031vw;
+    left: 11.771vw;
+
+}
+
+.stagefour#second{
+    position: absolute;
+
+    top: 2.031vw;
+    left: 24.152vw;
+
+}
+
+.stagefour#third{
+    position: absolute;
+
+    top: 11.719vw;
+    left: 35.313vw;
+
+}
+
+.stagefour#fourth{
+    position: absolute;
+
+    top: 11.719vw;
+    left: 2.135vw;
+
+}
+
+.stagefour#fifth{
+    position: absolute;
+
+    top: 25.521vw;
+    left: 2.135vw;
+
+}
+
+.stagefour#sixth{
+    position: absolute;
+
+    top: 35.313vw;
+    left: 11.875vw;
+}
+
+.stagefour#seventh{
+    position: absolute;
+
+    top: 35.313vw;
+    left: 25.729vw;
+}
+
+.stagefour#eight{
+    position: absolute;
+    top: 25.521vw;
+    left: 35.313vw;
+}
+
+.stagethree#first{
+    position: absolute;
+    top: 9.583vw;
+    left: 27.917vw;
+}
+
+.stagethree#second{
+    position: absolute;
+    top: 9.583vw;
+    left: 9.688vw;
+}
+
+.stagethree#third{
+    position: absolute;
+    top: 27.865vw;
+    left: 9.688vw;
+}
+
+.stagethree#fourth{
+    position: absolute;
+    top: 27.865vw;
+    left: 27.917vw;
+}
+
+.stagetwo#first{
+    position: absolute;
+
+    top: 18.646vw;
+    left: 11.198vw;
+}
+
+.stagetwo#second{
+    position: absolute;
+    top: 18.646vw;
+    left: 26.354vw;
+}
+
+.stageone#first{
+    position: absolute;
+    left: 18.281vw;
+    top: 18.281vw;
+}
+
+.loginBackground {
+    position: absolute;
+    background-image : url("../images/loginBackground.png");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    height: 100%;
+    width: 100%;
+}
+
+.authBlockMain {
+    position: absolute;
+
+    width: 37.623vw;
+    height: 38.750vw;
+
+    left: 29.844vw;
+    top: 8.750vw;
+}
+
+.authBlock {
+    position: absolute;
+    background-image: url("../images/authBlock.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    width: 35.800vw;
+    height: 33.281vw;
+
+    left: 1.823vw;
+    top: 5.469vw;
+
+}

@@ -25,6 +25,7 @@ code {
 }
 
 .background{
+  position: absolute;
   background-image : url("../src/components/images/background.png");
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -32,6 +33,7 @@ code {
   background-size: cover;
 
   height: 100%;
+  width: 100%;
 }
 
 
@@ -54,7 +56,7 @@ code {
   width: 29%;
 
   margin-left: 4em;
-  margin-top:12em;
+  margin-top:  12em;
   background-image: url("../src/components/images/leftbg.svg");
   background-repeat: no-repeat;
   background-size: contain;
@@ -69,9 +71,49 @@ code {
   background: #F8D3D3
 }
 
+.RadarTitle{
+  position: absolute;
+
+  width: 15.15%;
+  height: 9.6296%;
+  left: 42.44%;
+  top: 1%;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 86px;
+
+
+  color: #60ECFF;
+
+  text-align: center;
+
+  text-shadow: 0px 0px 51px #60ECFF, 0px 4px 0px #51A4AF;
+
+  margin: 0 0;
+}
+
+.gameRadar {
+  position: absolute;
+  background-image: url("../src/components/images/radar.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 41.6%;
+  height: 74%;
+
+  top: 12.96%;
+  left: 29.16%;
+
+}
+
 .rulesBtn{
-  width: 50px;
-  height: 60px;
+  position: absolute;
+
+  width: 2.604vw;
+  height: 3.125vw;
+
+  top: 89%;
+  left: 7%;
 }
 
 .rightbar{
@@ -98,119 +140,5 @@ line-height: 90px;
 font-size: large;
 }
 
-.gameEllipse{
-  position: relative;
-width: 40px;
-height: 40px;
-border-radius: 100%;
-background: #337809;
-}
 
-.myPos{
-  border: 4px solid magenta;
-}
-
-.stage {
-  position: relative;
-  margin-left: 46px;
-  width: 378px;
-  height:60px;
-  background-image: url("../src/components/images/stageSVG.svg");
-  background-repeat: no-repeat;
-  background-size: contain;
-  max-width: 100%;
-  max-height: 100%;
-}
-
-.stagefour{
-  background: #337809;
-}
-.stagethree{
-  background: gray;
-}
-.stagetwo{
-  background: black;
-}
-.stageone{
-  background: red;
-}
-.stagefour#first{
-  position: absolute;
-  margin-top: 100px;
-  margin-left: 300px;
-}
-.stagefour#second{
-  position: absolute;
-  margin-top: 20px;
-  margin-left: 200px;
-
-}
-.stagefour#third{
-  position: absolute;
-  margin-top: 20px;
-  margin-left: 120px;
-}
-.stagefour#fourth{
-  position: absolute;
-  margin-top: 100px;
-  margin-left: 20px;
-}
-.stagefour#fifth{
-  position: absolute;
-  margin-top: 170px;
-  margin-left: 20px;
-}
-.stagefour#sixth{
-  position: absolute;
-  margin-top: 270px;
-  margin-left: 120px;
-}
-.stagefour#seventh{
-  position: absolute;
-  margin-top: 270px;
-  margin-left: 200px;
-}
-.stagefour#eight{
-  position: absolute;
-  margin-top: 170px;
-  margin-left: 300px;
-}
-
-.stagethree#first{
-  position: absolute;
-  margin-top: 80px;
-  margin-left: 235px;
-}
-.stagethree#second{
-  position: absolute;
-  margin-top: 80px;
-  margin-left: 80px;
-}
-.stagethree#third{
-  position: absolute;
-  margin-top: 215px;
-  margin-left: 80px;
-}
-.stagethree#fourth{
-  position: absolute;
-  margin-top: 215px;
-  margin-left: 235px;
-}
-
-.stagetwo#first{
-  position: absolute;
-  margin-top: 150px;
-  margin-left: 120px;
-}
-.stagetwo#second{
-  position: absolute;
-  margin-top: 150px;
-  margin-left: 200px;
-}
-
-.stageone#first{
-  position: absolute;
-  margin-top: 150px;
-  margin-left: 160px;
-}
 

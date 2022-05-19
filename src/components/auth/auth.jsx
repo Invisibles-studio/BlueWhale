@@ -2,11 +2,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import {getUserByLogin, addNewUser} from "../firebase/api.tsx"
+import "../NewDesign/game.css"
+
 function register(username, password){
     return "token123"
 }
-
-
 
 export default function Login({ setToken , SetUser}) {
   const [username, setUserName] = useState();
@@ -40,8 +40,16 @@ export default function Login({ setToken , SetUser}) {
 
   }
 
-  return(
-      <div>
+    /*<div className="loginBackground">
+        <div className="authBlockMain">
+            <div className="authBlock">
+
+            </div>
+        </div>
+    </div>
+*/
+
+    return <div className="loginBackground">
           <div className="login-wrapper">
               <h1>Please Log In</h1>
               <button type="button" onClick={()=>{
@@ -87,7 +95,6 @@ export default function Login({ setToken , SetUser}) {
       </form>
       </div>
       </div>
-  )
 }
 
 Login.propTypes = {

@@ -3,6 +3,7 @@ import leftBg from "./images/leftbg.svg"
 import {editUserByLogin, getUserByLogin} from "./firebase/api.tsx";
 import {useEffect, useState} from "react";
 import Admin from "./Admin";
+import "./NewDesign/game.css"
 
 export default function Game({ user}){
 
@@ -17,7 +18,7 @@ export default function Game({ user}){
 
     function changeCheckState(){
        // console.log(user)
-        if(gameUser.checkState == true) {SetCheckPressed(true);return;}
+        if(gameUser.checkState === true) {SetCheckPressed(true);return;}
         editUserByLogin(gameUser.login, gameUser.stage, gameUser.lastUpdate, true, getTime()).then(userr=>{
              //SetUser(userrr)
             SetCheckPressed(true)
@@ -177,7 +178,8 @@ export default function Game({ user}){
                     stageone: 1
                 }
                 }
-            }else if(st=="stagetwo"  ){
+            }
+            else if(st=="stagetwo"  ){
                 let kol2 = 2;
                 let kol3 = Math.floor((interval) / 110 + 1);
                 if (kol3>4) kol3 =4;
@@ -203,7 +205,8 @@ export default function Game({ user}){
                     stagetwo: kol2,
                     stageone: 1
                 });}
-            }else if (st=="stageone"){
+            }
+            else if (st=="stageone"){
                 setCirclesInfo( {
                     stage: "stageone",
                     stagefour: 8,
@@ -213,7 +216,8 @@ export default function Game({ user}){
                 });
             }
 
-        }else{
+        }
+        else{
 
             //console.log("HI")
             setCirclesInfo( {
@@ -245,7 +249,6 @@ export default function Game({ user}){
             }else{
                 setAdmin(true);
                 //document.getElementById("main-div").innerHTML = <Admin />;
-
             }
         }
         fetchData();
@@ -253,7 +256,26 @@ export default function Game({ user}){
 
 
 
-    return <div id="main-div" style={{"display": "flex"}}>
+    return <div className="gameWindow">
+
+        <p className="gameRadarTitle">RADAR</p>
+        <div className="gameRadarW"><div className="radarImage"><Ellipse stage={circlesInfo.stage} circlesInfo={circlesInfo}/></div></div>
+        <p className="gameCodeBlockLabel">Code:</p>
+        <div className="gameCodeBlock"><p>dnvn1g3g9mcsx1dv</p></div>
+        <div className="gameLeftBlock">
+            <div className="gameLeftBlockTop stage"><p>STAGE 1</p></div>
+            <div className="gameLeftBlockMiddle position"><p>POSITION 4</p></div>
+            <div className="gameLeftBlockButton codeleft" onClick={test => {console.log("TEST")}}><p>MY CODE</p></div>
+        </div>
+        <div className="gameRightBlock">
+            <div className="gameRightBlockTop" onClick={test => {console.log("TEST")}}><p>COPY THE CODE</p></div>
+            <div className="gameRightBlockBottom" onClick={test => {console.log("TEST")}}><p>CHECK</p></div>
+
+        </div>
+
+    </div>
+
+    /*<div id="main-div" style={{"display": "flex"}}>
         {!isAdmin ?<div>
         <div className='leftbar'><p className="stage">stage 1</p><p className="position">position 4</p><p className="codeleft">code Lorem ipsum dolor, sit amet consectetur adipisicing elit. </p></div>
         <div className='game' id="gameWindow">
@@ -262,7 +284,7 @@ export default function Game({ user}){
         <div className='rightbar'><p className="coderight">code Lorem ipsum dolor, sit amet consectetur adipisicing elit. </p>{!checkPressed && <button onClick={changeCheckState}>CHECK</button>}</div>
             </div>:
             <Admin /> }
-        </div>
+        </div>*/
 }
 
 const Ellipse = (props) => {
