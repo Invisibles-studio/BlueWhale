@@ -463,6 +463,11 @@
     top: 8.750vw;
 }
 
+.BlockHidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
 .authBlock {
     position: absolute;
     background-image: url("../images/authBlock.png");
@@ -474,5 +479,214 @@
 
     left: 1.823vw;
     top: 5.469vw;
-
+    transition: .55s opacity, .55s visibility;
 }
+
+.registerBlock {
+    position: absolute;
+    background-image: url("../images/registerBlock.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    width: 35.781vw;
+    height: 43.646vw;
+
+    left: 1.823vw;
+    top: 1.042vw;
+    transition: .3s opacity, .3s visibility;
+}
+
+.loginLabelAuth {
+    position: absolute;
+    top: 1.042vw;
+    left: 6.875vw;
+    margin: 0;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.667vw;
+    line-height: 2.031vw;
+
+    color: #FFFFFF;
+}
+
+.loginInputAuth {
+    position: absolute;
+    background-image: url("../images/authLoginTopInput.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: transparent;
+    border: 0;
+
+    width: 27.813vw;
+    height: 7.135vw;
+
+    top: 3.750vw;
+    left: 4.063vw;
+
+    text-align: center;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 3.333vw;
+    line-height: 4.010vw;
+
+    color: #FFFFFF;
+}
+
+.loginInputAuth:focus{
+    outline: none;
+}
+
+.passwordLabelAuth {
+    position: absolute;
+    top: 11.563vw;
+    left: 5.573vw;
+    margin: 0;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.667vw;
+    line-height: 2.031vw;
+
+    color: #FFFFFF;
+}
+
+.passwordInputAuth {
+    position: absolute;
+    background-image: url("../images/authPasswordBottomInput.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: transparent;
+    border: 0;
+
+    width: 27.813vw;
+    height: 7.135vw;
+
+    top: 14.531vw;
+    left: 3.741vw;
+
+    text-align: center;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 3.333vw;
+    line-height: 4.010vw;
+
+    color: #FFFFFF;
+    -webkit-text-security: square;
+}
+
+.passwordInputAuth:focus{
+    outline: none;
+}
+
+.buttonAuth {
+    position: absolute;
+    background-image: url("../images/authButton.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: transparent;
+
+    width: 27.734vw;
+    height: 6.875vw;
+
+    left: 4.063vw;
+    top: 24.375vw;
+
+    cursor: pointer;
+}
+
+.buttonAuth p{
+    position: absolute;
+    left: 10.573vw;
+    top: 1.875vw;
+
+    font-style: normal;
+    font-weight: 600;
+    font-size: 3.333vw;
+    line-height: 4.010vw;
+
+    color: #224442;
+
+    margin: 0;
+
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
+}
+
+.buttonToLoginSelected {
+    background-image: url("../images/authSelectedLoginButton.png");
+    transform: translateY(0.208vw);
+}
+.buttonToLoginNotSelected {
+    background-image: url("../images/authLoginButton.png");
+    transform: translateY(-4.427vw);
+}
+
+.buttonToLogin {
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+
+    width: 15.313vw;
+    height: 4.688vw;
+
+    left: 20.130vw;
+    top: 0.026vw;
+
+    text-align: center;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.667vw;
+    line-height: 2.031vw;
+
+    color: #FFFFFF;
+    padding: 0;
+    transition: transform 500ms ease;
+}
+
+.buttonToRegisterSelected {
+    background-image: url("../images/authSelectedRegisterButton.png");
+    transform: translateY(-4.297vw);
+}
+
+.buttonToRegisterNotSelected {
+    background-image: url("../images/authRegisterButton.png");
+}
+
+.buttonToRegister {
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+
+    width: 15.313vw;
+    height: 4.688vw;
+
+    left: 4.167vw;
+    top: 0.026vw;
+
+    text-align: center;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.667vw;
+    line-height: 2.031vw;
+
+    color: #FFFFFF;
+    padding: 0;
+
+    transition: transform 500ms ease;
+}
+
