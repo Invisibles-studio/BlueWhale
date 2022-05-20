@@ -650,6 +650,7 @@
     background-image: url("../images/authSelectedLoginButton.png");
     transform: translateY(0.208vw);
 }
+
 .buttonToLoginNotSelected {
     background-image: url("../images/authLoginButton.png");
     transform: translateY(-4.427vw);
@@ -717,3 +718,156 @@
     transition: transform 500ms ease;
 }
 
+.loginLabelRegister {
+    position: absolute;
+    top: 1.094vw;
+    left: 6.875vw;
+    margin: 0;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.667vw;
+    line-height: 2.031vw;
+
+    color: #FFFFFF;
+}
+
+.loginInputRegister {
+    position: absolute;
+    background-image: url("../images/authLoginTopInput.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: transparent;
+    border: 0;
+
+    width: 27.552vw;
+    height: 7.135vw;
+
+    top: 3.802vw;
+    left: 4.219vw;
+
+    text-align: center;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 3.333vw;
+    line-height: 4.010vw;
+
+    color: #FFFFFF;
+}
+
+.passwordLabelRegister {
+    position: absolute;
+    top: 11.615vw;
+    left: 5.573vw;
+    margin: 0;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.667vw;
+    line-height: 2.031vw;
+
+    color: #FFFFFF;
+}
+
+.passwordInputRegister {
+    position: absolute;
+    background-image: url("../images/authPasswordBottomInput.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: transparent;
+    border: 0;
+
+    width: 28.464vw;
+    height: 7.135vw;
+
+    top: 14.583vw;
+    left: 3.776vw;
+
+    text-align: center;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 3.333vw;
+    line-height: 4.010vw;
+
+    color: #FFFFFF;
+    -webkit-text-security: square;
+}
+
+.passwordConfirmLabelRegister {
+    position: absolute;
+    top: 22.396vw;
+    left: 5.573vw;
+    margin: 0;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.667vw;
+    line-height: 2.031vw;
+
+    color: #FFFFFF;
+}
+
+.passwordConfirmInputRegister {
+    position: absolute;
+    background-image: url("../images/authPasswordBottomInput.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: transparent;
+    border: 0;
+
+    width: 28.464vw;
+    height: 7.135vw;
+
+    top: 25.365vw;
+    left: 3.776vw;
+
+    text-align: center;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 3.333vw;
+    line-height: 4.010vw;
+
+    color: #FFFFFF;
+    -webkit-text-security: square;
+}
+
+.buttonRegister {
+    position: absolute;
+    background-image: url("../images/authButton.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: transparent;
+
+    width: 27.734vw;
+    height: 6.875vw;
+
+    left: 4.063vw;
+    top: 34.531vw;
+
+    cursor: pointer;
+}
+
+.buttonRegister p {
+    position: absolute;
+    left: 10.573vw;
+    top: 1.875vw;
+
+    font-style: normal;
+    font-weight: 600;
+    font-size: 3.333vw;
+    line-height: 4.010vw;
+
+    color: #224442;
+
+    margin: 0;
+
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
+}
