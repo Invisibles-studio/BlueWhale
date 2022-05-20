@@ -4,6 +4,7 @@ import {editUserByLogin, getUserByLogin} from "./firebase/api.tsx";
 import {useEffect, useState} from "react";
 import Admin from "./Admin";
 import "./NewDesign/game.css"
+import RulesPng from "./images/rules.png"
 
 export default function Game({ user}){
 
@@ -270,22 +271,31 @@ export default function Game({ user}){
 
 
 
-    return <div className="gameWindow">
+    return <div className="window">
 
-        <p className="gameRadarTitle">RADAR</p>
-        <div className="gameRadarW"><div className="radarImage" id="radarWindow"><Ellipse stage={circlesInfo.stage} circlesInfo={circlesInfo}/></div></div>
-        <p className="gameCodeBlockLabel">Code:</p>
-        <div className="gameCodeBlock"><p>dnvn1g3g9mcsx1dv</p></div>
-        <div className="gameLeftBlock">
-            <div className="gameLeftBlockTop stage" ><p>STAGE {stage}</p></div>
-            <div className="gameLeftBlockMiddle position"><p>POSITION 4</p></div>
-            <div className="gameLeftBlockButton codeleft" onClick={test => {console.log("TEST")}}><p id="personal-code">MY CODE</p></div>
-        </div>
-        <div className="gameRightBlock">
-            <div className="gameRightBlockTop" onClick={copyTheCode}><p>COPY THE CODE</p></div>
-            <div className="gameRightBlockBottom" onClick={changeCheckState}><p>CHECK</p></div>
+        <div className="gameWindow gameBlur">
+            <p className="gameRadarTitle">RADAR</p>
+            <div className="gameRadarW"><div className="radarImage" id="radarWindow"><Ellipse stage={circlesInfo.stage} circlesInfo={circlesInfo}/></div></div>
+            <p className="gameCodeBlockLabel">Code:</p>
+            <div className="gameCodeBlock"><p>dnvn1g3g9mcsx1dv</p></div>
+            <div className="gameLeftBlock">
+                <div className="gameLeftBlockTop stage" ><p>STAGE {stage}</p></div>
+                <div className="gameLeftBlockMiddle position"><p>POSITION 4</p></div>
+                <div className="gameLeftBlockButton codeleft" onClick={test => {console.log("TEST")}}><p id="personal-code">MY CODE</p></div>
+            </div>
+            <div className="gameRightBlock">
+                <div className="gameRightBlockTop" onClick={copyTheCode}><p>COPY THE CODE</p></div>
+                <div className="gameRightBlockBottom" onClick={changeCheckState}><p>CHECK</p></div>
 
+            </div>
+            <input className="rulesBtn" type="image" alt="Rules" src={RulesPng} />
         </div>
+
+        <div className="gameStartCircle">
+            <p>START</p>
+            <input className="gamePersonalCode" type="text" placeholder="Code"/>
+        </div>
+
 
     </div>
 

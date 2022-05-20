@@ -871,3 +871,77 @@
     -ms-user-select: none; /* Internet Explorer/Edge */
     user-select: none;
 }
+
+.gameBlur {
+    filter: blur(8px);
+    -webkit-filter: blur(0.417vw);
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.gameStartCircle {
+    position: absolute;
+    width: 26.042vw;
+    height: 26.042vw;
+
+    left: 37.6vw;
+    top: 15.1vw;
+
+    background: #B491FF;
+    box-shadow: 0 0.677vw 0.521vw rgba(0, 0, 0, 0.2);
+    border-radius: 26.042vw;
+    cursor: pointer;
+}
+
+.gameStartCircle p {
+    position: absolute;
+
+    width: 16.302vw;
+    height: 6.042vw;
+
+    left: 4.844vw;
+    top: 10vw;
+
+    font-style: normal;
+    font-weight: 600;
+    font-size: 5vw;
+    line-height: 6.042vw;
+
+    color: #312244;
+    margin: 0;
+    text-align: center;
+}
+
+.window {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.gamePersonalCode {
+    position: absolute;
+    width: 13.385vw;
+    height: 3.958vw;
+    left: 6.302vw;
+    top: 17.760vw;
+
+    background: radial-gradient(231.58% 231.58% at 50% 50%, #BB91FF 0%, #9670BB 100%);
+    border-radius: 0.990vw;
+    border: 0;
+
+    text-align: center;
+
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.042vw;
+    line-height: 1.250vw;
+
+    color: #8267A5;
+}
+
+.gamePersonalCode:focus {
+    outline: none;
+}
