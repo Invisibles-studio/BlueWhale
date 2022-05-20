@@ -453,15 +453,42 @@
     width: 100%;
 }
 
-.authBlockMain {
-    position: absolute;
+@media (max-height: 1080px) {
+    .authBlockMain {
+        position: absolute;
 
-    width: 37.623vw;
-    height: 38.750vw;
+        width: 37.623vw;
+        height: 38.750vw;
 
-    left: 29.844vw;
-    top: 8.750vw;
+        left: 29.844vw;
+        top: 8.750vw;
+    }
+
 }
+
+@media (max-height: 970px) {
+    .authBlockMain {
+        position: absolute;
+
+        width: 37.623vw;
+        height: 36.458vw;
+
+        left: 29.844vw;
+        top: 4.688vw;
+    }
+}
+
+/*@media (max-width: 970px) {
+    .authBlockMain {
+        position: absolute;
+
+        width: 74.433vw;
+        height: 76.701vw;
+
+        left: 15.464vw;
+        top: 10%;
+    }
+}*/
 
 .BlockHidden {
     opacity: 0;
