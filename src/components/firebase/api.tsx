@@ -74,7 +74,7 @@ export async function addNewUser(username: string, passwordNotHashed: string, is
 
 }
 
-export async function editUserByLogin(username: string, stage: string = "", lastUpdate: number = 1, checkState: boolean = undefined, checkTime: number = 1){
+export async function editUserByLogin(username: string, stage: string = "", lastUpdate: number = 1, checkState: boolean = undefined, checkTime: number = 1, personalCode: string = ""){
 
     let user = await getUserByLogin(username)
 
@@ -85,6 +85,7 @@ export async function editUserByLogin(username: string, stage: string = "", last
         if (lastUpdate !== 1) user["lastUpdate"] = lastUpdate
         if (checkState !== undefined) user["checkState"] = checkState
         if (checkTime !== 1) user["checkTime"] = checkTime
+        if (personalCode !== "") user["personalCode"] = personalCode
 
         let updates = {}
         updates["/Users/"+id] = user
