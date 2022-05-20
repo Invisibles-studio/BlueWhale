@@ -21,6 +21,21 @@ export default function Game({ user}){
         return Date.now()+10800000;
     }
 
+    function startGame(){
+        getUserByLogin(user.login).then((_user)=>{
+            if(_user.stage === ""){
+                editUserByLogin(user.login, "stagefour", getTime(), false).then((json)=>{
+                    SetUser(json)
+                });
+
+
+            }
+        })
+        setGameStart(true);
+
+    }
+
+
     function changeCheckState(){
        // console.log(user)
         if(gameUser.checkState === true) {SetCheckPressed(true);return;}
@@ -90,6 +105,9 @@ export default function Game({ user}){
                 }
                 console.log(todayWorkMinutes)
                 //console.log("today " + todayWorkMinutes); // будет работать только на следующий день после регистрации. // или нормально
+                let kolForLastIcon = workMinutesPreviousDays/90 + 2;
+                if (kolForLastIcon<2) kolForLastIcon=2;
+                kolForLastIcon += todayWorkMinutes/90;
                 kol = Math.floor(workMinutesPreviousDays/90 + 2)
                 if (kol<2) kol=2;
                 kol += Math.floor(todayWorkMinutes/90)
@@ -97,10 +115,18 @@ export default function Game({ user}){
                 //kol = Math.floor(interval / 90 + 2);
                // console.log(kol)
                 if (kol >= 8 && checkState==true) {
-                    //if (5*fullDaysGone > 8)
-                    let i = gameUser.lastUpdate + 5*f; // хуйня ебаная, смотри ком ниже.
-                    //let timeOfLastIcon = 6 * 5400000 + gameUser.lastUpdate; //надо учитывать что они в разные дни создаются
-                    if (gameUser.checkTime < timeOfLastIcon){
+
+                    if(kolForLastIcon > 11.3 && (getTime()/3600000) % 24 < 20 && (getTime()/360000) % 24 > 10){
+                        console.log(kolForLastIcon + "kol last icon")
+                        getUserByLogin(gameUser.login).then((_user)=>{
+                            editUserByLogin(gameUser.login, "stagethree", getTime(), false);
+                        })
+                    }else if(getTime()-gameUser.checkTime > 10800000 && (getTime()/3600000) % 24 < 20 && (getTime()/360000) % 24 > 10){
+                        getUserByLogin(gameUser.login).then((_user)=>{
+                            editUserByLogin(gameUser.login, "stagethree", getTime(), false);
+                        })
+                    }
+                    /*if (gameUser.checkTime < timeOfLastIcon){
                         if (getTime()-timeOfLastIcon> 5*60*60*1000 && (getTime()/360000) % 24 < 20 && (getTime()/360000) % 24 > 10){
                             getUserByLogin(gameUser.login).then((_user)=>{
                                 editUserByLogin(gameUser.login, "stagethree", getTime(), false).then((__user)=>{
@@ -109,25 +135,18 @@ export default function Game({ user}){
                             })
                         }
                     }else{
-                        if(getTime()-gameUser.checkTime > 10800000 && (getTime()/360000) % 24 < 20 && (getTime()/360000) % 24 > 10){
+                        if( (getTime()/360000) % 24 < 20 && (getTime()/360000) % 24 > 10){
                             getUserByLogin(gameUser.login).then((_user)=>{
                                 editUserByLogin(gameUser.login, "stagethree", getTime(), false).then((__user)=>{
                                     SetGameUser(__user)
                                 })
                             })
                         }
-                    }
-
+                    //}
+*/
 
 
                 }else if(kol>=8) {kol = 8;} // перестановка на третью позицию.
-                setCirclesInfo({
-                    stage: st,
-                    stagefour: kol,
-                    stagethree: 4,
-                    stagetwo: 2,
-                    stageone: 1
-                });
                 return {
                     stage: st,
                     stagefour: kol,
@@ -137,9 +156,8 @@ export default function Game({ user}){
                 }
             }
             else if(st === "stagethree"){
-                let workMinutesPreviousDays = fullDaysGone*840;
-
-                let todayWorkMinutes = (interval % 1440) - 660;
+                let workMinutesPreviousDays = fullDaysGone*840; // 840 - количество рабочих часов в минутах
+                let todayWorkMinutes = (interval % 1440) - 840; // 36.. то 10 часов в минутах
                 if(todayWorkMinutes <0) {
                     if ((getTime()/1000/60%1440)/60 > 11){
                         todayWorkMinutes = interval;
@@ -150,42 +168,25 @@ export default function Game({ user}){
                     todayWorkMinutes = todayWorkMinutes - (getTime()/1000/60%1440- 21*60);
                     console.log(todayWorkMinutes)
                 }
+                let kolForLastIcon = workMinutesPreviousDays/90 + 1;
+                if (kolForLastIcon<1) kolForLastIcon=1;
+                kolForLastIcon += todayWorkMinutes/90;
+                kolForLastIcon += (workMinutesPreviousDays / 90 - kol3)<0? 0: (workMinutesPreviousDays / 90 - kol3) + todayWorkMinutes / 90;
                 let kol3 = Math.floor(workMinutesPreviousDays/90 + 1)
-
+                if (kol3<0) kol3 = 1;
                 kol3 +=  Math.floor(todayWorkMinutes / 90);
                 if (kol3>4) kol3 =4;
                 let kol4 = Math.floor(workMinutesPreviousDays / 90 - kol3);
                 kol4 += Math.floor(todayWorkMinutes / 90);
-                if (kol4 > 8) kol4 = 8;
-                //console.log(kol3)
-                //console.log("HI")
+
                 if(kol4 >=8 && kol3>=4){
-                    let timeOfLastIcon = 8 * 5400000 + 3* + gameUser.lastUpdate; // хуйня ебаная
-                    if (gameUser.checkTime < timeOfLastIcon){
-                        if (getTime()-timeOfLastIcon> 5*60*60*1000 && (getTime()/360000) % 24 < 20 && (getTime()/360000) % 24 > 10){
-                            getUserByLogin(gameUser.login).then((_user)=>{
-                                editUserByLogin(gameUser.login, "stagetwo", getTime(), false).then((__user)=>{
-                                    SetGameUser(__user)
-                                })
-                            })
-                        }
-                    }else{
-                        if(getTime()-gameUser.checkTime > 10800000 && (getTime()/360000) % 24 < 20 && (getTime()/360000) % 24 > 10){
-                            getUserByLogin(gameUser.login).then((_user)=>{
-                                editUserByLogin(gameUser.login, "stagetwo", getTime(), false).then((__user)=>{
-                                    SetGameUser(__user)
-                                })
-                            })
-                        }
+                    if(kolForLastIcon > 15.3 && (getTime()/3600000) % 24 < 21 && (getTime()/360000) % 24 >11){
+
+                        getUserByLogin(gameUser.login).then((_user)=>{
+                            editUserByLogin(gameUser.login, "stagetwo", getTime(), false);
+                        })
                     }
-                }else{
-                setCirclesInfo( {
-                    stage: st,
-                    stagefour: kol4,
-                    stagethree: kol3,
-                    stagetwo: 2,
-                    stageone: 1
-                });
+                }
                 return{
                     stage: st,
                     stagefour: kol4,
@@ -193,43 +194,73 @@ export default function Game({ user}){
                     stagetwo: 2,
                     stageone: 1
                 }
-                }
             }
-            else if(st=="stagetwo"  ){
+            else if(st=="stagetwo" ){
+                let workMinutesPreviousDays = fullDaysGone*840; // 840 - количество рабочих часов в минутах
+                let todayWorkMinutes = (interval % 1440) - 840; // 36.. то 10 часов в минутах
+                if(todayWorkMinutes <0) {
+                    if ((getTime()/1000/60%1440)/60 > 11){
+                        todayWorkMinutes = interval;
+                    }else{
+                        todayWorkMinutes=0;}
+                }
+                else if((getTime()/1000/60%1440)/60 > 21) {
+                    todayWorkMinutes = todayWorkMinutes - (getTime()/1000/60%1440- 21*60);
+                    console.log(todayWorkMinutes)
+                }
                 let kol2 = 2;
                 let kol3 = Math.floor((interval) / 110 + 1);
                 if (kol3>4) kol3 =4;
 
                 let kol4 = Math.floor((interval) / 110-kol3);
                 if (kol4 > 8) kol4 = 8;
-                //console.log(kol3)
-                //console.log("HI")
+
+                let kolForLastIcon = workMinutesPreviousDays/110;
+                if (kolForLastIcon<0) kolForLastIcon=0;
+                kolForLastIcon += todayWorkMinutes/110;
+                kolForLastIcon += (workMinutesPreviousDays / 110 - kol3)<0? 0: (workMinutesPreviousDays / 110 - kol3) + todayWorkMinutes / 110;
+
                 if(kol4 >=8 && kol3>=4){
-
-                    getUserByLogin(gameUser.login).then((_user)=>{
-                        editUserByLogin(gameUser.login, "stageone", getTime(), false, 0).then((__user)=>{
-                            SetGameUser(__user)
+                    if(kolForLastIcon > 15.3 && (getTime()/3600000) % 24 < 21 && (getTime()/360000) % 24 >11){
+                        getUserByLogin(gameUser.login).then((_user)=>{
+                            editUserByLogin(gameUser.login, "stageone", getTime(), false);
                         })
-
-                    })
-                }else{
-
-                setCirclesInfo( {
+                    }
+                }
+                return{
                     stage: st,
                     stagefour: kol4,
                     stagethree: kol3,
                     stagetwo: kol2,
                     stageone: 1
-                });}
+                };
             }
             else if (st=="stageone"){
-                setCirclesInfo( {
+                let workMinutesPreviousDays = fullDaysGone*840; // 840 - количество рабочих часов в минутах
+                let todayWorkMinutes = (interval % 1440) - 840; // 36.. то 10 часов в минутах
+                if(todayWorkMinutes <0) {
+                    if ((getTime()/1000/60%1440)/60 > 11){
+                        todayWorkMinutes = interval;
+                    }else{
+                        todayWorkMinutes=0;}
+                }
+                else if((getTime()/1000/60%1440)/60 > 21) {
+                    todayWorkMinutes = todayWorkMinutes - (getTime()/1000/60%1440- 21*60);
+                    console.log(todayWorkMinutes)
+                }
+                let kol2 = 2;
+                let kol3 = Math.floor((interval) / 110 + 1);
+                if (kol3>4) kol3 =4;
+
+                let kol4 = Math.floor((interval) / 110-kol3);
+                if (kol4 > 8) kol4 = 8;
+                return {
                     stage: "stageone",
-                    stagefour: 8,
-                    stagethree: 4,
-                    stagetwo: 2,
+                    stagefour: kol4,
+                    stagethree: kol3,
+                    stagetwo: kol2,
                     stageone: 1
-                });
+                };
             }
 
         }
@@ -259,8 +290,15 @@ export default function Game({ user}){
                 document.getElementById("radarWindow").value = <Ellipse stage={jopa.stage} circlesInfo={jopa}/>
                 //возможно нужно innerHTML
                 setStagePositionText(gameUser.stage)
-                setTimeout(fetchData, 2000);
+                if (jopa.stage === "stagetwo" || jopa.stage === "stagethree"){
+                    document.getElementById("checkbtnText").innerHTML = "just wait";
+
+                }else if(jopa.stage === "stageone"){
+                    document.getElementById("personal-code").innerHTML = " ";
+                    document.getElementById("checkbtnText").innerHTML = "Requests";
+                }
                 document.getElementById("personal-code").innerHTML = gameUser.personalCode
+                setTimeout(fetchData, 2000);
             }else{
                 setAdmin(true);
                 //document.getElementById("main-div").innerHTML = <Admin />;
@@ -270,7 +308,7 @@ export default function Game({ user}){
     }, [])
 
 
-
+// gameblur убрать document.queryselector().classlist.remove("gameblur")
     return <div className="window">
 
         <div className="gameWindow gameBlur">
@@ -285,15 +323,15 @@ export default function Game({ user}){
             </div>
             <div className="gameRightBlock">
                 <div className="gameRightBlockTop" onClick={copyTheCode}><p>COPY THE CODE</p></div>
-                <div className="gameRightBlockBottom" onClick={changeCheckState}><p>CHECK</p></div>
+                <div className="gameRightBlockBottom" onClick={changeCheckState}><p id="checkbtnText">CHECK</p></div>
 
             </div>
             <input className="rulesBtn" type="image" alt="Rules" src={RulesPng} />
         </div>
 
-        <div className="gameStartCircle">
+        <div className="gameStartCircle" onClick={startGame}>
             <p>START</p>
-            <input className="gamePersonalCode" type="text" placeholder="Code"/>
+            <input className="gamePersonalCode" id="presonalCodeStart" type="text" placeholder="Code"/>
         </div>
 
 

@@ -17,19 +17,6 @@ function App() {
   function getTime(){
         return Date.now()+10800000;
     }
-  function startGame(){
-      getUserByLogin(user.login).then((_user)=>{
-          if(_user.stage === ""){
-              editUserByLogin(user.login, "stagefour", getTime(), false).then((json)=>{
-                  SetUser(json)
-              });
-
-
-          }
-      })
-      setGameStart(true);
-
-  }
 
 
 
@@ -37,9 +24,6 @@ function App() {
     return <Login setToken={setToken} SetUser={SetUser} />
   }
 
-  if(user.stage === "" || user===undefined){
-      return(<div>wait</div>)
-  }
   return (
     <div className="background" >
         <Game  user={user}/>
