@@ -58,7 +58,7 @@ function App() {
   }
   return (
     <div className="background" >
-        <Game  />
+        <Game  user={user}/>
     <input className="rulesBtn" type="image" src={RulesPng} alt="Login" onClick={Rules}></input>
     </div>
   );

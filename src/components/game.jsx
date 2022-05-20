@@ -11,6 +11,8 @@ export default function Game({ user}){
     const [circlesInfo, setCirclesInfo] = useState( {});
     const [checkPressed, SetCheckPressed] = useState(false)
     const [isAdmin, setAdmin] = useState(false);
+    const [stage, setStage] = useState();
+
 
     function getTime(){
         return Date.now()+10800000;
@@ -42,31 +44,16 @@ export default function Game({ user}){
     }
 
     function Check(gameUser){
-        console.log(gameUser)
         if(gameUser == undefined) return;
-
         if (gameUser.lastUpdate !== 1){
             let date = gameUser.lastUpdate;
-
             let st = gameUser.stage;
             let interval = (getTime() - date)/1000;
-            console.log(interval + " interval")
             interval = Math.round(interval / 60 );
             let kol= 0;
             let fullDaysGone = Math.floor(interval  /1440);
-
-            //console.log( interval)
-           let checkState = gameUser.checkState // ______________________________________Переделывай
+            let checkState = gameUser.checkState
             if(st =="stagefour" && interval < 90){
-
-                console.log('f')
-                setCirclesInfo({
-                    stage: st,
-                    stagefour: 2,
-                    stagethree: 4,
-                    stagetwo: 2,
-                    stageone: 1
-                });
                 return {
                     stage: st,
                     stagefour: 2,
@@ -77,17 +64,26 @@ export default function Game({ user}){
             }
             else if (st === "stagefour"){
                 let workMinutesPreviousDays = fullDaysGone*840; // 840 - количество рабочих часов в минутах
-                console.log(workMinutesPreviousDays /60 + "workHoursPrevious")
-                let todayWorkMinutes = (interval % 1440) - 36000000; // 36.. то 10 часов в секундах
-                if(todayWorkMinutes <0) todayWorkMinutes=0;
-                else if((getTime()%1440)/60 > 20) todayWorkMinutes = 36000000;
-                console.log("today " + todayWorkMinutes); // будет работать только на следующий день после регистрации. // или нормально
+                //console.log(workMinutesPreviousDays /60 + "workHoursPrevious")
+                let todayWorkMinutes = (interval % 1440) - 840; // 36.. то 10 часов в минутах
+                if(todayWorkMinutes <0) {
+                    if ((getTime()/1000/60%1440)/60 > 10){
+                        todayWorkMinutes = interval;
+                    }else{
+                    todayWorkMinutes=0;}
+                }
+                else if((getTime()/1000/60%1440)/60 > 20) {
+                    todayWorkMinutes = todayWorkMinutes - (getTime()/1000/60%1440- 20*60);
+                    console.log(todayWorkMinutes)
+                }
+                console.log(todayWorkMinutes)
+                //console.log("today " + todayWorkMinutes); // будет работать только на следующий день после регистрации. // или нормально
                 kol = Math.floor(workMinutesPreviousDays/90 + 2)
                 if (kol<2) kol=2;
                 kol += Math.floor(todayWorkMinutes/90)
                // console.log("1")
                 //kol = Math.floor(interval / 90 + 2);
-                console.log(kol)
+               // console.log(kol)
                 if (kol >= 8 && checkState==true) {
                     //if (5*fullDaysGone > 8)
                     let i = gameUser.lastUpdate + 5*f; // хуйня ебаная, смотри ком ниже.
@@ -131,9 +127,17 @@ export default function Game({ user}){
             else if(st === "stagethree"){
                 let workMinutesPreviousDays = fullDaysGone*840;
 
-                let todayWorkMinutes = (interval % 1440) - 39600000;
-                if(todayWorkMinutes <0) todayWorkMinutes=0;
-                else if((getTime()%1440)/60 > 20) todayWorkMinutes = 39600000;
+                let todayWorkMinutes = (interval % 1440) - 660;
+                if(todayWorkMinutes <0) {
+                    if ((getTime()/1000/60%1440)/60 > 11){
+                        todayWorkMinutes = interval;
+                    }else{
+                        todayWorkMinutes=0;}
+                }
+                else if((getTime()/1000/60%1440)/60 > 21) {
+                    todayWorkMinutes = todayWorkMinutes - (getTime()/1000/60%1440- 21*60);
+                    console.log(todayWorkMinutes)
+                }
                 let kol3 = Math.floor(workMinutesPreviousDays/90 + 1)
 
                 kol3 +=  Math.floor(todayWorkMinutes / 90);
@@ -217,34 +221,32 @@ export default function Game({ user}){
             }
 
         }
-        else{
-
-            //console.log("HI")
-            setCirclesInfo( {
-                stage: "stageone",
-                stagefour: 0,
-                stagethree: 0,
-                stagetwo: 0,
-                stageone: 0
-            });
-        }
-       // console.log("cicInfo " + circlesInfo.stage);
-
 
     }
 
+    function setStagePositionText(id){
+        let stage;
+        switch (id){
+            case "stagefour": stage = 1; break;
+            case "stagethree": stage = 2; break;
+            case "stagetwo": stage = 3; break;
+            case "stageone" : stage = 4; break;
+        }
+        setStage(stage);
+
+    }
 
     //  const [data, setData] = useState();
     useEffect(()=>{
         const fetchData = async () => {
             const gameUser = await getUserByLogin(user.login);
-           // console.log(gameUser);
+            console.log(gameUser);
             setGameUser(gameUser);
             if (!gameUser.isAdmin){
                 let jopa = Check(gameUser);
-                console.log(jopa)
-                document.getElementById("gameWindow").value = <Ellipse stage={jopa.stage} circlesInfo={jopa}/>
+                document.getElementById("radarWindow").value = <Ellipse stage={jopa.stage} circlesInfo={jopa}/>
                 //возможно нужно innerHTML
+                setStagePositionText(gameUser.stage)
                 setTimeout(fetchData, 2000);
             }else{
                 setAdmin(true);
@@ -259,11 +261,11 @@ export default function Game({ user}){
     return <div className="gameWindow">
 
         <p className="gameRadarTitle">RADAR</p>
-        <div className="gameRadarW"><div className="radarImage"><Ellipse stage={circlesInfo.stage} circlesInfo={circlesInfo}/></div></div>
+        <div className="gameRadarW"><div className="radarImage" id="radarWindow"><Ellipse stage={circlesInfo.stage} circlesInfo={circlesInfo}/></div></div>
         <p className="gameCodeBlockLabel">Code:</p>
         <div className="gameCodeBlock"><p>dnvn1g3g9mcsx1dv</p></div>
         <div className="gameLeftBlock">
-            <div className="gameLeftBlockTop stage"><p>STAGE 1</p></div>
+            <div className="gameLeftBlockTop stage" ><p>STAGE {stage}</p></div>
             <div className="gameLeftBlockMiddle position"><p>POSITION 4</p></div>
             <div className="gameLeftBlockButton codeleft" onClick={test => {console.log("TEST")}}><p>MY CODE</p></div>
         </div>
