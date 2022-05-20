@@ -9,7 +9,13 @@ import RulesPng from "./images/rules.png"
 export default function Game({ user}){
 
     const [gameUser, setGameUser] = useState(null);
-    const [circlesInfo, setCirclesInfo] = useState( {});
+    const [circlesInfo, setCirclesInfo] = useState( {
+        stage: "stagefour",
+        stagefour: 8,
+        stagethree: 4,
+        stagetwo: 2,
+        stageone: 1
+    });
     const [checkPressed, SetCheckPressed] = useState(false)
     const [isAdmin, setAdmin] = useState(false);
     const [stage, setStage] = useState();
@@ -18,8 +24,8 @@ export default function Game({ user}){
         navigator.clipboard.writeText(document.getElementById("personal-code").textContent)
     }
     function getTime(){
-        //return Date.now()+10800000;
-        return Date.now()
+        return Date.now()+10800000;
+        //return Date.now()
     }
 
     function startGame(){
@@ -34,11 +40,12 @@ export default function Game({ user}){
         document.querySelector(".gameWindow").classList.remove("gameBlur")
         document.querySelector(".gameStartCircle").classList.add("hidden")
         document.querySelector(".gameRightBlockBottom").addEventListener("click", getCheckCode)
+        document.getElementById("personalCodeStart").value = ""
     }
 
 
     function getCheckCode(){
-
+        if (checkPressed) return;
         if (user.checkState === true){ return;}
         document.querySelector(".gameWindow").classList.add("gameBlur")
         document.querySelector(".gameStartCircle").classList.remove("hidden")
@@ -51,7 +58,8 @@ export default function Game({ user}){
         let code = document.getElementById("personalCodeStart").value
         if (code === "") return;
         editUserByLogin(user.login, "", 1, true, getTime(), code)
-
+        SetCheckPressed(true);
+        document.querySelector(".gameRightBlockBottom").removeEventListener("click", getCheckCode, false)
     }
 
     function timeOfLastIcon(){
@@ -270,7 +278,13 @@ export default function Game({ user}){
                     stageone: 1
                 };
             }
-
+            return {
+                stage: "stageone",
+                stagefour: 0,
+                stagethree: 0,
+                stagetwo: 0,
+                stageone: 1
+            };
         }
 
     }
@@ -302,6 +316,7 @@ export default function Game({ user}){
             setGameUser(gameUser);
 
             if (!gameUser.isAdmin){
+
                 let jopa = Check(gameUser);
                 console.log(jopa)
                 setCirclesInfo(jopa)
@@ -332,7 +347,7 @@ export default function Game({ user}){
 
         <div className="gameWindow gameBlur">
             <p className="gameRadarTitle">RADAR</p>
-            <div className="gameRadarW"><div className="radarImage" id="radarWindow"><Ellipse stage={circlesInfo.stage} circlesInfo={circlesInfo}/></div></div>
+            <div className="gameRadarW"><div className="radarImage" id="radarWindow"><Ellipse circlesInfo={circlesInfo}/></div></div>
             <p className="gameCodeBlockLabel">Code:</p>
             <div className="gameCodeBlock"><p>dnvn1g3g9mcsx1dv</p></div>
             <div className="gameLeftBlock">
@@ -384,7 +399,7 @@ const Ellipse = (props) => {
             if (j === 1 && i === 3) break;
             if (j === 2 && i === 2) break;
             if (j === 4 && i === 1) break;
-            if(classes[i] === props.stage && j === 0){
+            if(classes[i] === props.circlesInfo.stage && j === 0){
                 ellipses.push(<div key={i+" "+j} className={"gameEllipse " + classes[i] + " myPos"} id={ids[j]}></div>);
                 continue;
             }else{
