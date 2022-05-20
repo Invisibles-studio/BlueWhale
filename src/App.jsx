@@ -49,7 +49,7 @@ function App() {
                     </label>
                     <button className='startbtn' type="submit">Start</button>
                 </form>
-
+            <Game />
 
           </div>
   }

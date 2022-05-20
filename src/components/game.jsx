@@ -47,6 +47,15 @@ export default function Game({ user}){
 
     function Check(gameUser){
         if(gameUser == undefined) return;
+        if (gameUser.lastUpdate === 1){
+            return {
+                stage: "stagefour",
+                stagefour: 8,
+                stagethree: 4,
+                stagetwo: 2,
+                stageone: 1
+            }
+        }
         if (gameUser.lastUpdate !== 1){
             let date = gameUser.lastUpdate;
             let st = gameUser.stage;

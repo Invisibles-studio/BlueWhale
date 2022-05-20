@@ -56,7 +56,7 @@ export async function addNewUser(username: string, passwordNotHashed: string, is
             login: username,
             password: passwordHash,
             stage: "",
-            lastUpdate: Date.now(),
+            lastUpdate: 1,
             checkState: false,
             isAdmin: isAdmin,
             checkTime: 0,
