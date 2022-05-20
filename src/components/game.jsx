@@ -13,7 +13,9 @@ export default function Game({ user}){
     const [isAdmin, setAdmin] = useState(false);
     const [stage, setStage] = useState();
 
-
+    function copyTheCode(){
+        navigator.clipboard.writeText(document.getElementById("personal-code").textContent)
+    }
     function getTime(){
         return Date.now()+10800000;
     }
@@ -248,6 +250,7 @@ export default function Game({ user}){
                 //возможно нужно innerHTML
                 setStagePositionText(gameUser.stage)
                 setTimeout(fetchData, 2000);
+                document.getElementById("personal-code").innerHTML = gameUser.personalCode
             }else{
                 setAdmin(true);
                 //document.getElementById("main-div").innerHTML = <Admin />;
@@ -267,11 +270,11 @@ export default function Game({ user}){
         <div className="gameLeftBlock">
             <div className="gameLeftBlockTop stage" ><p>STAGE {stage}</p></div>
             <div className="gameLeftBlockMiddle position"><p>POSITION 4</p></div>
-            <div className="gameLeftBlockButton codeleft" onClick={test => {console.log("TEST")}}><p>MY CODE</p></div>
+            <div className="gameLeftBlockButton codeleft" onClick={test => {console.log("TEST")}}><p id="personal-code">MY CODE</p></div>
         </div>
         <div className="gameRightBlock">
-            <div className="gameRightBlockTop" onClick={test => {console.log("TEST")}}><p>COPY THE CODE</p></div>
-            <div className="gameRightBlockBottom" onClick={test => {console.log("TEST")}}><p>CHECK</p></div>
+            <div className="gameRightBlockTop" onClick={copyTheCode}><p>COPY THE CODE</p></div>
+            <div className="gameRightBlockBottom" onClick={changeCheckState}><p>CHECK</p></div>
 
         </div>
 
