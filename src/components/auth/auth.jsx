@@ -17,8 +17,8 @@ export default function Login({ setToken , SetUser}) {
 
   const handleRegister = () => {
 
-      let password = document.querySelector(".passwordInputRegister").textContent
-      let confirmPassword = document.querySelector(".passwordConfirmInputRegister").textContent
+      let password = document.querySelector(".passwordInputRegister").value
+      let confirmPassword = document.querySelector(".passwordConfirmInputRegister").value
 
       if (password === confirmPassword){
           addNewUser(username, password, false, code).then((json)=>{
