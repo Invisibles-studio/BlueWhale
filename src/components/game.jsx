@@ -62,19 +62,6 @@ export default function Game({ user}){
         document.querySelector(".gameRightBlockBottom").removeEventListener("click", getCheckCode, false)
     }
 
-    function timeOfLastIcon(){
-        let lastUpdate;
-        let temp
-        // if lastupdate.hours < 10 {
-        //      temp =10 chasov - lastupdate%1440;
-        // }
-        // else if(lastupdate.hours > 20){
-        //      temp  = 10 часов следующего дня - lastupdate типа ночные часы считаем
-        // }
-        // let timeLastIcon = 840 + temp;
-        // if timeLastIcon.hours > 20 or < 10 => добираем до следующего дняё
-
-    }
 
     function Check(gameUser){
         if(gameUser == undefined) return;
@@ -343,7 +330,7 @@ export default function Game({ user}){
 
 
 // gameblur убрать document.queryselector().classlist.remove("gameblur")
-    return <div className="window">
+    return <div>{!isAdmin ?<div className="window">
 
         <div className="gameWindow gameBlur">
             <p className="gameRadarTitle">RADAR</p>
@@ -369,7 +356,7 @@ export default function Game({ user}){
         </div>
 
 
-    </div>
+    </div> : <Admin />}</div>
 
     /*<div id="main-div" style={{"display": "flex"}}>
         {!isAdmin ?<div>
