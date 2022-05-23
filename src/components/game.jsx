@@ -9,7 +9,13 @@ import RulesPng from "./images/rules.png"
 export default function Game({ user}){
 
     const [gameUser, setGameUser] = useState(null);
-    const [circlesInfo, setCirclesInfo] = useState( {});
+    const [circlesInfo, setCirclesInfo] = useState( {
+        stage: "stagefour",
+        stagefour: 8,
+        stagethree: 4,
+        stagetwo: 2,
+        stageone: 1
+    });
     const [checkPressed, SetCheckPressed] = useState(false)
     const [isAdmin, setAdmin] = useState(false);
     const [stage, setStage] = useState();
@@ -19,47 +25,43 @@ export default function Game({ user}){
     }
     function getTime(){
         return Date.now()+10800000;
+        //return Date.now()
     }
 
     function startGame(){
+        let code = document.getElementById("personalCodeStart").value
+        if (code === "") return;
         getUserByLogin(user.login).then((_user)=>{
             if(_user.stage === ""){
-                editUserByLogin(user.login, "stagefour", getTime(), false).then((json)=>{
-                    SetUser(json)
-                });
 
-
+                editUserByLogin(user.login, "stagefour", getTime(), false, 0,  code)
             }
         })
-        setGameStart(true);
-
+        document.querySelector(".gameWindow").classList.remove("gameBlur")
+        document.querySelector(".gameStartCircle").classList.add("hidden")
+        document.querySelector(".gameRightBlockBottom").addEventListener("click", getCheckCode)
+        document.getElementById("personalCodeStart").value = ""
     }
 
+
+    function getCheckCode(){
+        if (checkPressed) return;
+        if (user.checkState === true){ return;}
+        document.querySelector(".gameWindow").classList.add("gameBlur")
+        document.querySelector(".gameStartCircle").classList.remove("hidden")
+        document.querySelector(".gameStartCircle").addEventListener("click", changeCheckState)
+        document.getElementById("startTextbtn").innerHTML = "Code";
+
+    }
 
     function changeCheckState(){
-       // console.log(user)
-        if(gameUser.checkState === true) {SetCheckPressed(true);return;}
-        editUserByLogin(gameUser.login, gameUser.stage, gameUser.lastUpdate, true, getTime()).then(userr=>{
-             //SetUser(userrr)
-            SetCheckPressed(true)
-             SetGameUser(userr)
-         });
-
+        let code = document.getElementById("personalCodeStart").value
+        if (code === "") return;
+        editUserByLogin(user.login, "", 1, true, getTime(), code)
+        SetCheckPressed(true);
+        document.querySelector(".gameRightBlockBottom").removeEventListener("click", getCheckCode, false)
     }
 
-    function timeOfLastIcon(){
-        let lastUpdate;
-        let temp
-        // if lastupdate.hours < 10 {
-        //      temp =10 chasov - lastupdate%1440;
-        // }
-        // else if(lastupdate.hours > 20){
-        //      temp  = 10 часов следующего дня - lastupdate типа ночные часы считаем
-        // }
-        // let timeLastIcon = 840 + temp;
-        // if timeLastIcon.hours > 20 or < 10 => добираем до следующего дняё
-
-    }
 
     function Check(gameUser){
         if(gameUser == undefined) return;
@@ -115,13 +117,13 @@ export default function Game({ user}){
                 //kol = Math.floor(interval / 90 + 2);
                // console.log(kol)
                 if (kol >= 8 && checkState==true) {
-
-                    if(kolForLastIcon > 11.3 && (getTime()/3600000) % 24 < 20 && (getTime()/360000) % 24 > 10){
+                    console.log(kolForLastIcon)
+                    if(kolForLastIcon > 11.3 && (getTime()/3600000) % 24 < 20 && (getTime()/3600000) % 24 > 10){
                         console.log(kolForLastIcon + "kol last icon")
                         getUserByLogin(gameUser.login).then((_user)=>{
                             editUserByLogin(gameUser.login, "stagethree", getTime(), false);
                         })
-                    }else if(getTime()-gameUser.checkTime > 10800000 && (getTime()/3600000) % 24 < 20 && (getTime()/360000) % 24 > 10){
+                    }else if(getTime()-gameUser.checkTime > 10800000 && (getTime()/3600000) % 24 < 20 && (getTime()/3600000) % 24 > 10){
                         getUserByLogin(gameUser.login).then((_user)=>{
                             editUserByLogin(gameUser.login, "stagethree", getTime(), false);
                         })
@@ -171,16 +173,17 @@ export default function Game({ user}){
                 let kolForLastIcon = workMinutesPreviousDays/90 + 1;
                 if (kolForLastIcon<1) kolForLastIcon=1;
                 kolForLastIcon += todayWorkMinutes/90;
-                kolForLastIcon += (workMinutesPreviousDays / 90 - kol3)<0? 0: (workMinutesPreviousDays / 90 - kol3) + todayWorkMinutes / 90;
+                kolForLastIcon += (workMinutesPreviousDays / 90 - kolForLastIcon)<0? 0: (workMinutesPreviousDays / 90 - kolForLastIcon) + todayWorkMinutes / 90;
                 let kol3 = Math.floor(workMinutesPreviousDays/90 + 1)
                 if (kol3<0) kol3 = 1;
                 kol3 +=  Math.floor(todayWorkMinutes / 90);
                 if (kol3>4) kol3 =4;
                 let kol4 = Math.floor(workMinutesPreviousDays / 90 - kol3);
+                if(kol4 < 0) kol4 = 0;
                 kol4 += Math.floor(todayWorkMinutes / 90);
 
                 if(kol4 >=8 && kol3>=4){
-                    if(kolForLastIcon > 15.3 && (getTime()/3600000) % 24 < 21 && (getTime()/360000) % 24 >11){
+                    if(kolForLastIcon > 15.3 && (getTime()/3600000) % 24 < 21 && (getTime()/3600000) % 24 >11){
 
                         getUserByLogin(gameUser.login).then((_user)=>{
                             editUserByLogin(gameUser.login, "stagetwo", getTime(), false);
@@ -218,10 +221,10 @@ export default function Game({ user}){
                 let kolForLastIcon = workMinutesPreviousDays/110;
                 if (kolForLastIcon<0) kolForLastIcon=0;
                 kolForLastIcon += todayWorkMinutes/110;
-                kolForLastIcon += (workMinutesPreviousDays / 110 - kol3)<0? 0: (workMinutesPreviousDays / 110 - kol3) + todayWorkMinutes / 110;
+                kolForLastIcon += (workMinutesPreviousDays / 110 - kolForLastIcon)<0? 0: (workMinutesPreviousDays / 110 - kolForLastIcon) + todayWorkMinutes / 110;
 
                 if(kol4 >=8 && kol3>=4){
-                    if(kolForLastIcon > 15.3 && (getTime()/3600000) % 24 < 21 && (getTime()/360000) % 24 >11){
+                    if(kolForLastIcon > 15.3 && (getTime()/3600000) % 24 < 21 && (getTime()/3600000) % 24 >11){
                         getUserByLogin(gameUser.login).then((_user)=>{
                             editUserByLogin(gameUser.login, "stageone", getTime(), false);
                         })
@@ -262,7 +265,13 @@ export default function Game({ user}){
                     stageone: 1
                 };
             }
-
+            return {
+                stage: "stageone",
+                stagefour: 0,
+                stagethree: 0,
+                stagetwo: 0,
+                stageone: 1
+            };
         }
 
     }
@@ -281,21 +290,33 @@ export default function Game({ user}){
 
     //  const [data, setData] = useState();
     useEffect(()=>{
+        if (user.lastUpdate != 1 ){
+            document.querySelector(".gameWindow").classList.remove("gameBlur")
+            document.querySelector(".gameStartCircle").classList.add("hidden")
+            document.querySelector(".gameRightBlockBottom").addEventListener("click", getCheckCode)
+
+        }
+
         const fetchData = async () => {
             const gameUser = await getUserByLogin(user.login);
             console.log(gameUser);
             setGameUser(gameUser);
+
             if (!gameUser.isAdmin){
+
                 let jopa = Check(gameUser);
-                document.getElementById("radarWindow").value = <Ellipse stage={jopa.stage} circlesInfo={jopa}/>
-                //возможно нужно innerHTML
+                console.log(jopa)
+                setCirclesInfo(jopa)
                 setStagePositionText(gameUser.stage)
                 if (jopa.stage === "stagetwo" || jopa.stage === "stagethree"){
                     document.getElementById("checkbtnText").innerHTML = "just wait";
-
-                }else if(jopa.stage === "stageone"){
+                }
+                else if(jopa.stage === "stageone"){
                     document.getElementById("personal-code").innerHTML = " ";
                     document.getElementById("checkbtnText").innerHTML = "Requests";
+
+                }else if(jopa.stage === "stagefour"){
+
                 }
                 document.getElementById("personal-code").innerHTML = gameUser.personalCode
                 setTimeout(fetchData, 2000);
@@ -309,11 +330,11 @@ export default function Game({ user}){
 
 
 // gameblur убрать document.queryselector().classlist.remove("gameblur")
-    return <div className="window">
+    return <div>{!isAdmin ?<div className="window">
 
         <div className="gameWindow gameBlur">
             <p className="gameRadarTitle">RADAR</p>
-            <div className="gameRadarW"><div className="radarImage" id="radarWindow"><Ellipse stage={circlesInfo.stage} circlesInfo={circlesInfo}/></div></div>
+            <div className="gameRadarW"><div className="radarImage" id="radarWindow"><Ellipse circlesInfo={circlesInfo}/></div></div>
             <p className="gameCodeBlockLabel">Code:</p>
             <div className="gameCodeBlock"><p>dnvn1g3g9mcsx1dv</p></div>
             <div className="gameLeftBlock">
@@ -323,19 +344,19 @@ export default function Game({ user}){
             </div>
             <div className="gameRightBlock">
                 <div className="gameRightBlockTop" onClick={copyTheCode}><p>COPY THE CODE</p></div>
-                <div className="gameRightBlockBottom" onClick={changeCheckState}><p id="checkbtnText">CHECK</p></div>
+                <div className="gameRightBlockBottom" onClick={()=>{}}><p id="checkbtnText">CHECK</p></div>
 
             </div>
             <input className="rulesBtn" type="image" alt="Rules" src={RulesPng} />
         </div>
 
         <div className="gameStartCircle" onClick={startGame}>
-            <p>START</p>
-            <input className="gamePersonalCode" id="presonalCodeStart" type="text" placeholder="Code"/>
+            <p id="startTextbtn">START</p>
+            <input className="gamePersonalCode" id="personalCodeStart" type="text" placeholder="Code"/>
         </div>
 
 
-    </div>
+    </div> : <Admin />}</div>
 
     /*<div id="main-div" style={{"display": "flex"}}>
         {!isAdmin ?<div>
@@ -365,7 +386,7 @@ const Ellipse = (props) => {
             if (j === 1 && i === 3) break;
             if (j === 2 && i === 2) break;
             if (j === 4 && i === 1) break;
-            if(classes[i] === props.stage && j === 0){
+            if(classes[i] === props.circlesInfo.stage && j === 0){
                 ellipses.push(<div key={i+" "+j} className={"gameEllipse " + classes[i] + " myPos"} id={ids[j]}></div>);
                 continue;
             }else{
