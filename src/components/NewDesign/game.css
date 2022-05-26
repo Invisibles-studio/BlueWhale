@@ -3,20 +3,6 @@
     height: 100%;
 }
 
-.gameRadarW {
-    position: absolute;
-    background: linear-gradient(180deg, rgba(145, 255, 209, 0.17) 0%, rgba(59, 130, 140, 0.18) 100%);
-    border: 0.417vw solid #60ECFF;
-    box-shadow: 0px 0px 4.844vw #91FFD1;
-    border-radius: 27.396vw;
-    width: 41.667vw;
-    height: 41.667vw;
-
-    top: 7.292vw;
-    left: 29.167vw;
-
-}
-
 .radarImage {
     background-image: url("../images/radar.png");
     width: 41.667vw;
@@ -350,7 +336,7 @@
     position: absolute;
 
     top: 2.031vw;
-    left: 24.152vw;
+    left: 25.625vw;
 
 }
 
@@ -718,6 +704,21 @@
         transition: transform 500ms ease;
     }
 
+    .gameRadarW {
+        position: absolute;
+        background: linear-gradient(180deg, rgba(145, 255, 209, 0.17) 0%, rgba(59, 130, 140, 0.18) 100%);
+        border: 0.417vw solid #60ECFF;
+        box-shadow: 0px 0px 4.844vw #91FFD1;
+        border-radius: 27.396vw;
+        width: 41.667vw;
+        height: 41.667vw;
+
+        top: 7.292vw;
+        left: 29.167vw;
+
+    }
+
+
 }
 
 @media (max-height: 970px) {
@@ -985,17 +986,32 @@
         transition: transform 500ms ease;
     }
 
+    .gameRadarW {
+        position: absolute;
+        background: linear-gradient(180deg, rgba(145, 255, 209, 0.17) 0%, rgba(59, 130, 140, 0.18) 100%);
+        border: 0.417vw solid #60ECFF;
+        box-shadow: 0px 0px 4.844vw #91FFD1;
+        border-radius: 27.396vw;
+        width: 41.667vw;
+        height: 41.667vw;
+
+        top: 6.392vw;
+        left: 29.167vw;
+
+    }
+
 }
 
 @media (max-height: 450px) {
+
     .authBlockMain {
         position: absolute;
 
-        width: 37.608vw;
-        height: 38.793vw;
+        width: 37.623vw;
+        height: 36.458vw;
 
-        left: 28.448vw;
-        top: 3.341vw;
+        left: 29.844vw;
+        top: 4.688vw;
     }
 
     .authBlock {
@@ -1004,8 +1020,8 @@
         background-repeat: no-repeat;
         background-size: contain;
 
-        width: 35.776vw;
-        height: 33.190vw;
+        width: 35.800vw;
+        height: 33.281vw;
 
         left: 1.823vw;
         top: 5.469vw;
@@ -1018,11 +1034,11 @@
         background-repeat: no-repeat;
         background-size: contain;
 
-        width: 29.766vw;
-        height: 36.309vw;
+        width: 33.781vw;
+        height: 39.823vw;
 
-        left: 1.509vw;
-        top: 0.862vw;
+        left: 3.823vw;
+        top: 1.042vw;
         transition: .3s opacity, .3s visibility;
     }
 
@@ -1052,7 +1068,7 @@
         height: 6.806vw;
 
         top: 3.665vw;
-        left: 4.219vw;
+        left: 3.019vw;
 
         text-align: center;
 
@@ -1090,7 +1106,7 @@
         height: 7.135vw;
 
         top: 13.954vw;
-        left: 3.776vw;
+        left: 2.276vw;
 
         text-align: center;
 
@@ -1129,7 +1145,7 @@
         height: 6.806vw;
 
         top: 24.314vw;
-        left: 3.750vw;
+        left: 2.650vw;
 
         text-align: center;
 
@@ -1149,11 +1165,11 @@
         background-size: contain;
         background-color: transparent;
 
-        width: 27.795vw;
-        height: 6.890vw;
+        width: 27.760vw;
+        height: 6.475vw;
 
-        left: 4.089vw;
-        top: 33.157vw;
+        left: 3.589vw;
+        top: 32.157vw;
 
         cursor: pointer;
     }
@@ -1198,12 +1214,13 @@
         border: 0;
         cursor: pointer;
 
-        width: 15.346vw;
-        height: 4.698vw;
+        width: 15.313vw;
+        height: 3.988vw;
 
-        left: 20.130vw;
-        top: 0.211vw;
+        left: 21.830vw;
+        top: 0.026vw;
 
+        text-align: center;
 
         font-style: normal;
         font-weight: 400;
@@ -1232,10 +1249,10 @@
         border: 0;
         cursor: pointer;
 
-        width: 15.316vw;
-        height: 3.852vw;
+        width: 15.313vw;
+        height: 3.988vw;
 
-        left: 4.167vw;
+        left: 6.067vw;
         top: 0.026vw;
 
         text-align: center;
@@ -1252,18 +1269,6 @@
     }
 
 }
-
-/*@media (max-width: 970px) {
-    .authBlockMain {
-        position: absolute;
-
-        width: 74.433vw;
-        height: 76.701vw;
-
-        left: 15.464vw;
-        top: 10%;
-    }
-}*/
 
 .BlockHidden {
     opacity: 0;

@@ -24,17 +24,35 @@ code {
    
 }
 
-.background{
-  position: absolute;
-  background-image : url("../src/components/images/background.png");
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+@media (max-height: 1080px) {
+  .background{
+    position: absolute;
+    background-image : url("../src/components/images/background.png");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 
-  height: 56.250vw;
-  width: 100%;
+    height: 56.250vw;
+    width: 100%;
+  }
 }
+
+@media (max-height: 970px) {
+  .background{
+    position: absolute;
+    background-image : url("../src/components/images/background.png");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    height: 100%;
+    width: 100%;
+  }
+}
+
+
 
 
 .main{
