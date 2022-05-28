@@ -67,7 +67,8 @@ export async function addNewUser(username: string, passwordNotHashed: string, is
             checkTime: 0,
             personalCode: personalCode,
             refUnicCount: 0,
-            isBlogger: false
+            isBlogger: false,
+            refCode: (Math.random() + 1).toString(36).substring(3)
         }
 
         await set(ref(database, "Users/" + id + "/"), user)
@@ -91,7 +92,7 @@ export async function editUserByLoginNew(username: string, json: JSONObject){
         if (key === "stage" || key === "lastUpdate" ||
             key === "checkState" || key === "checkTime"
             || key === "personalCode" || key === "isAdmin"
-            || key === "isBlogger") {
+            || key === "isBlogger" || key === "refUnicCount") {
 
             user[key] = json[key]
         }
