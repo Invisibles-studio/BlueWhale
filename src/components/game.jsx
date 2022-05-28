@@ -5,6 +5,7 @@ import {useEffect, useState} from "react";
 import Admin from "./Admin";
 import "./NewDesign/game.css"
 import RulesPng from "./images/rules.png"
+import {useNavigate} from "react-router-dom";
 
 export default function Game({ user}){
 
