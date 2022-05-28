@@ -122,9 +122,10 @@ export async function getUserByRefCode(refCode: string){
 }
 
 export async function addNewMemberByRef(refCode: string){
+
     let user = await getUserByRefCode(refCode)
 
-    await editUserByLoginNew(user.login, {"refUnicCount": user.refUnicCount++})
+    await editUserByLoginNew(user.login, {"refUnicCount": ++user.refUnicCount})
 }
 
 export async function editUserByLogin(username: string, stage: string = "", lastUpdate: number = 1, checkState: boolean = undefined, checkTime: number = 1, personalCode: string = ""){
