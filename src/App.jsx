@@ -5,31 +5,41 @@ import Login from './components/auth/auth.jsx'
 import Game from './components/game.jsx';
 import {editUserByLogin, getUserByLogin} from './components/firebase/api.tsx'
 
+import {Adminpanel} from "./components/adminpanel.tsx"
+
+import {Routes, Route, Link} from 'react-router-dom'
 function App() {
   const [token, setToken] = useState();
-  const [isGameStart, setGameStart] = useState(false);
-  const [code, setCode] = useState("");
   const [user, SetUser] = useState({});
 
-  function Rules(){
-      alert("Rules!")
-  }
-  function getTime(){
-        return Date.now()+10800000;
-    }
 
+  return (<>
+      <div className="background">
 
+          <Routes>
+              <Route path="/admin-control" element={<Adminpanel/>}/>
+              <Route path="/" element={<Login setToken={setToken} SetUser={SetUser} />}/>
+              <Route path="/game" element={<Game user={user}/>} />
+          </Routes>
+
+      </div>
+
+      </>);
 
   if(!token) {
     return <Login setToken={setToken} SetUser={SetUser} />
   }
 
-  return (
+
+ /* return (
+      <>
     <div className="background" >
-        <Game  user={user}/>
-    </div>
-  );
+      <Game  user={user}/></div>
+      </>
+
+  );*/
 }
+
 
 export default App;
 

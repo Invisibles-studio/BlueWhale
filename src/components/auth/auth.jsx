@@ -3,12 +3,13 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import {getUserByLogin, addNewUser} from "../firebase/api.tsx"
 import "../NewDesign/game.css"
+import {Navigate} from "react-router-dom";
 
 function register(username, password){
     return "token123"
 }
 
-export default function Login({ setToken , SetUser}) {
+export default function Login({setToken,  SetUser}) {
   const [username, setUserName] = useState();
   const [password, setPassword] = useState();
   const [code, setCode] = useState();
@@ -57,6 +58,7 @@ export default function Login({ setToken , SetUser}) {
 
               SetUser(json);
               setToken(1);
+              return (<Navigate to="/game" />);
           }
       });
 
