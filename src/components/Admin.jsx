@@ -100,6 +100,35 @@ export default function Admin(){
         navigator.clipboard.writeText(document.getElementById("personal-code").textContent)
     }
 
+    function addStar() {
+        const starsCount = 5;
+
+        for(let i = 1; i<= starsCount; i++){
+
+            let star = document.querySelector(".Star"+i);
+            console.log(star);
+            if(!star.classList.contains("StarSelected")) {
+                star.classList.add("StarSelected")
+                return;
+            }
+        }
+
+    }
+
+    function removeStar() {
+        const starsCount = 5;
+
+        for(let i = starsCount; i>=1; i--){
+
+            let star = document.querySelector(".Star"+i);
+            console.log(star);
+            if(star.classList.contains("StarSelected")) {
+                star.classList.remove("StarSelected")
+                return;
+            }
+        }
+    }
+
     return <div className="window">
 
         <div className="gameWindow">
@@ -116,6 +145,13 @@ export default function Admin(){
                 <div className="gameRightBlockTop" onClick={getCheckCode}><p>COPY THE CODE</p></div>
                 <div className="gameRightBlockBottom" onClick={()=>{}}><p id="checkbtnText">CHECK</p></div>
 
+            </div>
+            <div className="StarsBlock">
+                <div className="Star1 StarNotSelected"/>
+                <div className="Star2 StarNotSelected"/>
+                <div className="Star3 StarNotSelected"/>
+                <div className="Star4 StarNotSelected"/>
+                <div className="Star5 StarNotSelected"/>
             </div>
             <input className="rulesBtn" type="image" alt="Rules" src={RulesPng} />
         </div>
@@ -205,6 +241,16 @@ export default function Admin(){
                 </select>
                 <div>
                     <button type="submit" onClick={enableCircle}>Enable</button>
+                </div>
+            </div>
+
+            <div id="stars">
+                <div>
+                    <button type="submit" onClick={addStar}>Add Star</button>
+                </div>
+
+                <div>
+                    <button type="submit" onClick={removeStar}>Remove Star</button>
                 </div>
             </div>
         </div>
