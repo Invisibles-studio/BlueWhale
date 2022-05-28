@@ -59,7 +59,7 @@ export default function Login({setToken,  SetUser}) {
 
               SetUser(json);
               setToken(1);
-
+              localStorage.setItem("userLogin", json.login)
               return navigate("/game")
           }
       });

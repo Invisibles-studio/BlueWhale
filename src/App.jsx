@@ -18,7 +18,12 @@ Navigate.propTypes = {
     to: PropTypes.string,
     children: PropTypes.node
 };
-
+export function SignOut(){
+    localStorage.clear()
+    return <div>
+        Succeful sign out
+    </div>
+}
 function App() {
   const [token, setToken] = useState();
   const [user, SetUser] = useState({});
@@ -30,11 +35,18 @@ function App() {
           <Routes>
 
               <Route path="/" element={<Login setToken={setToken} SetUser={SetUser} />}/>
-              {user.login !== undefined &&
+              {localStorage.getItem("userLogin") !== undefined &&
+
               <Route path="/game" element={<Game user={user}/>} />
+
               }
-              {user.isAdmin === true &&
-                  <Route path="/admin-control" element={<Adminpanel/>}/>}
+              {localStorage.getItem("userLogin") !== undefined &&
+
+
+                      <Route path="/admin-control" element={<Adminpanel/>}/>
+
+              }
+              <Route path="/signout" element={<SignOut />}/>
               <Route path="*" element={<Login setToken={setToken} SetUser={SetUser} />}/>
           </Routes>
 
