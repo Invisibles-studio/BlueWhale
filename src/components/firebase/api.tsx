@@ -60,7 +60,9 @@ export async function addNewUser(username: string, passwordNotHashed: string, is
             checkState: false,
             isAdmin: isAdmin,
             checkTime: 0,
-            personalCode: personalCode
+            personalCode: personalCode,
+            refUnicCount: 0,
+
         }
 
         await set(ref(database, "Users/" + id + "/"), user)
@@ -97,3 +99,4 @@ export async function editUserByLogin(username: string, stage: string = "", last
     }
 
 }
+

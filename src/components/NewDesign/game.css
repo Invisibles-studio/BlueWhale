@@ -439,7 +439,7 @@
     width: 100%;
 }
 
-@media (max-height: 1080px) {
+@media (max-height: 6400px) {
     .authBlockMain {
         position: absolute;
 
@@ -1397,7 +1397,6 @@
     -ms-user-select: none; /* Internet Explorer/Edge */
     user-select: none;
 }
-
 
 .gameBlur {
     filter: blur(8px);

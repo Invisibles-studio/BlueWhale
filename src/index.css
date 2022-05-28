@@ -24,7 +24,7 @@ code {
    
 }
 
-@media (max-height: 1080px) {
+@media (max-height: 6400px) {
   .background{
     position: absolute;
     background-image : url("../src/components/images/background.png");
