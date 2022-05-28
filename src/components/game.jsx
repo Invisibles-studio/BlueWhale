@@ -299,7 +299,7 @@ export default function Game({ user}){
         }
 
         const fetchData = async () => {
-            const gameUser = await getUserByLogin(user.login);
+            const gameUser = await getUserByLogin(localStorage.userLogin);
             console.log(gameUser);
             setGameUser(gameUser);
 

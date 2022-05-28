@@ -35,12 +35,12 @@ function App() {
           <Routes>
 
               <Route path="/" element={<Login setToken={setToken} SetUser={SetUser} />}/>
-              {localStorage.getItem("userLogin") !== undefined &&
+              {localStorage.getItem("userLogin") !== null &&
 
               <Route path="/game" element={<Game user={user}/>} />
 
               }
-              {localStorage.getItem("userLogin") !== undefined &&
+              {localStorage.getItem("userLogin") !== null &&
 
 
                       <Route path="/admin-control" element={<Adminpanel/>}/>
