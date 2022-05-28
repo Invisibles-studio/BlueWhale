@@ -1270,6 +1270,56 @@
 
 }
 
+.StarsBlock {
+    position: absolute;
+    width: 3.646vw;
+    height: 15.677vw;
+
+    left: 0.365vw;
+    top: 20.365vw;
+}
+
+.StarNotSelected {
+    background-image : url("../images/starNotSelected.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.StarSelected {
+    background-image : url("../images/starSelected.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.Star1, .Star2, .Star3, .Star4, .Star5 {
+    position: absolute;
+    width: 2.344vw;
+    height: 2.344vw;
+
+    left: 1.302vw;
+    top: 0;
+}
+
+.Star2 {
+    left: 0.260vw;
+    top: 3.333vw;
+}
+
+.Star3 {
+    left: 0;
+    top: 6.667vw;
+}
+
+.Star4 {
+    left: 0.260vw;
+    top: 10vw;
+}
+
+.Star5 {
+    left: 1.302vw;
+    top: 13.333vw;
+}
+
 .BlockHidden {
     opacity: 0;
     visibility: hidden;

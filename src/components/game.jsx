@@ -347,6 +347,13 @@ export default function Game({ user}){
                 <div className="gameRightBlockBottom" onClick={()=>{}}><p id="checkbtnText">CHECK</p></div>
 
             </div>
+            <div className="StarsBlock">
+                <div className="Star1 StarNotSelected"/>
+                <div className="Star2 StarNotSelected"/>
+                <div className="Star3 StarNotSelected"/>
+                <div className="Star4 StarNotSelected"/>
+                <div className="Star5 StarNotSelected"/>
+            </div>
             <input className="rulesBtn" type="image" alt="Rules" src={RulesPng} />
         </div>
 
