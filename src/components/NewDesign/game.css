@@ -281,47 +281,127 @@
 }
 
 .gameEllipse{
-    position: relative;
+    position: absolute;
     width: 4.167vw;
     height: 4.167vw;
+}
+
+.gameEllipseCenter {
+    position: absolute;
+    width: 5.208vw;
+    height: 5.208vw;
+}
+
+.GameEllipseColoredCircle {
+    position: absolute;
+    width: 3.750vw;
+    height: 3.750vw;
     border-radius: 100%;
 }
 
-.myPos{
-    border: 3px solid magenta !important;
+.GameEllipseColoredCircleCenter{
+    position: absolute;
+    width: 4.479vw;
+    height: 4.479vw;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 0;
 }
 
-.stagefour{
-    background-image: url("../images/stageFour.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-
-.stagethree{
-
+.GameEllipseColoredSmallCircle {
+    position: absolute;
     width: 2.969vw;
     height: 2.969vw;
+    left: 0.625vw;
+    top: 0.625vw;
 
+    border-radius: 100%;
+    box-shadow: 0 0.208vw 0.208vw rgba(0, 0, 0, 0.5);
+    transform: rotate(0.47deg);
+}
+
+.GameEllipseColoredSelectedCircle {
+    position: absolute;
+    width: 3.750vw;
+    height: 3.750vw;
+}
+
+
+.stagefourColor {
+    background: #FFEC45;
+}
+
+.stagefourRadius {
+    border: 0.260vw solid #FF5555;
+    filter: drop-shadow(0px 0.208vw 0.208vw rgba(0, 0, 0, 0.5));
+}
+
+.stagefourSelectedRadius {
+    border: 0.260vw solid #FF5555;
+    filter: drop-shadow(0px 0px 0.885vw #FF5555) drop-shadow(0px 0.208vw 0.208vw rgba(0, 0, 0, 0.5));
+    border-radius: 100%;
+}
+
+.stagefourSelectedCircle {
+    border: 0.260vw dashed #E7E859;
+    filter: drop-shadow(0px 0px 0.885vw #FF5555) drop-shadow(0px 0.208vw 0.208vw rgba(0, 0, 0, 0.5));
+    border-radius: 100%;
+}
+
+
+.stagethreeColor{
     background: #A43276;
+}
 
-    box-shadow: 0px 0.208vw 0.208vw rgba(0, 0, 0, 0.5);
-    transform: rotate(157.5deg);
-
+.stagethreeRadius {
     border: 0.260vw solid #3166A7;
     filter: drop-shadow(0px 0.208vw 0.208vw rgba(0, 0, 0, 0.5));
 }
 
-.stagetwo{
-    background-image: url("../images/stageTwo.png");
-    background-repeat: no-repeat;
-    background-size: contain;
+.stagethreeSelectedCircle {
+    border: 0.260vw dashed #FF21A6;
+    filter: drop-shadow(0 0.208vw 0.208vw rgba(0, 0, 0, 0.5)) drop-shadow(0px 0px 0.885vw #55A3FF);
+    border-radius: 100%;
 }
 
-.stageone{
-    background: red;
+.stagethreeSelectedRadius {
+    border: 0.260vw solid #55A3FF;
+    filter: drop-shadow(0px 0px 0.885vw #55A3FF);
+    border-radius: 100%;
+}
 
-    width: 5.208vw;
-    height: 5.208vw;
+
+.stagetwoColor{
+    background: #42AA3B;
+}
+
+.stagetwoRadius {
+    border: 0.260vw solid #A98833;
+    filter: drop-shadow(0px 0.208vw 0.208vw rgba(0, 0, 0, 0.5));
+}
+
+.stagetwoSelectedCircle {
+    border: 0.260vw dashed #7BAF78;
+    filter: drop-shadow(0px 0px 0.885vw #8AFF80);
+    border-radius: 100%;
+}
+
+.stageoneColor{
+    background: #FF1010;
+    border-radius: 100%;
+}
+
+.stageoneRadius {
+    border: 0.365vw dashed #60ECFF;
+    filter: drop-shadow(0px 0px 0.885vw #E42F2C) drop-shadow(0px 0.208vw 0.208vw rgba(0, 0, 0, 0.5));
+}
+
+
+.stageoneSelected {
+    background: #FF1010;
+    box-shadow: 0 0 0.885vw #E42F2C, 0 0.208vw 0.208vw rgba(0, 0, 0, 0.5);
+    border-radius: 100%;
 }
 
 .stagefour#first{
@@ -1326,10 +1406,13 @@
 }
 
 .AdminAccountModal {
+    position: absolute;
     width: 26.042vw;
     height: 26.042vw;
     left: 36.979vw;
     top: 15.104vw;
+    background-color: white;
+    border-radius: 10px;
 }
 
 .loginLabelAuth {

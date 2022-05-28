@@ -1,12 +1,11 @@
 /* eslint-disable */
-import leftBg from "./images/leftbg.svg"
 import {editUserByLogin, getUserByLogin} from "./firebase/api.tsx";
 import {useEffect, useState} from "react";
-import Admin from "./Admin";
 import "./NewDesign/game.css"
 import RulesPng from "./images/rules.png"
-import Modal from 'react-modal';
-import {useNavigate} from "react-router-dom";
+import Modal from '@mui/material/Modal';
+import Box from '@mui/material/Box';
+import {renderToString} from "react-dom/server";
 
 export default function Game({ user}){
 
@@ -291,7 +290,17 @@ export default function Game({ user}){
     }
 
     function openModal(){
-        setModalIsOpen(true)
+        console.log(user.login)
+        if (user.login === undefined){
+            getUserByLogin(localStorage.userLogin).then((usr) =>{
+                user = usr
+                openModal()
+            }
+            )
+        }
+        if (user.isAdmin){
+            setModalIsOpen(true)
+        }
     }
 
     function closeModal(){
@@ -339,17 +348,98 @@ export default function Game({ user}){
     }, [])
 
 
+    function SelectCircle(){
+        let pos = document.querySelector("#position-id").value;
+        let circle = document.querySelector("#circle-id").value;
+
+        console.log(pos+" "+circle)
+        let classes
+        let ellipseStage
+        let ellipsePosition
+        if (document.querySelector(".SelectedEllipse") === null){
+            classes = document.querySelector(".stageoneSelected").classList.value.split(" ")
+            ellipsePosition = document.querySelector(".stageoneSelected").id
+            ellipseStage = classes[2]
+            document.querySelector(".stageoneSelected").outerHTML = renderToString(<EllipseDesign id={ellipsePosition} class={ellipseStage}/>)
+        }else{
+            classes = document.querySelector(".SelectedEllipse").classList.value.split(" ")
+            ellipseStage = classes[1]
+            ellipsePosition = document.querySelector(".SelectedEllipse").id
+            document.querySelector(".SelectedEllipse").outerHTML = renderToString(<EllipseDesign id={ellipsePosition} class={ellipseStage}/>)
+        }
+
+        document.querySelector("."+pos+"#"+circle).outerHTML = renderToString(<EllipseDesign id={circle} class={pos} isSelected={true}/>)
+
+    }
+
+    function DisableCircle(){
+        let pos = document.querySelector("#position-idD").value;
+        let circle = document.querySelector("#circle-idD").value;
+
+        document.querySelector("."+pos+"#"+circle).classList.add("hidden")
+    }
+
+    function EnableCircle(){
+        let pos = document.querySelector("#position-idE").value;
+        let circle = document.querySelector("#circle-idE").value;
+
+        let classes = document.querySelector("."+pos+"#"+circle).classList
+        if (classes.contains("hidden")){
+            document.querySelector("."+pos+"#"+circle).classList.remove("hidden")
+        }
+    }
+
+    function AddStar(){
+        const starsCount = 5;
+
+        for(let i = 1; i<= starsCount; i++){
+
+            let star = document.querySelector(".Star"+i);
+            console.log(star);
+            if(!star.classList.contains("StarSelected")) {
+                star.classList.add("StarSelected")
+                return;
+            }
+        }
+    }
+
+    function RemoveStar(){
+        const starsCount = 5;
+
+        for(let i = starsCount; i>=1; i--){
+
+            let star = document.querySelector(".Star"+i);
+            console.log(star);
+            if(star.classList.contains("StarSelected")) {
+                star.classList.remove("StarSelected")
+                return;
+            }
+        }
+    }
+
+    function ChangeText(){
+        let textId = document.querySelector("#textId").value;
+        let textnameId = "";
+        if (textId == 2) textnameId = "position";
+        else if (textId == 1) textnameId = "stage";
+        else if (textId == 3) textnameId = "personal-code";
+        else if(textId == 4) textnameId = "upper-code";
+        let text = document.querySelector("#txtarea").value;
+        document.getElementById(textnameId).innerHTML = text;
+    }
+
 // gameblur убрать document.queryselector().classlist.remove("gameblur")
-    return <div>{!isAdmin ?<div className="window">
+    return <div>
+        <div className="window">
 
         <div className="gameWindow gameBlur">
             <p className="gameRadarTitle" onClick={openModal}>RADAR</p>
             <div className="gameRadarW"><div className="radarImage" id="radarWindow"><Ellipse circlesInfo={circlesInfo}/></div></div>
             <p className="gameCodeBlockLabel">Code:</p>
-            <div className="gameCodeBlock"><p>dnvn1g3g9mcsx1dv</p></div>
+            <div className="gameCodeBlock"><p id="upper-code">dnvn1g3g9mcsx1dv</p></div>
             <div className="gameLeftBlock">
-                <div className="gameLeftBlockTop stage" ><p>STAGE {stage}</p></div>
-                <div className="gameLeftBlockMiddle position"><p>POSITION 4</p></div>
+                <div className="gameLeftBlockTop stage" ><p id="stage">STAGE {stage}</p></div>
+                <div className="gameLeftBlockMiddle position"><p id="position">POSITION 4</p></div>
                 <div className="gameLeftBlockButton codeleft" onClick={test => {console.log("TEST")}}><p id="personal-code">MY CODE</p></div>
             </div>
             <div className="gameRightBlock">
@@ -368,11 +458,104 @@ export default function Game({ user}){
         </div>
 
         <Modal
-            isOpen={modalIsOpen}
-            onRequestClose={closeModal}
-            contentLabel="Example Modal"
+            open={modalIsOpen}
+            onClose={closeModal}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
         >
+            <Box className="AdminAccountModal">
+                <h2>Admin panel</h2>
+                <div id="setPosition" style={{"marginLeft" : "5vw"}}>
+                    <p><b>Select stage</b></p>
+                    <select id="position-id" >
+                        <option value="stagefour">Position 4</option>
+                        <option value="stagethree">Position 3</option>
+                        <option value="stagetwo">Position 2</option>
+                        <option value="stageone">Position 1</option>
+                    </select>
+                    <select id="circle-id">
+                        <option value="first">Circle 1</option>
+                        <option value="second">Circle 2</option>
+                        <option value="third">Circle 3</option>
+                        <option value="fourth">Circle 4</option>
+                        <option value="fifth">Circle 5</option>
+                        <option value="sixth">Circle 6</option>
+                        <option value="seventh">Circle 7</option>
+                        <option value="eight">Circle 8</option>
+                    </select>
+                    <div>
+                        <button type="submit" onClick={SelectCircle}>Select</button>
+                    </div>
+                </div>
+                <div id="disableCircle" style={{"marginLeft" : "5vw"}}>
+                    <p><b>Disable circle</b></p>
+                    <select id="position-idD" >
+                        <option value="stagefour">Position 4</option>
+                        <option value="stagethree">Position 3</option>
+                        <option value="stagetwo">Position 2</option>
+                        <option value="stageone">Position 1</option>
+                    </select>
+                    <select id="circle-idD">
+                        <option value="first">Circle 1</option>
+                        <option value="second">Circle 2</option>
+                        <option value="third">Circle 3</option>
+                        <option value="fourth">Circle 4</option>
+                        <option value="fifth">Circle 5</option>
+                        <option value="sixth">Circle 6</option>
+                        <option value="seventh">Circle 7</option>
+                        <option value="eight">Circle 8</option>
+                    </select>
+                    <div>
+                        <button type="submit" onClick={DisableCircle}>Disable</button>
+                    </div>
+                </div>
+                <div id="enableCircle" style={{"marginLeft" : "5vw"}}>
+                    <p><b>Enable circle</b></p>
+                    <select id="position-idE" >
+                        <option value="stagefour">Position 4</option>
+                        <option value="stagethree">Position 3</option>
+                        <option value="stagetwo">Position 2</option>
+                        <option value="stageone">Position 1</option>
+                    </select>
+                    <select id="circle-idE">
+                        <option value="first">Circle 1</option>
+                        <option value="second">Circle 2</option>
+                        <option value="third">Circle 3</option>
+                        <option value="fourth">Circle 4</option>
+                        <option value="fifth">Circle 5</option>
+                        <option value="sixth">Circle 6</option>
+                        <option value="seventh">Circle 7</option>
+                        <option value="eight">Circle 8</option>
+                    </select>
+                    <div>
+                        <button type="submit" onClick={EnableCircle}>Enable</button>
+                    </div>
+                </div>
+                <div id="stars">
+                    <div>
+                        <button type="submit" onClick={AddStar}>Add Star</button>
+                    </div>
 
+                    <div>
+                        <button type="submit" onClick={RemoveStar}>Remove Star</button>
+                    </div>
+                </div>
+                <div id="text-changer" style={{"marginLeft" : "10vw", "marginTop":"-2.8vw"}}>
+                    <p><b>Change text</b></p>
+                    <select id="textId" >
+                        <option value="1">Stage text</option>
+                        <option value="2">Position text</option>
+                        <option value="3">Code left</option>
+                        <option value="4">Upper code</option>
+                    </select>
+                    <div>
+                        <textarea placeholder="type text here" id="txtarea"></textarea>
+                    </div>
+                    <div>
+                        <button type="submit" onClick={ChangeText}>Change</button>
+                    </div>
+                </div >
+            </Box>
         </Modal>
 
         <div className="gameStartCircle" onClick={startGame}>
@@ -381,18 +564,31 @@ export default function Game({ user}){
         </div>
 
 
-    </div> : <Admin />}</div>
+    </div>
+    </div>
 
-    /*<div id="main-div" style={{"display": "flex"}}>
-        {!isAdmin ?<div>
-        <div className='leftbar'><p className="stage">stage 1</p><p className="position">position 4</p><p className="codeleft">code Lorem ipsum dolor, sit amet consectetur adipisicing elit. </p></div>
-        <div className='game' id="gameWindow">
-            <Ellipse stage={circlesInfo.stage} circlesInfo={circlesInfo}/>
+}
+
+const EllipseDesign = (props) => {
+    if (props.class === "stageone" && props.isSelected){
+        return <div key={props.key} className={"gameEllipseCenter stageoneSelected "+props.class} id={props.id}>
+            <div className={"GameEllipseColoredCircle GameEllipseColoredCircleCenter "+props.class+"Radius"}/>
         </div>
-        <div className='rightbar'><p className="coderight">code Lorem ipsum dolor, sit amet consectetur adipisicing elit. </p>{!checkPressed && <button onClick={changeCheckState}>CHECK</button>}</div>
-            </div>:
-            <Admin /> }
-        </div>*/
+    }else if (props.class === "stageone"){
+        return <div key={props.key} className={"gameEllipseCenter stageoneColor "+props.class} id={props.id}>
+        </div>
+    } else if (props.isSelected){
+        return <div key={props.key} className={"gameEllipse "+props.class+" SelectedEllipse"} id={props.id}>
+            <div className={"GameEllipseColoredCircle "+props.class+"SelectedRadius"}/>
+            <div className={"GameEllipseColoredSmallCircle "+props.class+"Color"} />
+            <div className={"GameEllipseColoredSelectedCircle "+props.class+"SelectedCircle"} />
+        </div>
+    }else{
+        return <div key={props.key} className={"gameEllipse "+props.class} id={props.id}>
+            <div className={"GameEllipseColoredCircle "+props.class+"Radius"}/>
+            <div className={"GameEllipseColoredSmallCircle "+props.class+"Color"} />
+        </div>
+    }
 }
 
 const Ellipse = (props) => {
@@ -401,6 +597,7 @@ const Ellipse = (props) => {
     var classes = ["stagefour", "stagethree", "stagetwo", "stageone"];
     var ids = ["first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eight"];
     var ellipses = [];
+
     for(var i = 0; i< classes.length;i++){
         for(var j = 0; j< ids.length; j++)
         {
@@ -412,10 +609,13 @@ const Ellipse = (props) => {
             if (j === 2 && i === 2) break;
             if (j === 4 && i === 1) break;
             if(classes[i] === props.circlesInfo.stage && j === 0){
-                ellipses.push(<div key={i+" "+j} className={"gameEllipse " + classes[i] + " myPos"} id={ids[j]}></div>);
+                //ellipses.push(<div key={i+" "+j} className={"gameEllipse " + classes[i] + " myPos"} id={ids[j]}></div>);
+                ellipses.push(<EllipseDesign key={i+" "+j} isSelected={true} class={classes[i]} id={ids[j]}/>)
                 continue;
             }else{
-                ellipses.push(<div key={i+" "+j} className={"gameEllipse " + classes[i]} id={ids[j]}></div>)}
+                ellipses.push(<EllipseDesign key={i+" "+j} class={classes[i]} id={ids[j]}/>)
+                //ellipses.push(<div key={i+" "+j} className={"gameEllipse " + classes[i]} id={ids[j]}></div>)
+                }
         }
     }
 
