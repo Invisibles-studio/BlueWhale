@@ -43,7 +43,6 @@ export async function getUserByLogin(username: string){
 }
 
 export async function addNewUser(username: string, passwordNotHashed: string, isAdmin: boolean = false, personalCode: string = ""){
-
     let id = "id-" + username
 
     let isExists = false
@@ -102,6 +101,28 @@ export async function editUserByLoginNew(username: string, json: JSONObject){
     updates["/Users/"+id] = user
     await update(ref(database), updates)
     return user
+}
+
+export async function getUserByRefCode(refCode: string){
+    let user;
+    await get(child(ref(database), "Users/")).then((snapshot) => {
+        if (snapshot.exists()){
+            snapshot.forEach(function(child) {
+                if (child.val() && child.val().refCode == refCode) {
+                    user = child.val()
+                    console.log(child.val().player);
+                }
+            })
+        }
+        else {
+            user = undefined
+        }
+    })
+    return user
+}
+
+export async function addNewMemberByRef(refCode: string){
+
 }
 
 export async function editUserByLogin(username: string, stage: string = "", lastUpdate: number = 1, checkState: boolean = undefined, checkTime: number = 1, personalCode: string = ""){

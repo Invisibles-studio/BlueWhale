@@ -1325,6 +1325,13 @@
     visibility: hidden;
 }
 
+.AdminAccountModal {
+    width: 26.042vw;
+    height: 26.042vw;
+    left: 36.979vw;
+    top: 15.104vw;
+}
+
 .loginLabelAuth {
     position: absolute;
     top: 1.042vw;

@@ -5,6 +5,7 @@ import {useEffect, useState} from "react";
 import Admin from "./Admin";
 import "./NewDesign/game.css"
 import RulesPng from "./images/rules.png"
+import Modal from 'react-modal';
 import {useNavigate} from "react-router-dom";
 
 export default function Game({ user}){
@@ -20,10 +21,12 @@ export default function Game({ user}){
     const [checkPressed, SetCheckPressed] = useState(false)
     const [isAdmin, setAdmin] = useState(false);
     const [stage, setStage] = useState();
+    const [modalIsOpen, setModalIsOpen] = useState(false);
 
     function copyTheCode(){
         navigator.clipboard.writeText(document.getElementById("personal-code").textContent)
     }
+
     function getTime(){
         return Date.now()+10800000;
         //return Date.now()
@@ -44,7 +47,6 @@ export default function Game({ user}){
         document.getElementById("personalCodeStart").value = ""
     }
 
-
     function getCheckCode(){
         if (checkPressed) return;
         if (user.checkState === true){ return;}
@@ -62,7 +64,6 @@ export default function Game({ user}){
         SetCheckPressed(true);
         document.querySelector(".gameRightBlockBottom").removeEventListener("click", getCheckCode, false)
     }
-
 
     function Check(gameUser){
         if(gameUser == undefined) return;
@@ -289,6 +290,14 @@ export default function Game({ user}){
 
     }
 
+    function openModal(){
+        setModalIsOpen(true)
+    }
+
+    function closeModal(){
+        setModalIsOpen(false)
+    }
+
     //  const [data, setData] = useState();
     useEffect(()=>{
         if (user.lastUpdate != 1 ){
@@ -334,7 +343,7 @@ export default function Game({ user}){
     return <div>{!isAdmin ?<div className="window">
 
         <div className="gameWindow gameBlur">
-            <p className="gameRadarTitle">RADAR</p>
+            <p className="gameRadarTitle" onClick={openModal}>RADAR</p>
             <div className="gameRadarW"><div className="radarImage" id="radarWindow"><Ellipse circlesInfo={circlesInfo}/></div></div>
             <p className="gameCodeBlockLabel">Code:</p>
             <div className="gameCodeBlock"><p>dnvn1g3g9mcsx1dv</p></div>
@@ -357,6 +366,14 @@ export default function Game({ user}){
             </div>
             <input className="rulesBtn" type="image" alt="Rules" src={RulesPng} />
         </div>
+
+        <Modal
+            isOpen={modalIsOpen}
+            onRequestClose={closeModal}
+            contentLabel="Example Modal"
+        >
+
+        </Modal>
 
         <div className="gameStartCircle" onClick={startGame}>
             <p id="startTextbtn">START</p>
