@@ -1,0 +1,905 @@
+@media (max-height: 450px) {
+
+    .authBlockMain {
+        position: absolute;
+
+        width: 37.623vw;
+        height: 36.458vw;
+
+        left: 29.844vw;
+        top: 4.688vw;
+    }
+
+    .authBlock {
+        position: absolute;
+        background-image: url("../images/authBlock.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+
+        width: 35.800vw;
+        height: 33.281vw;
+
+        left: 1.823vw;
+        top: 5.469vw;
+        transition: .55s opacity, .55s visibility;
+    }
+
+    .registerBlock {
+        position: absolute;
+        background-image: url("../images/registerBlock.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+
+        width: 33.781vw;
+        height: 39.823vw;
+
+        left: 3.823vw;
+        top: 1.042vw;
+        transition: .3s opacity, .3s visibility;
+    }
+
+    .loginLabelRegister {
+        position: absolute;
+        top: 1.042vw;
+        left: 6.875vw;
+        margin: 0;
+
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.667vw;
+        line-height: 2.031vw;
+
+        color: #FFFFFF;
+    }
+
+    .loginInputRegister {
+        position: absolute;
+        background-image: url("../images/authLoginTopInput.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-color: transparent;
+        border: 0;
+
+        width: 27.552vw;
+        height: 6.806vw;
+
+        top: 3.665vw;
+        left: 3.019vw;
+
+        text-align: center;
+
+        font-style: normal;
+        font-weight: 400;
+        font-size: 3.333vw;
+        line-height: 4.010vw;
+
+        color: #FFFFFF;
+    }
+
+    .passwordLabelRegister {
+        position: absolute;
+        top: 11.235vw;
+        left: 5.577vw;
+        margin: 0;
+
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.667vw;
+        line-height: 2.031vw;
+
+        color: #FFFFFF;
+    }
+
+    .passwordInputRegister {
+        position: absolute;
+        background-image: url("../images/authPasswordBottomInput.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-color: transparent;
+        border: 0;
+
+        width: 28.438vw;
+        height: 7.135vw;
+
+        top: 13.954vw;
+        left: 2.276vw;
+
+        text-align: center;
+
+        font-style: normal;
+        font-weight: 400;
+        font-size: 3.333vw;
+        line-height: 4.010vw;
+
+        color: #FFFFFF;
+        -webkit-text-security: square;
+    }
+
+    .passwordConfirmLabelRegister {
+        position: absolute;
+        top: 21.589vw;
+        left: 5.568vw;
+        margin: 0;
+
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.667vw;
+        line-height: 2.031vw;
+
+        color: #FFFFFF;
+    }
+
+    .passwordConfirmInputRegister {
+        position: absolute;
+        background-image: url("../images/authPasswordBottomInput.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-color: transparent;
+        border: 0;
+
+        width: 28.438vw;
+        height: 6.806vw;
+
+        top: 24.314vw;
+        left: 2.650vw;
+
+        text-align: center;
+
+        font-style: normal;
+        font-weight: 400;
+        font-size: 3.333vw;
+        line-height: 4.010vw;
+
+        color: #FFFFFF;
+        -webkit-text-security: square;
+    }
+
+    .buttonRegister {
+        position: absolute;
+        background-image: url("../images/authButton.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-color: transparent;
+
+        width: 27.760vw;
+        height: 6.475vw;
+
+        left: 3.589vw;
+        top: 32.157vw;
+
+        cursor: pointer;
+    }
+
+    .buttonRegister p {
+        position: absolute;
+        left: 10.573vw;
+        top: 1.875vw;
+
+        font-style: normal;
+        font-weight: 600;
+        font-size: 3.333vw;
+        line-height: 4.010vw;
+
+        color: #224442;
+
+        margin: 0;
+
+        -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+        -khtml-user-select: none; /* Konqueror HTML */
+        -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+        user-select: none;
+    }
+
+    .buttonToLoginSelected {
+        background-image: url("../images/authSelectedLoginButton.png");
+        transform: translateY(0.208vw);
+    }
+
+    .buttonToLoginNotSelected {
+        background-image: url("../images/authLoginButton.png");
+        transform: translateY(-4.427vw);
+    }
+
+    .buttonToLogin {
+        position: absolute;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-color: transparent;
+        border: 0;
+        cursor: pointer;
+
+        width: 15.313vw;
+        height: 3.988vw;
+
+        left: 21.830vw;
+        top: 0.026vw;
+
+        text-align: center;
+
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.667vw;
+        line-height: 2.031vw;
+
+        color: #FFFFFF;
+        padding: 0;
+        transition: transform 500ms ease;
+    }
+
+    .buttonToRegisterSelected {
+        background-image: url("../images/authSelectedRegisterButton.png");
+        transform: translateY(-4.297vw);
+    }
+
+    .buttonToRegisterNotSelected {
+        background-image: url("../images/authRegisterButton.png");
+    }
+
+    .buttonToRegister {
+        position: absolute;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-color: transparent;
+        border: 0;
+        cursor: pointer;
+
+        width: 15.313vw;
+        height: 3.988vw;
+
+        left: 6.067vw;
+        top: 0.026vw;
+
+        text-align: center;
+
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.667vw;
+        line-height: 2.031vw;
+
+        color: #FFFFFF;
+        padding: 0;
+
+        transition: transform 500ms ease;
+    }
+
+    .radarImage {
+        background-image: url("../images/radar.png");
+        width: 34.233vw;
+        height: 74.06vh;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+    .gameRadarW {
+        position: absolute;
+        background: linear-gradient(180deg, rgba(145, 255, 209, 0.17) 0%, rgba(59, 130, 140, 0.18) 100%);
+        border: 0.417vw solid #60ECFF;
+        box-shadow: 0 0 4.844vw #91FFD1;
+        border-radius: 27.396vw;
+        width: 34.233vw;
+        height: 74.06vh;
+
+        top: 6.911vw;
+        left: 33.369vw;
+
+    }
+
+    .stagefour#first {
+        position: absolute;
+
+        top: 3.33vh;
+        left: 9.672vw;
+
+    }
+
+    .stagefour#second {
+        position: absolute;
+
+        top: 3.33vh;
+        left: 21.056vw;
+
+    }
+
+    .stagefour#third {
+        position: absolute;
+
+        top: 20.79vh;
+        left: 29.016vw;
+
+    }
+
+    .stagefour#fourth {
+        position: absolute;
+
+        top: 20.79vh;
+        left: 1.755vw;
+
+    }
+
+    .stagefour#fifth {
+        position: absolute;
+
+        top: 45.32vh;
+        left: 1.755vw;
+
+    }
+
+    .stagefour#sixth {
+        position: absolute;
+
+        top: 62.61vh;
+        left: 9.767vw;
+    }
+
+    .stagefour#seventh {
+        position: absolute;
+
+        top: 62.61vh;
+        left: 21.141vw;
+    }
+
+    .stagefour#eight {
+        position: absolute;
+        top: 45.32vh;
+        left: 29.016vw;
+    }
+
+    .stagethree#first {
+        position: absolute;
+        top: 16.82vh;
+        left: 22.948vw;
+    }
+
+    .stagethree#second {
+        position: absolute;
+        top: 16.82vh;
+        left: 7.969vw;
+    }
+
+    .stagethree#third {
+        position: absolute;
+        top: 49.29vh;
+        left: 7.969vw;
+    }
+
+    .stagethree#fourth {
+        position: absolute;
+        top: 49.29vh;
+        left: 22.948vw;
+    }
+
+    .stagetwo#first {
+        position: absolute;
+
+        top: 32.94vh;
+        left: 9.211vw;
+    }
+
+    .stagetwo#second {
+        position: absolute;
+        top: 32.94vh;
+        left: 21.664vw;
+    }
+
+    .stageone#first {
+        position: absolute;
+        left: 15.022vw;
+        top: 32.47vh;
+    }
+
+    .gameEllipse {
+        position: absolute;
+        width: 3.423vw;
+        height: 7.24vh;
+    }
+
+    .gameEllipseCenter {
+        position: absolute;
+        width: 4.280vw;
+        height: 8.66vh;
+    }
+
+    .GameEllipseColoredCircle {
+        position: absolute;
+        width: 2.991vw;
+        height: 6.30vh;
+        border-radius: 100%;
+    }
+
+    .GameEllipseColoredCircleCenter {
+        position: absolute;
+        width: 3.524vw;
+        height: 7.47vh;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        top: 0;
+    }
+
+    .GameEllipseColoredSmallCircle {
+        position: absolute;
+        width: 2.568vw;
+        height: 5.37vh;
+        left: 0.428vw;
+        top: 0.70vh;
+        right: 0;
+        bottom: 0;
+
+        border-radius: 100%;
+        box-shadow: 0 0.208vw 0.208vw rgba(0, 0, 0, 0.5);
+        transform: rotate(0.47deg);
+    }
+
+    .GameEllipseColoredSelectedCircle {
+        position: absolute;
+        width: 2.991vw;
+        height: 6.30vh;
+    }
+
+    .AdminAccountModal {
+        position: absolute;
+        width: 73.490vw;
+        height: 42.917vw;
+        left: 12.708vw;
+        top: 4.167vw;
+        border-radius: 2.083vw;
+        background: rgba(255, 255, 255, 0.5);
+        border: 0.521vw solid #2B2346;
+        box-shadow: 0 0.208vw 0.208vw rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(1.042vw);
+        outline: none;
+    }
+
+    .AdminAccountModalTitle {
+        position: absolute;
+        left: 25.521vw;
+        top: 2.292vw;
+
+        font-style: normal;
+        font-weight: 500;
+        font-size: 3.333vw;
+        line-height: 4.010vw;
+
+        color: #2A2345;
+        margin: 0;
+        user-select: none;
+    }
+
+    .AdminAccountModalClose {
+        position: absolute;
+        width: 2.135vw;
+        height: 2.135vw;
+        left: 68.594vw;
+        top: 2.135vw;
+        background-image: url("../images/cross.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        cursor: pointer;
+    }
+
+    .AdminAccountModalChangeTextTitle {
+        position: absolute;
+        left: 5.156vw;
+        top: 9.948vw;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 2.083vw;
+        line-height: 2.500vw;
+
+        color: #000000;
+        margin: 0;
+    }
+
+    #textId {
+        position: absolute;
+
+        width: 12.448vw;
+        height: 2.760vw;
+        left: 5.156vw;
+        top: 13.698vw;
+
+        background: #555671;
+        border-radius: 0.313vw;
+        border: 0;
+
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.250vw;
+        line-height: 1.510vw;
+
+        color: #FFFFFF;
+    }
+
+    #txtarea {
+        box-sizing: border-box;
+
+        position: absolute;
+        width: 12.344vw;
+        height: 6.927vw;
+        left: 5.260vw;
+        top: 17.292vw;
+
+        background: rgba(255, 255, 255, 0.15);
+        border: 0.260vw solid #555671;
+        border-radius: 0.521vw;
+        resize: none;
+        outline: none;
+
+        font-style: normal;
+        font-weight: 400;
+        font-size: 0.729vw;
+        line-height: 0.885vw;
+
+
+        color: #4c4c4c;
+    }
+
+    #text-changer button {
+        position: absolute;
+        width: 12.448vw;
+        height: 2.760vw;
+        left: 5.156vw;
+        top: 25.833vw;
+
+        background: #555671;
+        border-radius: 0.313vw;
+        border: 0;
+        outline: none;
+
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.250vw;
+        line-height: 1.510vw;
+
+        color: #FFFFFF;
+    }
+
+    #stars p {
+        position: absolute;
+        margin: 0;
+
+        left: 5.156vw;
+        top: 31.094vw;
+
+        font-style: normal;
+        font-weight: 500;
+        font-size: 2.083vw;
+        line-height: 2.500vw;
+
+        color: #000000;
+    }
+
+    #addStar {
+        position: absolute;
+        width: 12.448vw;
+        height: 2.760vw;
+        left: 5.156vw;
+        top: 35.521vw;
+
+        background: #555671;
+        border-radius: 0.313vw;
+
+        border: 0;
+        outline: none;
+
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.250vw;
+        line-height: 1.510vw;
+
+        color: #FFFFFF;
+    }
+
+    #removeStar {
+        position: absolute;
+        width: 12.448vw;
+        height: 2.760vw;
+        left: 18.385vw;
+        top: 35.521vw;
+
+        background: #555671;
+        border-radius: 0.313vw;
+
+        border: 0;
+        outline: none;
+
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.250vw;
+        line-height: 1.510vw;
+
+        color: #FFFFFF;
+    }
+
+    .AdminAccountModalSelectStageTitle {
+        position: absolute;
+        left: 21.875vw;
+        top: 9.948vw;
+
+        font-style: normal;
+        font-weight: 500;
+        font-size: 2.083vw;
+        line-height: 2.500vw;
+
+        color: #000000;
+        margin: 0;
+    }
+
+    #position-id {
+        position: absolute;
+        width: 10.729vw;
+        height: 2.760vw;
+        left: 21.875vw;
+        top: 13.698vw;
+
+        background: #555671;
+        border-radius: 0.313vw;
+        border: 0;
+        outline: none;
+
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.250vw;
+        line-height: 1.510vw;
+
+        color: #FFFFFF;
+    }
+
+    #circle-id {
+        position: absolute;
+        width: 10.729vw;
+        height: 2.760vw;
+        left: 21.875vw;
+        top: 16.771vw;
+
+        background: #555671;
+        border-radius: 0.313vw;
+        border: 0;
+        outline: none;
+
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.250vw;
+        line-height: 1.510vw;
+
+        color: #FFFFFF;
+    }
+
+    #setPosition button {
+        position: absolute;
+        width: 9.323vw;
+        height: 2.760vw;
+        left: 21.875vw;
+        top: 20.469vw;
+
+        background: #555671;
+        border-radius: 0.313vw;
+        border: 0;
+        outline: none;
+
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.250vw;
+        line-height: 1.510vw;
+
+        color: #FFFFFF;
+    }
+
+    .AdminAccountModalDisableCircleTitle {
+        position: absolute;
+        left: 38.646vw;
+        top: 9.948vw;
+
+        font-style: normal;
+        font-weight: 500;
+        font-size: 2.083vw;
+        line-height: 2.500vw;
+
+        color: #000000;
+        margin: 0;
+    }
+
+    #position-idD {
+        position: absolute;
+        width: 10.729vw;
+        height: 2.760vw;
+        left: 38.646vw;
+        top: 13.698vw;
+
+        background: #555671;
+        border-radius: 0.313vw;
+        border: 0;
+        outline: none;
+
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.250vw;
+        line-height: 1.510vw;
+
+        color: #FFFFFF;
+    }
+
+    #circle-idD {
+        position: absolute;
+        width: 10.729vw;
+        height: 2.760vw;
+        left: 38.646vw;
+        top: 16.771vw;
+
+        background: #555671;
+        border-radius: 0.313vw;
+        border: 0;
+        outline: none;
+
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.250vw;
+        line-height: 1.510vw;
+
+        color: #FFFFFF;
+    }
+
+    #disableCircle button {
+        position: absolute;
+        width: 9.323vw;
+        height: 2.760vw;
+        left: 38.646vw;
+        top: 20.469vw;
+
+        background: #555671;
+        border-radius: 0.313vw;
+        border: 0;
+        outline: none;
+
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.250vw;
+        line-height: 1.510vw;
+
+        color: #FFFFFF;
+    }
+
+    .AdminAccountModalEnableCircleTitle {
+        position: absolute;
+        left: 56.146vw;
+        top: 9.948vw;
+
+        font-style: normal;
+        font-weight: 500;
+        font-size: 2.083vw;
+        line-height: 2.500vw;
+
+        color: #000000;
+        margin: 0;
+    }
+
+    #position-idE {
+        position: absolute;
+        width: 10.729vw;
+        height: 2.760vw;
+        left: 56.146vw;
+        top: 13.698vw;
+
+        background: #555671;
+        border-radius: 0.313vw;
+        border: 0;
+        outline: none;
+
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.250vw;
+        line-height: 1.510vw;
+
+        color: #FFFFFF;
+    }
+
+    #circle-idE {
+        position: absolute;
+        width: 10.729vw;
+        height: 2.760vw;
+        left: 56.146vw;
+        top: 16.771vw;
+
+        background: #555671;
+        border-radius: 0.313vw;
+        border: 0;
+        outline: none;
+
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.250vw;
+        line-height: 1.510vw;
+
+        color: #FFFFFF;
+    }
+
+    #enableCircle button {
+        position: absolute;
+        width: 9.323vw;
+        height: 2.760vw;
+        left: 56.146vw;
+        top: 20.469vw;
+
+        background: #555671;
+        border-radius: 0.313vw;
+        border: 0;
+        outline: none;
+
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.250vw;
+        line-height: 1.510vw;
+
+        color: #FFFFFF;
+    }
+
+    .gameCodeBlockLabel {
+        position: absolute;
+
+        width: 2.969vw;
+        height: 1.250vw;
+
+        left:  9.844vw;
+        top: 26.86vh;
+
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.042vw;
+        line-height: 1.250vw;
+
+        color: #FFFFFF;
+        margin: 0;
+
+    }
+
+    .gameCodeBlock {
+        position: absolute;
+        background-image: url("../images/rectangleBlue.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+
+        width: 19.141vw;
+        height: 3.776vw;
+
+        left: 7.057vw;
+        top: 29.90vh;
+    }
+
+    .gameLeftBlock {
+        position: absolute;
+        background-image: url("../images/leftBlock.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+
+        width: 26.042vw;
+        height: 15.625vw;
+
+        top: 38.58vh;
+        left: 3.125vw;
+    }
+
+    .StarsBlock {
+        position: absolute;
+        width: 3.646vw;
+        height: 15.677vw;
+
+        left: 0.365vw;
+        top: 38.58vh;
+    }
+
+    .gameRightBlock {
+        position: absolute;
+        background-image: url("../images/rightBlock.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+
+        width: 26.042vw;
+        height: 15.625vw;
+
+        top: 38.58vh;
+        left: 70.833vw;
+    }
+
+}

@@ -1,315 +1,4 @@
-.gameWindow {
-    width: 100%;
-    height: 100%;
-}
-
-.gameRadarTitle {
-    position: absolute;
-
-    width: 15.156vw;
-    height: 5.417vw;
-    left: 42.448vw;
-    top: 0.573vw;
-
-    font-size: 4.479vw;
-    white-space: nowrap;
-
-    text-align: center;
-    line-height: 5.417vw;
-
-    margin: 0;
-    color: #60ECFF;
-
-    text-shadow: 0 0 2.656vw #60ECFF, 0 0.208vw 0 #51A4AF;
-    user-select: none;
-}
-
-.gameCodeBlock p {
-    position: absolute;
-    width: 19.271vw;
-    height: 1.250vw;
-    left: 1.563vw;
-    top: 1.198vw;
-
-    font-style: normal;
-    font-weight: 400;
-    font-size: 1.042vw;
-    line-height: 1.250vw;
-
-    color: #FCFF7F;
-    margin: 0;
-}
-
-.gameLeftBlockTop {
-    position: absolute;
-    background-image: url("../images/leftBlockTop.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-
-    width: 19.271vw;
-    height: 3.021vw;
-
-    top: 1.042vw;
-    left: 2.161vw;
-}
-
-.gameLeftBlockTop p {
-    position: absolute;
-    width: 7.396vw;
-    height: 2.292vw;
-    left: 1.267vw;
-    top: 0.365vw;
-
-    font-style: normal;
-    font-weight: 400;
-    font-size: 1.875vw;
-    line-height: 2.292vw;
-
-    color: #FFFFFF;
-    margin: 0;
-}
-
-.gameLeftBlockMiddle {
-    position: absolute;
-    background-image: url("../images/leftBlockMiddle.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-
-    width: 18.620vw;
-    height: 3.021vw;
-
-    top: 5.156vw;
-    left: 1.718vw;
-}
-
-.gameLeftBlockMiddle p {
-    position: absolute;
-    width: 10.625vw;
-    height: 2.292vw;
-    left: 1.267vw;
-    top: 0.365vw;
-
-    font-style: normal;
-    font-weight: 400;
-    font-size: 1.875vw;
-    line-height: 2.292vw;
-
-    color: #FFFFFF;
-    margin: 0;
-}
-
-.gameLeftBlockButton {
-    position: absolute;
-    background-image: url("../images/myCodeRectangle.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-
-    width: 19.505vw;
-    height: 5.260vw;
-
-    top: 9.271vw;
-    left: 1.849vw;
-
-    cursor: pointer;
-}
-
-.gameLeftBlockButton p {
-    position: absolute;
-
-    top: 1.510vw;
-    left: 4.766vw;
-
-    font-style: normal;
-    font-weight: 600;
-    font-size: 1.875vw;
-    line-height: 2.292vw;
-
-    color: #4C4761;
-
-    margin: 0;
-
-    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-    -khtml-user-select: none; /* Konqueror HTML */
-    -moz-user-select: none; /* Old versions of Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none;
-}
-
-.gameRightBlockTop {
-    position: absolute;
-    background-image: url("../images/rightBlockTop.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-
-    width: 19.688vw;
-    height: 5.260vw;
-
-    top: 1.615vw;
-    left: 4.688vw;
-    right: 1.667vw;
-
-    cursor: pointer;
-
-}
-
-.gameRightBlockTop p {
-    position: absolute;
-
-    top: 1.510vw;
-    left: 2.005vw;
-
-    font-style: normal;
-    font-weight: 600;
-    font-size: 1.875vw;
-    line-height: 2.292vw;
-
-    color: #4C4761;
-
-    margin: 0;
-
-    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-    -khtml-user-select: none; /* Konqueror HTML */
-    -moz-user-select: none; /* Old versions of Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none;
-}
-
-.gameRightBlockBottom {
-    position: absolute;
-    background-image: url("../images/rightBlockBottom.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-
-    width: 19.583vw;
-    height: 5.260vw;
-
-    top: 8.698vw;
-    left: 4.688vw;
-    right: 1.771vw;
-
-    cursor: pointer;
-}
-
-.gameRightBlockBottom p{
-    position: absolute;
-
-    top: 1.510vw;
-    left: 6.458vw;
-
-    font-style: normal;
-    font-weight: 600;
-    font-size: 1.875vw;
-    line-height: 2.292vw;
-
-    color: #4C4761;
-
-    margin: 0;
-
-    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-    -khtml-user-select: none; /* Konqueror HTML */
-    -moz-user-select: none; /* Old versions of Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none;
-}
-
-.stagefourColor {
-    background: #FFEC45;
-}
-
-.stagefourRadius {
-    border: 0.260vw solid #FF5555;
-    filter: drop-shadow(0px 0.208vw 0.208vw rgba(0, 0, 0, 0.5));
-}
-
-.stagefourSelectedRadius {
-    border: 0.260vw solid #FF5555;
-    filter: drop-shadow(0px 0px 0.885vw #FF5555) drop-shadow(0px 0.208vw 0.208vw rgba(0, 0, 0, 0.5));
-    border-radius: 100%;
-}
-
-.stagefourSelectedCircle {
-    border: 0.260vw dashed #E7E859;
-    filter: drop-shadow(0px 0px 0.885vw #FF5555) drop-shadow(0px 0.208vw 0.208vw rgba(0, 0, 0, 0.5));
-    border-radius: 100%;
-}
-
-
-.stagethreeColor{
-    background: #A43276;
-}
-
-.stagethreeRadius {
-    border: 0.260vw solid #3166A7;
-    filter: drop-shadow(0px 0.208vw 0.208vw rgba(0, 0, 0, 0.5));
-}
-
-.stagethreeSelectedCircle {
-    border: 0.260vw dashed #FF21A6;
-    filter: drop-shadow(0 0.208vw 0.208vw rgba(0, 0, 0, 0.5)) drop-shadow(0px 0px 0.885vw #55A3FF);
-    border-radius: 100%;
-}
-
-.stagethreeSelectedRadius {
-    border: 0.260vw solid #55A3FF;
-    filter: drop-shadow(0px 0px 0.885vw #55A3FF);
-    border-radius: 100%;
-}
-
-
-.stagetwoColor{
-    background: #42AA3B;
-}
-
-.stagetwoRadius {
-    border: 0.260vw solid #A98833;
-    filter: drop-shadow(0px 0.208vw 0.208vw rgba(0, 0, 0, 0.5));
-}
-
-.stagetwoSelectedCircle {
-    border: 0.260vw dashed #7BAF78;
-    filter: drop-shadow(0px 0px 0.885vw #8AFF80);
-    border-radius: 100%;
-}
-
-.stagetwoSelectedRadius {
-    border: 0.260vw solid #A98833;
-    filter: drop-shadow(0px 0.208vw 0.208vw rgba(0, 0, 0, 0.5));
-}
-
-
-.stageoneColor{
-    background: #FF1010;
-    border-radius: 100%;
-}
-
-.stageoneRadius {
-    border: 0.365vw dashed #60ECFF;
-    filter: drop-shadow(0px 0px 0.885vw #E42F2C) drop-shadow(0px 0.208vw 0.208vw rgba(0, 0, 0, 0.5));
-}
-
-
-.stageoneSelected {
-    background: #FF1010;
-    box-shadow: 0 0 0.885vw #E42F2C, 0 0.208vw 0.208vw rgba(0, 0, 0, 0.5);
-    border-radius: 100%;
-}
-
-.loginBackground {
-    position: absolute;
-    background-image : url("../images/loginBackground.png");
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-
-    height: 100%;
-    width: 100%;
-}
-
-@media (max-height: 6400px) and (min-height: 1100px) {
+@media (max-height: 970px) and (min-height: 460px){
     .radarImage {
         background-image: url("../images/radar.png");
         width: 41.667vw;
@@ -322,10 +11,10 @@
         position: absolute;
 
         width: 37.623vw;
-        height: 38.750vw;
+        height: 36.458vw;
 
         left: 29.844vw;
-        top: 8.750vw;
+        top: 5.688vw;
     }
 
     .authBlock {
@@ -349,7 +38,7 @@
         background-size: contain;
 
         width: 35.781vw;
-        height: 43.646vw;
+        height: 41.823vw;
 
         left: 1.823vw;
         top: 1.042vw;
@@ -358,7 +47,7 @@
 
     .loginLabelRegister {
         position: absolute;
-        top: 1.094vw;
+        top: 1.042vw;
         left: 6.875vw;
         margin: 0;
 
@@ -379,9 +68,9 @@
         border: 0;
 
         width: 27.552vw;
-        height: 7.135vw;
+        height: 6.806vw;
 
-        top: 3.802vw;
+        top: 3.665vw;
         left: 4.219vw;
 
         text-align: center;
@@ -396,8 +85,8 @@
 
     .passwordLabelRegister {
         position: absolute;
-        top: 11.615vw;
-        left: 5.573vw;
+        top: 11.235vw;
+        left: 5.577vw;
         margin: 0;
 
         font-style: normal;
@@ -416,10 +105,10 @@
         background-color: transparent;
         border: 0;
 
-        width: 28.464vw;
+        width: 28.438vw;
         height: 7.135vw;
 
-        top: 14.583vw;
+        top: 13.954vw;
         left: 3.776vw;
 
         text-align: center;
@@ -435,8 +124,8 @@
 
     .passwordConfirmLabelRegister {
         position: absolute;
-        top: 22.396vw;
-        left: 5.573vw;
+        top: 21.589vw;
+        left: 5.568vw;
         margin: 0;
 
         font-style: normal;
@@ -455,11 +144,11 @@
         background-color: transparent;
         border: 0;
 
-        width: 28.464vw;
-        height: 7.135vw;
+        width: 28.438vw;
+        height: 6.806vw;
 
-        top: 25.365vw;
-        left: 3.776vw;
+        top: 24.314vw;
+        left: 3.750vw;
 
         text-align: center;
 
@@ -479,11 +168,11 @@
         background-size: contain;
         background-color: transparent;
 
-        width: 27.734vw;
+        width: 27.760vw;
         height: 6.875vw;
 
-        left: 4.063vw;
-        top: 34.531vw;
+        left: 4.089vw;
+        top: 33.157vw;
 
         cursor: pointer;
     }
@@ -586,12 +275,12 @@
         position: absolute;
         background: linear-gradient(180deg, rgba(145, 255, 209, 0.17) 0%, rgba(59, 130, 140, 0.18) 100%);
         border: 0.417vw solid #60ECFF;
-        box-shadow: 0px 0px 4.844vw #91FFD1;
+        box-shadow: 0 0 4.844vw #91FFD1;
         border-radius: 27.396vw;
         width: 41.667vw;
         height: 41.667vw;
 
-        top: 7.292vw;
+        top: 6.392vw;
         left: 29.167vw;
 
     }
@@ -601,9 +290,9 @@
         width: 73.490vw;
         height: 42.917vw;
         left: 12.708vw;
-        top: 5.469vw;
-        background-color: rgba(255, 255, 255, 0.5);
+        top: 4.167vw;
         border-radius: 2.083vw;
+        background: rgba(255, 255, 255, 0.5);
         border: 0.521vw solid #2B2346;
         box-shadow: 0 0.208vw 0.208vw rgba(0, 0, 0, 0.25);
         backdrop-filter: blur(1.042vw);
@@ -1210,249 +899,4 @@
         left: 70.833vw;
     }
 
-}
-
-
-
-.StarNotSelected {
-    background-image : url("../images/starNotSelected.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-
-.StarSelected {
-    background-image : url("../images/starSelected.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-
-.Star1, .Star2, .Star3, .Star4, .Star5 {
-    position: absolute;
-    width: 2.344vw;
-    height: 2.344vw;
-
-    left: 1.302vw;
-    top: 0;
-}
-
-.Star2 {
-    left: 0.260vw;
-    top: 3.333vw;
-}
-
-.Star3 {
-    left: 0;
-    top: 6.667vw;
-}
-
-.Star4 {
-    left: 0.260vw;
-    top: 10vw;
-}
-
-.Star5 {
-    left: 1.302vw;
-    top: 13.333vw;
-}
-
-.BlockHidden {
-    opacity: 0;
-    visibility: hidden;
-}
-
-.loginLabelAuth {
-    position: absolute;
-    top: 1.042vw;
-    left: 6.875vw;
-    margin: 0;
-
-    font-style: normal;
-    font-weight: 400;
-    font-size: 1.667vw;
-    line-height: 2.031vw;
-
-    color: #FFFFFF;
-}
-
-.loginInputAuth {
-    position: absolute;
-    background-image: url("../images/authLoginTopInput.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-color: transparent;
-    border: 0;
-
-    width: 27.813vw;
-    height: 7.135vw;
-
-    top: 3.750vw;
-    left: 4.063vw;
-
-    text-align: center;
-
-    font-style: normal;
-    font-weight: 400;
-    font-size: 3.333vw;
-    line-height: 4.010vw;
-
-    color: #FFFFFF;
-}
-
-.loginInputAuth:focus{
-    outline: none;
-}
-
-.passwordLabelAuth {
-    position: absolute;
-    top: 11.563vw;
-    left: 5.573vw;
-    margin: 0;
-
-    font-style: normal;
-    font-weight: 400;
-    font-size: 1.667vw;
-    line-height: 2.031vw;
-
-    color: #FFFFFF;
-}
-
-.passwordInputAuth {
-    position: absolute;
-    background-image: url("../images/authPasswordBottomInput.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-color: transparent;
-    border: 0;
-
-    width: 27.813vw;
-    height: 7.135vw;
-
-    top: 14.531vw;
-    left: 3.741vw;
-
-    text-align: center;
-
-    font-style: normal;
-    font-weight: 400;
-    font-size: 3.333vw;
-    line-height: 4.010vw;
-
-    color: #FFFFFF;
-    -webkit-text-security: square;
-}
-
-.passwordInputAuth:focus{
-    outline: none;
-}
-
-.buttonAuth {
-    position: absolute;
-    background-image: url("../images/authButton.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-color: transparent;
-
-    width: 27.734vw;
-    height: 6.875vw;
-
-    left: 4.063vw;
-    top: 24.375vw;
-
-    cursor: pointer;
-}
-
-.buttonAuth p{
-    position: absolute;
-    left: 10.573vw;
-    top: 1.875vw;
-
-    font-style: normal;
-    font-weight: 600;
-    font-size: 3.333vw;
-    line-height: 4.010vw;
-
-    color: #224442;
-
-    margin: 0;
-
-    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-    -khtml-user-select: none; /* Konqueror HTML */
-    -moz-user-select: none; /* Old versions of Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none;
-}
-
-.gameBlur {
-    filter: blur(8px);
-    -webkit-filter: blur(0.417vw);
-
-    /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.gameStartCircle {
-    position: absolute;
-    width: 26.042vw;
-    height: 26.042vw;
-
-    left: 37.6vw;
-    top: 15.1vw;
-
-    background: #B491FF;
-    box-shadow: 0 0.677vw 0.521vw rgba(0, 0, 0, 0.2);
-    border-radius: 26.042vw;
-    cursor: pointer;
-}
-
-.gameStartCircle p {
-    position: absolute;
-
-    width: 16.302vw;
-    height: 6.042vw;
-
-    left: 4.844vw;
-    top: 10vw;
-
-    font-style: normal;
-    font-weight: 600;
-    font-size: 5vw;
-    line-height: 6.042vw;
-
-    color: #312244;
-    margin: 0;
-    text-align: center;
-}
-
-.window {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-}
-
-.gamePersonalCode {
-    position: absolute;
-    width: 13.385vw;
-    height: 3.958vw;
-    left: 6.302vw;
-    top: 17.760vw;
-
-    background: radial-gradient(231.58% 231.58% at 50% 50%, #BB91FF 0%, #9670BB 100%);
-    border-radius: 0.990vw;
-    border: 0;
-
-    text-align: center;
-
-    font-style: normal;
-    font-weight: 600;
-    font-size: 1.042vw;
-    line-height: 1.250vw;
-
-    color: #8267A5;
-}
-
-.gamePersonalCode:focus {
-    outline: none;
 }

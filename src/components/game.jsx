@@ -2,6 +2,8 @@
 import {editUserByLogin, getUserByLogin} from "./firebase/api.tsx";
 import {useEffect, useState} from "react";
 import "./NewDesign/game.css"
+import "./NewDesign/gameMaxHeight450.css"
+import "./NewDesign/gameMaxHeight970.css"
 import RulesPng from "./images/rules.png"
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
@@ -464,9 +466,10 @@ export default function Game({ user}){
             aria-describedby="modal-modal-description"
         >
             <Box className="AdminAccountModal">
-                <h2>Admin panel</h2>
-                <div id="setPosition" style={{"marginLeft" : "5vw"}}>
-                    <p><b>Select stage</b></p>
+                <p className="AdminAccountModalTitle">ADMIN ACCOUNT</p>
+                <div className="AdminAccountModalClose" onClick={closeModal}/>
+                <div id="setPosition">
+                    <p className="AdminAccountModalSelectStageTitle">Select stage</p>
                     <select id="position-id" >
                         <option value="stagefour">Position 4</option>
                         <option value="stagethree">Position 3</option>
@@ -487,8 +490,8 @@ export default function Game({ user}){
                         <button type="submit" onClick={SelectCircle}>Select</button>
                     </div>
                 </div>
-                <div id="disableCircle" style={{"marginLeft" : "5vw"}}>
-                    <p><b>Disable circle</b></p>
+                <div id="disableCircle">
+                    <p className="AdminAccountModalDisableCircleTitle">Disable circle</p>
                     <select id="position-idD" >
                         <option value="stagefour">Position 4</option>
                         <option value="stagethree">Position 3</option>
@@ -509,8 +512,8 @@ export default function Game({ user}){
                         <button type="submit" onClick={DisableCircle}>Disable</button>
                     </div>
                 </div>
-                <div id="enableCircle" style={{"marginLeft" : "5vw"}}>
-                    <p><b>Enable circle</b></p>
+                <div id="enableCircle">
+                    <p className="AdminAccountModalEnableCircleTitle">Enable circle</p>
                     <select id="position-idE" >
                         <option value="stagefour">Position 4</option>
                         <option value="stagethree">Position 3</option>
@@ -532,16 +535,17 @@ export default function Game({ user}){
                     </div>
                 </div>
                 <div id="stars">
+                    <p>Stars</p>
                     <div>
-                        <button type="submit" onClick={AddStar}>Add Star</button>
+                        <button id="addStar" type="submit" onClick={AddStar}>Add Star</button>
                     </div>
 
                     <div>
-                        <button type="submit" onClick={RemoveStar}>Remove Star</button>
+                        <button id="removeStar" type="submit" onClick={RemoveStar}>Remove Star</button>
                     </div>
                 </div>
-                <div id="text-changer" style={{"marginLeft" : "10vw", "marginTop":"-2.8vw"}}>
-                    <p><b>Change text</b></p>
+                <div id="text-changer">
+                    <p className="AdminAccountModalChangeTextTitle">Change text</p>
                     <select id="textId" >
                         <option value="1">Stage text</option>
                         <option value="2">Position text</option>
