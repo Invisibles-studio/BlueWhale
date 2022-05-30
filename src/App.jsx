@@ -9,6 +9,7 @@ import {Adminpanel} from "./components/adminpanel.tsx"
 
 import {Routes, Route, Link, useNavigate, Redirect} from 'react-router-dom'
 import * as PropTypes from "prop-types";
+import Signout from "./components/Signout.tsx";
 
 function Navigate(props) {
     return null;
@@ -18,12 +19,7 @@ Navigate.propTypes = {
     to: PropTypes.string,
     children: PropTypes.node
 };
-export function SignOut(){
-    localStorage.clear()
-    return <div>
-        Succeful sign out
-    </div>
-}
+
 function App() {
   const [token, setToken] = useState();
   const [user, SetUser] = useState({});
@@ -46,7 +42,7 @@ function App() {
                       <Route path="/admin-control" element={<Adminpanel/>}/>
 
               }
-              <Route path="/signout" element={<SignOut />}/>
+              <Route path="/signout" element={<Signout />}/>
               <Route path="*" element={<Login setToken={setToken} SetUser={SetUser} />}/>
           </Routes>
 
