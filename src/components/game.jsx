@@ -23,14 +23,15 @@ export default function Game({ user}){
     const [isAdmin, setAdmin] = useState(false);
     const [stage, setStage] = useState();
     const [modalIsOpen, setModalIsOpen] = useState(false);
-
+    const timeForStageFourAndThree = 0.1;//90;
+    const timeForStageTwoAndOne = 0.1;//110
     function copyTheCode(){
         navigator.clipboard.writeText(document.getElementById("personal-code").textContent)
     }
 
     function getTime(){
-        return Date.now()+10800000;
-        //return Date.now()
+        //return Date.now()+10800000;
+        return Date.now()
     }
 
     function startGame(){
@@ -50,18 +51,20 @@ export default function Game({ user}){
 
     function getCheckCode(){
         if (checkPressed) return;
-        if (user.checkState === true){ return;}
+        getUserByLogin(localStorage.userLogin).then((usr)=>{
+        if (usr.checkState === true){ return;}
         document.querySelector(".gameWindow").classList.add("gameBlur")
         document.querySelector(".gameStartCircle").classList.remove("hidden")
         document.querySelector(".gameStartCircle").addEventListener("click", changeCheckState)
         document.getElementById("startTextbtn").innerHTML = "Code";
+        });
 
     }
 
     function changeCheckState(){
         let code = document.getElementById("personalCodeStart").value
         if (code === "") return;
-        editUserByLogin(user.login, "", 1, true, getTime(), code)
+        editUserByLogin(localStorage.userLogin, "", 1, true, getTime(), code)
         SetCheckPressed(true);
         document.querySelector(".gameRightBlockBottom").removeEventListener("click", getCheckCode, false)
     }
@@ -85,7 +88,7 @@ export default function Game({ user}){
             let kol= 0;
             let fullDaysGone = Math.floor(interval  /1440);
             let checkState = gameUser.checkState
-            if(st =="stagefour" && interval < 90){
+            if(st =="stagefour" && interval < timeForStageFourAndThree){
                 return {
                     stage: st,
                     stagefour: 2,
@@ -110,12 +113,12 @@ export default function Game({ user}){
                 }
                 console.log(todayWorkMinutes)
                 //console.log("today " + todayWorkMinutes); // будет работать только на следующий день после регистрации. // или нормально
-                let kolForLastIcon = workMinutesPreviousDays/90 + 2;
+                let kolForLastIcon = workMinutesPreviousDays/timeForStageFourAndThree + 2;
                 if (kolForLastIcon<2) kolForLastIcon=2;
-                kolForLastIcon += todayWorkMinutes/90;
-                kol = Math.floor(workMinutesPreviousDays/90 + 2)
+                kolForLastIcon += todayWorkMinutes/timeForStageFourAndThree;
+                kol = Math.floor(workMinutesPreviousDays/timeForStageFourAndThree + 2)
                 if (kol<2) kol=2;
-                kol += Math.floor(todayWorkMinutes/90)
+                kol += Math.floor(todayWorkMinutes/timeForStageFourAndThree)
                // console.log("1")
                 //kol = Math.floor(interval / 90 + 2);
                // console.log(kol)
@@ -131,24 +134,7 @@ export default function Game({ user}){
                             editUserByLogin(gameUser.login, "stagethree", getTime(), false);
                         })
                     }
-                    /*if (gameUser.checkTime < timeOfLastIcon){
-                        if (getTime()-timeOfLastIcon> 5*60*60*1000 && (getTime()/360000) % 24 < 20 && (getTime()/360000) % 24 > 10){
-                            getUserByLogin(gameUser.login).then((_user)=>{
-                                editUserByLogin(gameUser.login, "stagethree", getTime(), false).then((__user)=>{
-                                    SetGameUser(__user)
-                                })
-                            })
-                        }
-                    }else{
-                        if( (getTime()/360000) % 24 < 20 && (getTime()/360000) % 24 > 10){
-                            getUserByLogin(gameUser.login).then((_user)=>{
-                                editUserByLogin(gameUser.login, "stagethree", getTime(), false).then((__user)=>{
-                                    SetGameUser(__user)
-                                })
-                            })
-                        }
-                    //}
-*/
+
 
 
                 }else if(kol>=8) {kol = 8;} // перестановка на третью позицию.
@@ -173,17 +159,17 @@ export default function Game({ user}){
                     todayWorkMinutes = todayWorkMinutes - (getTime()/1000/60%1440- 21*60);
                     console.log(todayWorkMinutes)
                 }
-                let kolForLastIcon = workMinutesPreviousDays/90 + 1;
+                let kolForLastIcon = workMinutesPreviousDays/timeForStageFourAndThree + 1;
                 if (kolForLastIcon<1) kolForLastIcon=1;
-                kolForLastIcon += todayWorkMinutes/90;
-                kolForLastIcon += (workMinutesPreviousDays / 90 - kolForLastIcon)<0? 0: (workMinutesPreviousDays / 90 - kolForLastIcon) + todayWorkMinutes / 90;
-                let kol3 = Math.floor(workMinutesPreviousDays/90 + 1)
+                kolForLastIcon += todayWorkMinutes/timeForStageFourAndThree;
+                kolForLastIcon += (workMinutesPreviousDays / timeForStageFourAndThree - kolForLastIcon)<0? 0: (workMinutesPreviousDays / timeForStageFourAndThree - kolForLastIcon) + todayWorkMinutes / timeForStageFourAndThree;
+                let kol3 = Math.floor(workMinutesPreviousDays/timeForStageFourAndThree + 1)
                 if (kol3<0) kol3 = 1;
-                kol3 +=  Math.floor(todayWorkMinutes / 90);
+                kol3 +=  Math.floor(todayWorkMinutes / timeForStageFourAndThree);
                 if (kol3>4) kol3 =4;
-                let kol4 = Math.floor(workMinutesPreviousDays / 90 - kol3);
+                let kol4 = Math.floor(workMinutesPreviousDays / timeForStageFourAndThree - kol3);
                 if(kol4 < 0) kol4 = 0;
-                kol4 += Math.floor(todayWorkMinutes / 90);
+                kol4 += Math.floor(todayWorkMinutes / timeForStageFourAndThree);
 
                 if(kol4 >=8 && kol3>=4){
                     if(kolForLastIcon > 15.3 && (getTime()/3600000) % 24 < 21 && (getTime()/3600000) % 24 >11){
@@ -215,16 +201,16 @@ export default function Game({ user}){
                     console.log(todayWorkMinutes)
                 }
                 let kol2 = 2;
-                let kol3 = Math.floor((interval) / 110 + 1);
+                let kol3 = Math.floor((interval) / timeForStageTwoAndOne + 1);
                 if (kol3>4) kol3 =4;
 
-                let kol4 = Math.floor((interval) / 110-kol3);
+                let kol4 = Math.floor((interval) / timeForStageTwoAndOne-kol3);
                 if (kol4 > 8) kol4 = 8;
 
-                let kolForLastIcon = workMinutesPreviousDays/110;
+                let kolForLastIcon = workMinutesPreviousDays/timeForStageTwoAndOne;
                 if (kolForLastIcon<0) kolForLastIcon=0;
-                kolForLastIcon += todayWorkMinutes/110;
-                kolForLastIcon += (workMinutesPreviousDays / 110 - kolForLastIcon)<0? 0: (workMinutesPreviousDays / 110 - kolForLastIcon) + todayWorkMinutes / 110;
+                kolForLastIcon += todayWorkMinutes/timeForStageTwoAndOne;
+                kolForLastIcon += (workMinutesPreviousDays / timeForStageTwoAndOne - kolForLastIcon)<0? 0: (workMinutesPreviousDays / timeForStageTwoAndOne - kolForLastIcon) + todayWorkMinutes / timeForStageTwoAndOne;
 
                 if(kol4 >=8 && kol3>=4){
                     if(kolForLastIcon > 15.3 && (getTime()/3600000) % 24 < 21 && (getTime()/3600000) % 24 >11){
@@ -255,10 +241,10 @@ export default function Game({ user}){
                     console.log(todayWorkMinutes)
                 }
                 let kol2 = 2;
-                let kol3 = Math.floor((interval) / 110 + 1);
+                let kol3 = Math.floor((interval) / timeForStageTwoAndOne + 1);
                 if (kol3>4) kol3 =4;
 
-                let kol4 = Math.floor((interval) / 110-kol3);
+                let kol4 = Math.floor((interval) / timeForStageTwoAndOne-kol3);
                 if (kol4 > 8) kol4 = 8;
                 return {
                     stage: "stageone",
@@ -311,12 +297,15 @@ export default function Game({ user}){
 
     //  const [data, setData] = useState();
     useEffect(()=>{
-        if (user.lastUpdate != 1 ){
-            document.querySelector(".gameWindow").classList.remove("gameBlur")
-            document.querySelector(".gameStartCircle").classList.add("hidden")
-            document.querySelector(".gameRightBlockBottom").addEventListener("click", getCheckCode)
+        getUserByLogin(localStorage.userLogin).then((usr)=>{
+            if (usr.lastUpdate != 1 ){
+                document.querySelector(".gameWindow").classList.remove("gameBlur")
+                document.querySelector(".gameStartCircle").classList.add("hidden")
+                document.querySelector(".gameRightBlockBottom").addEventListener("click", getCheckCode)
 
-        }
+            }
+        });
+
 
         const fetchData = async () => {
             const gameUser = await getUserByLogin(localStorage.userLogin);
@@ -326,7 +315,7 @@ export default function Game({ user}){
             if (!gameUser.isAdmin){
 
                 let jopa = Check(gameUser);
-                console.log(jopa)
+
                 setCirclesInfo(jopa)
                 setStagePositionText(gameUser.stage)
                 if (jopa.stage === "stagetwo" || jopa.stage === "stagethree"){
