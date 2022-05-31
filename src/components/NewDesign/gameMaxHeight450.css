@@ -775,6 +775,60 @@
         margin: 0;
     }
 
+    .AdminAccountModalAlgSpeedTitle {
+        position: absolute;
+        left: 37.292vw;
+        top: 50.83vh;
+
+        font-style: normal;
+        font-weight: 500;
+        font-size: 2.083vw;
+        line-height: 4.44vh;
+
+        color: #000000;
+        margin: 0;
+    }
+
+    #alg-speed {
+        position: absolute;
+        width: 10.729vw;
+        height: 4.90vh;
+        left: 37.292vw;
+        top: 57.22vh;
+
+        background: #555671;
+        border-radius: 0.313vw;
+        border: 0;
+        outline: none;
+
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.250vw;
+        line-height: 1.510vw;
+
+        color: #FFFFFF;
+    }
+
+    .AdminAccountModalStartAlgorithm {
+        position: absolute;
+        width: 10.729vw;
+        height: 4.90vh;
+        left: 37.292vw;
+        top: 63.79vh;
+
+        background: #555671;
+        border-radius: 0.313vw;
+        border: 0;
+        outline: none;
+
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.250vw;
+        line-height: 1.510vw;
+
+        color: #FFFFFF;
+    }
+
     #position-idE {
         position: absolute;
         width: 10.729vw;

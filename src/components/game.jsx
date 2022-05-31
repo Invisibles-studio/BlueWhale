@@ -1,5 +1,5 @@
 /* eslint-disable */
-import {editUserByLogin, getUserByLogin} from "./firebase/api.tsx";
+import {editUserByLogin, editUserByLoginNew, getUserByLogin} from "./firebase/api.tsx";
 import {useEffect, useState} from "react";
 import "./NewDesign/game.css"
 import "./NewDesign/gameMaxHeight450.css"
@@ -26,12 +26,13 @@ export default function Game({ user}){
         stagetwo: 2,
         stageone: 1
     });*/
+
     const [checkPressed, SetCheckPressed] = useState(false)
     const [isAdmin, setAdmin] = useState(false);
     const [stage, setStage] = useState();
     const [modalIsOpen, setModalIsOpen] = useState(false);
-    let timeForStageFourAndThree = 0.1;//90;
-    let timeForStageTwoAndOne = 0.1;//110
+    let timeForStageFourAndThree = 90;
+    let timeForStageTwoAndOne = 110
     const navigate = useNavigate()
 
     function copyTheCode(){
@@ -39,8 +40,8 @@ export default function Game({ user}){
     }
 
     function getTime(){
-        return Date.now()+10800000;
-        //return Date.now()
+        //return Date.now()+10800000;
+        return Date.now()
     }
 
     function startGame(){
@@ -317,14 +318,12 @@ export default function Game({ user}){
             }
         });
 
-
         const fetchData = async () => {
             const gameUser = await getUserByLogin(localStorage.userLogin);
            // console.log(gameUser);
             setGameUser(gameUser);
 
             if (!gameUser.isAdmin){
-
                 let jopa = Check(gameUser);
 
                 //setCirclesInfo(jopa)
@@ -351,6 +350,24 @@ export default function Game({ user}){
         fetchData();
     }, [])
 
+    async function StartGameAlgorithm(){
+        const gameUser = await getUserByLogin(localStorage.userLogin);
+        setGameUser(gameUser);
+        let jopa = Check(gameUser);
+        circlesInfo = jopa;
+        setStagePositionText(gameUser.stage)
+        if (jopa.stage === "stagetwo" || jopa.stage === "stagethree"){
+            document.getElementById("checkbtnText").innerHTML = "just wait";
+        }
+        else if(jopa.stage === "stageone"){
+            document.getElementById("personal-code").innerHTML = " ";
+            document.getElementById("checkbtnText").innerHTML = "Requests";
+
+        }else if(jopa.stage === "stagefour"){
+
+        }
+        document.getElementById("personal-code").innerHTML = gameUser.personalCode
+    }
 
     function SelectCircle(){
         let pos = document.querySelector("#position-id").value;
@@ -436,6 +453,23 @@ export default function Game({ user}){
         return navigate("/signout")
     }
 
+    function StartAlgorithm(){
+        let type = document.querySelector("#alg-speed").value;
+        switch (type) {
+            case "fast":
+                timeForStageFourAndThree = 0.1
+                timeForStageTwoAndOne = 0.1
+                break
+            case "normal":
+                timeForStageFourAndThree = 90
+                timeForStageTwoAndOne = 110
+                break
+        }
+        editUserByLoginNew(localStorage.userLogin, {"lastUpdate":getTime(), "stage":"stagefour", "checkState": false, "checkTime":0})
+        gameUser.isAdmin = false
+        setGameUser(gameUser)
+        setInterval(StartGameAlgorithm, 2000)
+    }
 
     return <div>
         <div className="window">
@@ -569,6 +603,14 @@ export default function Game({ user}){
                         <button type="submit" onClick={ChangeText}>Change</button>
                     </div>
                 </div >
+                <div id="AlgorithmSpeed">
+                    <p className="AdminAccountModalAlgSpeedTitle">Algorithm speed</p>
+                    <select id="alg-speed">
+                        <option value="fast">Fast</option>
+                        <option value="normal">Normal</option>
+                    </select>
+                    <input type="button" className="AdminAccountModalStartAlgorithm" value="Start algorithm" onClick={StartAlgorithm}/>
+                </div>
             </Box>
         </Modal>
 
