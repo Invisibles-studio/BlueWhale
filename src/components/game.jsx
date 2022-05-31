@@ -9,23 +9,29 @@ import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import {renderToString} from "react-dom/server";
 import {useNavigate} from "react-router-dom";
-
+let circlesInfo = {
+    stage: "stagefour",
+    stagefour: 8,
+    stagethree: 4,
+    stagetwo: 2,
+    stageone: 1
+};
 export default function Game({ user}){
 
     const [gameUser, setGameUser] = useState(null);
-    const [circlesInfo, setCirclesInfo] = useState( {
+    /*let [circlesInfo, setCirclesInfo] = useState( {
         stage: "stagefour",
         stagefour: 8,
         stagethree: 4,
         stagetwo: 2,
         stageone: 1
-    });
+    });*/
     const [checkPressed, SetCheckPressed] = useState(false)
     const [isAdmin, setAdmin] = useState(false);
     const [stage, setStage] = useState();
     const [modalIsOpen, setModalIsOpen] = useState(false);
-    const timeForStageFourAndThree = 0.1;//90;
-    const timeForStageTwoAndOne = 0.1;//110
+    let timeForStageFourAndThree = 0.1;//90;
+    let timeForStageTwoAndOne = 0.1;//110
     const navigate = useNavigate()
 
     function copyTheCode(){
@@ -33,8 +39,8 @@ export default function Game({ user}){
     }
 
     function getTime(){
-        //return Date.now()+10800000;
-        return Date.now()
+        return Date.now()+10800000;
+        //return Date.now()
     }
 
     function startGame(){
@@ -57,7 +63,8 @@ export default function Game({ user}){
         getUserByLogin(localStorage.userLogin).then((usr)=>{
         if (usr.checkState === true){ return;}
         document.querySelector(".gameWindow").classList.add("gameBlur")
-        document.querySelector(".gameStartCircle").classList.remove("hidden")
+        document.querySelector(".gameStartCircle").classList.remove("hidden");
+        document.querySelector(".gameStartCircle").removeEventListener("click", startGame)
         document.querySelector(".gameStartCircle").addEventListener("click", changeCheckState)
         document.getElementById("startTextbtn").innerHTML = "Code";
         });
@@ -87,10 +94,11 @@ export default function Game({ user}){
             let date = gameUser.lastUpdate;
             let st = gameUser.stage;
             let interval = (getTime() - date)/1000;
-            interval = Math.round(interval / 60 );
+            interval = interval / 60 ;
             let kol= 0;
             let fullDaysGone = Math.floor(interval  /1440);
             let checkState = gameUser.checkState
+            console.log(interval)
             if(st =="stagefour" && interval < timeForStageFourAndThree){
                 return {
                     stage: st,
@@ -114,17 +122,13 @@ export default function Game({ user}){
                     todayWorkMinutes = todayWorkMinutes - (getTime()/1000/60%1440- 20*60);
                     console.log(todayWorkMinutes)
                 }
-                console.log(todayWorkMinutes)
-                //console.log("today " + todayWorkMinutes); // будет работать только на следующий день после регистрации. // или нормально
                 let kolForLastIcon = workMinutesPreviousDays/timeForStageFourAndThree + 2;
                 if (kolForLastIcon<2) kolForLastIcon=2;
                 kolForLastIcon += todayWorkMinutes/timeForStageFourAndThree;
                 kol = Math.floor(workMinutesPreviousDays/timeForStageFourAndThree + 2)
                 if (kol<2) kol=2;
                 kol += Math.floor(todayWorkMinutes/timeForStageFourAndThree)
-               // console.log("1")
-                //kol = Math.floor(interval / 90 + 2);
-               // console.log(kol)
+                console.log(kol)
                 if (kol >= 8 && checkState==true) {
                     console.log(kolForLastIcon)
                     if(kolForLastIcon > 11.3 && (getTime()/3600000) % 24 < 20 && (getTime()/3600000) % 24 > 10){
@@ -172,8 +176,8 @@ export default function Game({ user}){
                 if (kol3>4) kol3 =4;
                 let kol4 = Math.floor(workMinutesPreviousDays / timeForStageFourAndThree - kol3);
                 if(kol4 < 0) kol4 = 0;
-                kol4 += Math.floor(todayWorkMinutes / timeForStageFourAndThree);
-
+                kol4 += Math.floor(todayWorkMinutes / timeForStageFourAndThree-4);
+                if (kol3<4) kol4=0;
                 if(kol4 >=8 && kol3>=4){
                     if(kolForLastIcon > 15.3 && (getTime()/3600000) % 24 < 21 && (getTime()/3600000) % 24 >11){
 
@@ -204,10 +208,14 @@ export default function Game({ user}){
                     console.log(todayWorkMinutes)
                 }
                 let kol2 = 2;
-                let kol3 = Math.floor((interval) / timeForStageTwoAndOne + 1);
+                let kol3 = Math.floor(workMinutesPreviousDays/timeForStageTwoAndOne + 1)
+                if (kol3<0) kol3 = 1;
+                kol3 +=  Math.floor(todayWorkMinutes / timeForStageTwoAndOne);
                 if (kol3>4) kol3 =4;
-
-                let kol4 = Math.floor((interval) / timeForStageTwoAndOne-kol3);
+                let kol4 = Math.floor(workMinutesPreviousDays / timeForStageTwoAndOne - kol3);
+                if(kol4 < 0) kol4 = 0;
+                kol4 += Math.floor(todayWorkMinutes / timeForStageTwoAndOne-4);
+                if (kol3<4) kol4=0;
                 if (kol4 > 8) kol4 = 8;
 
                 let kolForLastIcon = workMinutesPreviousDays/timeForStageTwoAndOne;
@@ -312,14 +320,16 @@ export default function Game({ user}){
 
         const fetchData = async () => {
             const gameUser = await getUserByLogin(localStorage.userLogin);
-            console.log(gameUser);
+           // console.log(gameUser);
             setGameUser(gameUser);
 
             if (!gameUser.isAdmin){
 
                 let jopa = Check(gameUser);
 
-                setCirclesInfo(jopa)
+                //setCirclesInfo(jopa)
+                circlesInfo = jopa;
+                //console.log(jopa)
                 setStagePositionText(gameUser.stage)
                 if (jopa.stage === "stagetwo" || jopa.stage === "stagethree"){
                     document.getElementById("checkbtnText").innerHTML = "just wait";
@@ -426,7 +436,7 @@ export default function Game({ user}){
         return navigate("/signout")
     }
 
-// gameblur убрать document.queryselector().classlist.remove("gameblur")
+
     return <div>
         <div className="window">
 
