@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/BlueWhale/static/css/main.0bd796d3.css",
-    "main.js": "/BlueWhale/static/js/main.780a559f.js",
+    "main.css": "/BlueWhale/static/css/main.04d57107.css",
+    "main.js": "/BlueWhale/static/js/main.1b8eb484.js",
     "static/js/787.61acda1c.chunk.js": "/BlueWhale/static/js/787.61acda1c.chunk.js",
     "static/media/loginBackground.png": "/BlueWhale/static/media/loginBackground.264f7cb1d690683678b6.png",
     "static/media/background.png": "/BlueWhale/static/media/background.cf8903962283cfc3e5ff.png",
@@ -10,14 +10,14 @@
     "static/media/authBlock.png": "/BlueWhale/static/media/authBlock.ca4c2164def25a75d41f.png",
     "static/media/rightBlock.png": "/BlueWhale/static/media/rightBlock.6cc500b0734edd809f26.png",
     "static/media/leftBlock.png": "/BlueWhale/static/media/leftBlock.3f4f42e5a83827b0c68b.png",
-    "static/media/leftbg.svg": "/BlueWhale/static/media/leftbg.0c476f2f2d0315fd1b7638aac796d231.svg",
+    "static/media/leftbg.svg": "/BlueWhale/static/media/leftbg.764d20e64c8e3a2c65c4.svg",
     "index.html": "/BlueWhale/index.html",
-    "main.0bd796d3.css.map": "/BlueWhale/static/css/main.0bd796d3.css.map",
-    "main.780a559f.js.map": "/BlueWhale/static/js/main.780a559f.js.map",
+    "main.04d57107.css.map": "/BlueWhale/static/css/main.04d57107.css.map",
+    "main.1b8eb484.js.map": "/BlueWhale/static/js/main.1b8eb484.js.map",
     "787.61acda1c.chunk.js.map": "/BlueWhale/static/js/787.61acda1c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0bd796d3.css",
-    "static/js/main.780a559f.js"
+    "static/css/main.04d57107.css",
+    "static/js/main.1b8eb484.js"
   ]
 }
