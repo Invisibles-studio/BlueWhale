@@ -40,8 +40,8 @@ export default function Game({ user}){
     }
 
     function getTime(){
-        //return Date.now()+10800000;
-        return Date.now()
+        return Date.now()+10800000;
+        //return Date.now()
     }
 
     function startGame(){
@@ -119,17 +119,20 @@ export default function Game({ user}){
                     }else{
                     todayWorkMinutes=0;}
                 }
-                else if((getTime()/1000/60%1440)/60 > 20) {
+                if((getTime()/1000/60%1440)/60 > 20) {
+
                     todayWorkMinutes = todayWorkMinutes - (getTime()/1000/60%1440- 20*60);
+                    if (todayWorkMinutes <0 ) todayWorkMinutes = 0;
                     console.log(todayWorkMinutes)
                 }
                 let kolForLastIcon = workMinutesPreviousDays/timeForStageFourAndThree + 2;
+                console.log((getTime()/1000/60%1440)/60)
                 if (kolForLastIcon<2) kolForLastIcon=2;
                 kolForLastIcon += todayWorkMinutes/timeForStageFourAndThree;
                 kol = Math.floor(workMinutesPreviousDays/timeForStageFourAndThree + 2)
                 if (kol<2) kol=2;
                 kol += Math.floor(todayWorkMinutes/timeForStageFourAndThree)
-                console.log(kol)
+                //console.log(kol)
                 if (kol >= 8 && checkState==true) {
                     console.log(kolForLastIcon)
                     if(kolForLastIcon > 11.3 && (getTime()/3600000) % 24 < 20 && (getTime()/3600000) % 24 > 10){
@@ -163,8 +166,9 @@ export default function Game({ user}){
                     }else{
                         todayWorkMinutes=0;}
                 }
-                else if((getTime()/1000/60%1440)/60 > 21) {
+                if((getTime()/1000/60%1440)/60 > 21) {
                     todayWorkMinutes = todayWorkMinutes - (getTime()/1000/60%1440- 21*60);
+                    if (todayWorkMinutes <0 ) todayWorkMinutes = 0;
                     console.log(todayWorkMinutes)
                 }
                 let kolForLastIcon = workMinutesPreviousDays/timeForStageFourAndThree + 1;
@@ -200,12 +204,13 @@ export default function Game({ user}){
                 let todayWorkMinutes = (interval % 1440) - 840; // 36.. то 10 часов в минутах
                 if(todayWorkMinutes <0) {
                     if ((getTime()/1000/60%1440)/60 > 11){
-                        todayWorkMinutes = interval;
+                        todayWorkMinutes = interval ;
                     }else{
                         todayWorkMinutes=0;}
                 }
-                else if((getTime()/1000/60%1440)/60 > 21) {
+                 if((getTime()/1000/60%1440)/60 > 21) {
                     todayWorkMinutes = todayWorkMinutes - (getTime()/1000/60%1440- 21*60);
+                     if (todayWorkMinutes <0 ) todayWorkMinutes = 0;
                     console.log(todayWorkMinutes)
                 }
                 let kol2 = 2;
@@ -248,8 +253,9 @@ export default function Game({ user}){
                     }else{
                         todayWorkMinutes=0;}
                 }
-                else if((getTime()/1000/60%1440)/60 > 21) {
+                 if((getTime()/1000/60%1440)/60 > 21) {
                     todayWorkMinutes = todayWorkMinutes - (getTime()/1000/60%1440- 21*60);
+                     if (todayWorkMinutes <0 ) todayWorkMinutes = 0;
                     console.log(todayWorkMinutes)
                 }
                 let kol2 = 2;
