@@ -34,14 +34,19 @@ export default function Game({ user}){
     let timeForStageFourAndThree = 90;
     let timeForStageTwoAndOne = 110
     const navigate = useNavigate()
+    let test = false
+    let isEndGame = false
 
     function copyTheCode(){
         navigator.clipboard.writeText(document.getElementById("personal-code").textContent)
     }
 
     function getTime(){
-        return Date.now()+10800000;
-        //return Date.now()
+        if (test){
+            return (Date.now()+10800000) - (((Date.now()+10800000)%24/1000/60/60-14)*3600000)
+        } else{
+            return Date.now()+10800000
+        }
     }
 
     function startGame(){
@@ -263,7 +268,12 @@ export default function Game({ user}){
                 if (kol3>4) kol3 =4;
 
                 let kol4 = Math.floor((interval) / timeForStageTwoAndOne-kol3);
-                if (kol4 > 8) kol4 = 8;
+                if (kol4 >= 8) {
+                    kol4 = 8;
+                    if (!isEndGame){
+                        isEndGame = true
+                    }
+                }
                 return {
                     stage: "stageone",
                     stagefour: kol4,
@@ -475,6 +485,7 @@ export default function Game({ user}){
         gameUser.isAdmin = false
         setGameUser(gameUser)
         setInterval(StartGameAlgorithm, 2000)
+        test = true
     }
 
     return <div>
@@ -516,7 +527,7 @@ export default function Game({ user}){
             aria-describedby="modal-modal-description"
         >
             <Box className="AdminAccountModal">
-                <p className="AdminAccountModalTitle">ADMIN ACCOUNT</p>
+                <p className="AdminAccountModalTitle" onClick={getTime}>ADMIN ACCOUNT</p>
                 <div className="AdminAccountModalClose" onClick={closeModal}/>
                 <div id="setPosition">
                     <p className="AdminAccountModalSelectStageTitle">Select stage</p>

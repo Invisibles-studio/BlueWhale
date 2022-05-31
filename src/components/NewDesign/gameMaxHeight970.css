@@ -3,6 +3,8 @@
         background-image: url("../images/radar.png");
         width: 41.667vw;
         height: 41.667vw;
+/*        width: 74.074vh;
+        height: 74.074vh;*/
         background-repeat: no-repeat;
         background-size: contain;
     }
@@ -285,12 +287,14 @@
 
     }
 
+    /*Admin Account Modal*/
+
     .AdminAccountModal {
         position: absolute;
         width: 73.490vw;
-        height: 42.917vw;
+        height: 76.296vh;
         left: 12.708vw;
-        top: 4.167vw;
+        top: 9.722vh;
         border-radius: 2.083vw;
         background: rgba(255, 255, 255, 0.5);
         border: 0.521vw solid #2B2346;
@@ -302,7 +306,7 @@
     .AdminAccountModalTitle {
         position: absolute;
         left: 25.521vw;
-        top: 2.292vw;
+        top: 4.074vh;
 
         font-style: normal;
         font-weight: 500;
@@ -316,10 +320,10 @@
 
     .AdminAccountModalClose{
         position: absolute;
-        width: 2.135vw;
-        height: 2.135vw;
+        width: 2.141vw;
+        height: 3.796vh;
         left: 68.594vw;
-        top: 2.135vw;
+        top: 3.796vh;
         background-image: url("../images/cross.png");
         background-repeat: no-repeat;
         background-size: contain;
@@ -329,7 +333,7 @@
     .AdminAccountModalChangeTextTitle {
         position: absolute;
         left: 5.156vw;
-        top: 9.948vw;
+        top: 17.685vh;
         font-style: normal;
         font-weight: 500;
         font-size: 2.083vw;
@@ -337,133 +341,12 @@
 
         color: #000000;
         margin: 0;
-    }
-
-    #textId {
-        position: absolute;
-
-        width: 12.448vw;
-        height: 2.760vw;
-        left: 5.156vw;
-        top: 13.698vw;
-
-        background: #555671;
-        border-radius: 0.313vw;
-        border: 0;
-
-        font-style: normal;
-        font-weight: 400;
-        font-size: 1.250vw;
-        line-height: 1.510vw;
-
-        color: #FFFFFF;
-    }
-
-    #txtarea {
-        box-sizing: border-box;
-
-        position: absolute;
-        width: 12.344vw;
-        height: 6.927vw;
-        left: 5.260vw;
-        top: 17.292vw;
-
-        background: rgba(255, 255, 255, 0.15);
-        border: 0.260vw solid #555671;
-        border-radius: 0.521vw;
-        resize: none;
-        outline:none;
-
-        font-style: normal;
-        font-weight: 400;
-        font-size: 0.729vw;
-        line-height: 0.885vw;
-
-
-        color: #4c4c4c;
-    }
-
-    #text-changer button {
-        position: absolute;
-        width: 12.448vw;
-        height: 2.760vw;
-        left: 5.156vw;
-        top: 25.833vw;
-
-        background: #555671;
-        border-radius: 0.313vw;
-        border: 0;
-        outline:none;
-
-        font-style: normal;
-        font-weight: 400;
-        font-size: 1.250vw;
-        line-height: 1.510vw;
-
-        color: #FFFFFF;
-    }
-
-    #stars p {
-        position: absolute;
-        margin: 0;
-
-        left: 5.156vw;
-        top: 31.094vw;
-
-        font-style: normal;
-        font-weight: 500;
-        font-size: 2.083vw;
-        line-height: 2.500vw;
-
-        color: #000000;
-    }
-
-    #addStar {
-        position: absolute;
-        width: 12.448vw;
-        height: 2.760vw;
-        left: 5.156vw;
-        top: 35.521vw;
-
-        background: #555671;
-        border-radius: 0.313vw;
-
-        border: 0;
-        outline:none;
-
-        font-style: normal;
-        font-weight: 400;
-        font-size: 1.250vw;
-        line-height: 1.510vw;
-
-        color: #FFFFFF;
-    }
-
-    #removeStar {
-        position: absolute;
-        width: 12.448vw;
-        height: 2.760vw;
-        left: 18.385vw;
-        top: 35.521vw;
-
-        background: #555671;
-        border-radius: 0.313vw;
-
-        border: 0;
-        outline:none;
-
-        font-style: normal;
-        font-weight: 400;
-        font-size: 1.250vw;
-        line-height: 1.510vw;
-
-        color: #FFFFFF;
     }
 
     .AdminAccountModalSelectStageTitle {
         position: absolute;
         left: 21.875vw;
-        top: 9.948vw;
+        top: 17.685vh;
 
         font-style: normal;
         font-weight: 500;
@@ -472,72 +355,12 @@
 
         color: #000000;
         margin: 0;
-    }
-
-    #position-id {
-        position: absolute;
-        width: 10.729vw;
-        height: 2.760vw;
-        left: 21.875vw;
-        top: 13.698vw;
-
-        background: #555671;
-        border-radius: 0.313vw;
-        border: 0;
-        outline: none;
-
-        font-style: normal;
-        font-weight: 400;
-        font-size: 1.250vw;
-        line-height: 1.510vw;
-
-        color: #FFFFFF;
-    }
-
-    #circle-id {
-        position: absolute;
-        width: 10.729vw;
-        height: 2.760vw;
-        left: 21.875vw;
-        top: 16.771vw;
-
-        background: #555671;
-        border-radius: 0.313vw;
-        border: 0;
-        outline: none;
-
-        font-style: normal;
-        font-weight: 400;
-        font-size: 1.250vw;
-        line-height: 1.510vw;
-
-        color: #FFFFFF;
-    }
-
-    #setPosition button{
-        position: absolute;
-        width: 9.323vw;
-        height: 2.760vw;
-        left: 21.875vw;
-        top: 20.469vw;
-
-        background: #555671;
-        border-radius: 0.313vw;
-        border: 0;
-        outline: none;
-
-        font-style: normal;
-        font-weight: 400;
-        font-size: 1.250vw;
-        line-height: 1.510vw;
-
-        color: #FFFFFF;
     }
 
     .AdminAccountModalDisableCircleTitle {
         position: absolute;
         left: 38.646vw;
-        top: 9.948vw;
+        top: 17.685vh;
 
         font-style: normal;
         font-weight: 500;
@@ -548,70 +371,10 @@
         margin: 0;
     }
 
-    #position-idD {
-        position: absolute;
-        width: 10.729vw;
-        height: 2.760vw;
-        left: 38.646vw;
-        top: 13.698vw;
-
-        background: #555671;
-        border-radius: 0.313vw;
-        border: 0;
-        outline: none;
-
-        font-style: normal;
-        font-weight: 400;
-        font-size: 1.250vw;
-        line-height: 1.510vw;
-
-        color: #FFFFFF;
-    }
-
-    #circle-idD {
-        position: absolute;
-        width: 10.729vw;
-        height: 2.760vw;
-        left: 38.646vw;
-        top: 16.771vw;
-
-        background: #555671;
-        border-radius: 0.313vw;
-        border: 0;
-        outline: none;
-
-        font-style: normal;
-        font-weight: 400;
-        font-size: 1.250vw;
-        line-height: 1.510vw;
-
-        color: #FFFFFF;
-    }
-
-    #disableCircle button {
-        position: absolute;
-        width: 9.323vw;
-        height: 2.760vw;
-        left: 38.646vw;
-        top: 20.469vw;
-
-        background: #555671;
-        border-radius: 0.313vw;
-        border: 0;
-        outline: none;
-
-        font-style: normal;
-        font-weight: 400;
-        font-size: 1.250vw;
-        line-height: 1.510vw;
-
-        color: #FFFFFF;
-    }
-
     .AdminAccountModalEnableCircleTitle {
         position: absolute;
         left: 56.146vw;
-        top: 9.948vw;
+        top: 17.685vh;
 
         font-style: normal;
         font-weight: 500;
@@ -636,26 +399,6 @@
         margin: 0;
     }
 
-    #alg-speed {
-        position: absolute;
-        width: 10.729vw;
-        height: 4.90vh;
-        left: 37.292vw;
-        top: 57.22vh;
-
-        background: #555671;
-        border-radius: 0.313vw;
-        border: 0;
-        outline: none;
-
-        font-style: normal;
-        font-weight: 400;
-        font-size: 1.250vw;
-        line-height: 1.510vw;
-
-        color: #FFFFFF;
-    }
-
     .AdminAccountModalStartAlgorithm {
         position: absolute;
         width: 10.729vw;
@@ -676,12 +419,274 @@
         color: #FFFFFF;
     }
 
+    #textId {
+        position: absolute;
+
+        width: 12.448vw;
+        height: 4.907vh;
+        left: 5.156vw;
+        top: 24.351vh;
+
+        background: #555671;
+        border-radius: 0.313vw;
+        border: 0;
+
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.250vw;
+        line-height: 1.510vw;
+
+        color: #FFFFFF;
+    }
+
+    #txtarea {
+        box-sizing: border-box;
+
+        position: absolute;
+        width: 12.344vw;
+        height: 12.314vh;
+        left: 5.260vw;
+        top: 30.740vh;
+
+        background: rgba(255, 255, 255, 0.15);
+        border: 0.260vw solid #555671;
+        border-radius: 0.521vw;
+        resize: none;
+        outline:none;
+
+        font-style: normal;
+        font-weight: 400;
+        font-size: 0.729vw;
+        line-height: 0.885vw;
+
+
+        color: #4c4c4c;
+    }
+
+    #text-changer button {
+        position: absolute;
+        width: 12.448vw;
+        height: 4.907vh;
+        left: 5.156vw;
+        top: 45.925vh;
+
+        background: #555671;
+        border-radius: 0.313vw;
+        border: 0;
+        outline:none;
+
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.250vw;
+        line-height: 1.510vw;
+
+        color: #FFFFFF;
+    }
+
+    #stars p {
+        position: absolute;
+        margin: 0;
+
+        left: 5.156vw;
+        top: 55.277vh;
+
+        font-style: normal;
+        font-weight: 500;
+        font-size: 2.083vw;
+        line-height: 2.500vw;
+
+        color: #000000;
+    }
+
+    #addStar {
+        position: absolute;
+        width: 12.448vw;
+        height: 4.907vh;
+        left: 5.156vw;
+        top: 63.148vh;
+
+        background: #555671;
+        border-radius: 0.313vw;
+
+        border: 0;
+        outline:none;
+
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.250vw;
+        line-height: 1.510vw;
+
+        color: #FFFFFF;
+    }
+
+    #removeStar {
+        position: absolute;
+        width: 12.448vw;
+        height: 4.907vh;
+        left: 18.385vw;
+        top: 63.148vh;
+
+
+        background: #555671;
+        border-radius: 0.313vw;
+
+        border: 0;
+        outline:none;
+
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.250vw;
+        line-height: 1.510vw;
+
+        color: #FFFFFF;
+    }
+
+    #position-id {
+        position: absolute;
+        width: 10.729vw;
+        height: 4.907vh;
+        left: 21.875vw;
+        top: 24.351vh;
+
+        background: #555671;
+        border-radius: 0.313vw;
+        border: 0;
+        outline: none;
+
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.250vw;
+        line-height: 1.510vw;
+
+        color: #FFFFFF;
+    }
+
+    #circle-id {
+        position: absolute;
+        width: 10.729vw;
+        height: 4.907vh;
+        left: 21.875vw;
+        top: 29.814vh;
+
+        background: #555671;
+        border-radius: 0.313vw;
+        border: 0;
+        outline: none;
+
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.250vw;
+        line-height: 1.510vw;
+
+        color: #FFFFFF;
+    }
+
+    #setPosition button{
+        position: absolute;
+        width: 9.323vw;
+        height: 4.907vh;
+        left: 21.875vw;
+        top: 36.388vh;
+
+        background: #555671;
+        border-radius: 0.313vw;
+        border: 0;
+        outline: none;
+
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.250vw;
+        line-height: 1.510vw;
+
+        color: #FFFFFF;
+    }
+
+    #position-idD {
+        position: absolute;
+        width: 10.729vw;
+        height: 4.907vh;
+        left: 38.646vw;
+        top: 24.351vh;
+
+        background: #555671;
+        border-radius: 0.313vw;
+        border: 0;
+        outline: none;
+
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.250vw;
+        line-height: 1.510vw;
+
+        color: #FFFFFF;
+    }
+
+    #circle-idD {
+        position: absolute;
+        width: 10.729vw;
+        height: 4.907vh;
+        left: 38.646vw;
+        top: 29.814vh;
+
+        background: #555671;
+        border-radius: 0.313vw;
+        border: 0;
+        outline: none;
+
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.250vw;
+        line-height: 1.510vw;
+
+        color: #FFFFFF;
+    }
+
+    #disableCircle button {
+        position: absolute;
+        width: 9.323vw;
+        height: 4.907vh;
+        left: 38.646vw;
+        top: 36.388vh;
+
+        background: #555671;
+        border-radius: 0.313vw;
+        border: 0;
+        outline: none;
+
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.250vw;
+        line-height: 1.510vw;
+
+        color: #FFFFFF;
+    }
+
+    #alg-speed {
+        position: absolute;
+        width: 10.729vw;
+        height: 4.90vh;
+        left: 37.292vw;
+        top: 57.22vh;
+
+        background: #555671;
+        border-radius: 0.313vw;
+        border: 0;
+        outline: none;
+
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.250vw;
+        line-height: 1.510vw;
+
+        color: #FFFFFF;
+    }
+
     #position-idE {
         position: absolute;
         width: 10.729vw;
-        height: 2.760vw;
+        height: 4.907vh;
         left: 56.146vw;
-        top: 13.698vw;
+        top: 24.351vh;
 
         background: #555671;
         border-radius: 0.313vw;
@@ -699,9 +704,9 @@
     #circle-idE {
         position: absolute;
         width: 10.729vw;
-        height: 2.760vw;
+        height: 4.907vh;
         left: 56.146vw;
-        top: 16.771vw;
+        top: 29.814vh;
 
         background: #555671;
         border-radius: 0.313vw;
@@ -719,9 +724,9 @@
     #enableCircle button{
         position: absolute;
         width: 9.323vw;
-        height: 2.760vw;
+        height: 4.907vh;
         left: 56.146vw;
-        top: 20.469vw;
+        top: 36.388vh;
 
         background: #555671;
         border-radius: 0.313vw;
@@ -735,6 +740,9 @@
 
         color: #FFFFFF;
     }
+
+
+    /*Game mechanic*/
 
     .stagefour#first{
         position: absolute;
