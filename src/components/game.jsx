@@ -36,6 +36,7 @@ export default function Game({ user}){
     const navigate = useNavigate()
     let test = false
     let isEndGame = false
+    let isShowCodeGame = false
 
     function copyTheCode(){
         navigator.clipboard.writeText(document.getElementById("personal-code").textContent)
@@ -488,18 +489,34 @@ export default function Game({ user}){
         test = true
     }
 
+    async function ShowOrHideCodeGame(){
+        if (isShowCodeGame){
+            document.querySelector(".gameCodeBlock").classList.add("hidden")
+            document.querySelector(".gameCodeBlockLabel").classList.add("hidden")
+            isShowCodeGame = false
+        }
+        else{
+            let userG = await getUserByLogin(localStorage.userLogin)
+            document.querySelector(".gameCodeBlock").classList.remove("hidden")
+            document.querySelector(".gameCodeBlockLabel").classList.remove("hidden")
+            document.querySelector("#upper-code").innerHTML = userG.personalCode
+            setTimeout(ShowOrHideCodeGame, 5000)
+            isShowCodeGame = true
+        }
+    }
+
     return <div>
         <div className="window">
 
         <div className="gameWindow gameBlur">
             <p className="gameRadarTitle" onClick={openModal}>RADAR</p>
             <div className="gameRadarW"><div className="radarImage" id="radarWindow"><Ellipse circlesInfo={circlesInfo}/></div></div>
-            <p className="gameCodeBlockLabel">Code:</p>
-            <div className="gameCodeBlock"><p id="upper-code">dnvn1g3g9mcsx1dv</p></div>
+            <p className="gameCodeBlockLabel hidden">Code:</p>
+            <div className="gameCodeBlock hidden"><p id="upper-code"></p></div>
             <div className="gameLeftBlock">
                 <div className="gameLeftBlockTop stage" ><p id="stage">STAGE {stage}</p></div>
                 <div className="gameLeftBlockMiddle position"><p id="position">POSITION 4</p></div>
-                <div className="gameLeftBlockButton codeleft" onClick={test => {console.log("TEST")}}><p id="personal-code">MY CODE</p></div>
+                <div className="gameLeftBlockButton codeleft" onClick={ShowOrHideCodeGame}><p id="personal-code">MY CODE</p></div>
             </div>
             <div className="gameRightBlock">
                 <div className="gameRightBlockTop" onClick={copyTheCode}><p>COPY THE CODE</p></div>
