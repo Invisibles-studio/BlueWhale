@@ -8,6 +8,7 @@ import RulesPng from "./images/rules.png"
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import {renderToString} from "react-dom/server";
+import {useNavigate} from "react-router-dom";
 
 export default function Game({ user}){
 
@@ -25,6 +26,8 @@ export default function Game({ user}){
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const timeForStageFourAndThree = 0.1;//90;
     const timeForStageTwoAndOne = 0.1;//110
+    const navigate = useNavigate()
+
     function copyTheCode(){
         navigator.clipboard.writeText(document.getElementById("personal-code").textContent)
     }
@@ -419,6 +422,10 @@ export default function Game({ user}){
         document.getElementById(textnameId).innerHTML = text;
     }
 
+    function LogOut(){
+        return navigate("/signout")
+    }
+
 // gameblur убрать document.queryselector().classlist.remove("gameblur")
     return <div>
         <div className="window">
@@ -446,6 +453,10 @@ export default function Game({ user}){
                 <div className="Star5 StarNotSelected"/>
             </div>
             <input className="rulesBtn" type="image" alt="Rules" src={RulesPng} />
+            <div className="gameSignOutButtonOnMain" onClick={LogOut}>
+                <div className="gameSignOutButtonOnMainArrow"/>
+            </div>
+            <p className="gameSignOutButtonOnMainText">Log out</p>
         </div>
 
         <Modal
