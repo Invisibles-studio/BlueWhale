@@ -64,6 +64,7 @@ export async function addNewUser(username: string, passwordNotHashed: string, is
             checkState: false,
             isAdmin: isAdmin,
             checkTime: 0,
+            checkCode: "",
             personalCode: personalCode,
             refUnicCount: 0,
             isBlogger: false,
@@ -91,7 +92,8 @@ export async function editUserByLoginNew(username: string, json: JSONObject){
         if (key === "stage" || key === "lastUpdate" ||
             key === "checkState" || key === "checkTime"
             || key === "personalCode" || key === "isAdmin"
-            || key === "isBlogger" || key === "refUnicCount") {
+            || key === "isBlogger" || key === "refUnicCount"
+            || key === "checkCode") {
 
             user[key] = json[key]
         }
@@ -128,7 +130,7 @@ export async function addNewMemberByRef(refCode: string){
     await editUserByLoginNew(user.login, {"refUnicCount": ++user.refUnicCount})
 }
 
-export async function editUserByLogin(username: string, stage: string = "", lastUpdate: number = 1, checkState: boolean = undefined, checkTime: number = 1, personalCode: string = ""){
+export async function editUserByLogin(username: string, stage: string = "", lastUpdate: number = 1, checkState: boolean = undefined, checkTime: number = 1,  personalCode: string = ""){
 
     let user = await getUserByLogin(username)
 

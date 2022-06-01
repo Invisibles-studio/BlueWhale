@@ -29,7 +29,7 @@ export default function Game({ user}){
 
     const [checkPressed, SetCheckPressed] = useState(false)
     const [isAdmin, setAdmin] = useState(false);
-    const [stage, setStage] = useState();
+    const [stage, setStage] = useState(4);
     const [modalIsOpen, setModalIsOpen] = useState(false);
     let timeForStageFourAndThree = 90;
     let timeForStageTwoAndOne = 110
@@ -37,14 +37,15 @@ export default function Game({ user}){
     let test = false
     let isEndGame = false
     let isShowCodeGame = false
-
+    let timeToTestTotwopm = ((Date.now()+10800000)/1000/60/60%24-14)*3600000;
     function copyTheCode(){
-        navigator.clipboard.writeText(document.getElementById("personal-code").textContent)
+        navigator.clipboard.writeText(document.getElementById("upper-code").textContent)
     }
 
     function getTime(){
         if (test){
-            return (Date.now()+10800000) - (((Date.now()+10800000)%24/1000/60/60-14)*3600000)
+           console.log((Date.now()+10800000) - timeToTestTotwopm)
+            return (Date.now()+10800000) - timeToTestTotwopm
         } else{
             return Date.now()+10800000
         }
@@ -81,9 +82,11 @@ export default function Game({ user}){
     function changeCheckState(){
         let code = document.getElementById("personalCodeStart").value
         if (code === "") return;
-        editUserByLogin(localStorage.userLogin, "", 1, true, getTime(), code)
+        //editUserByLogin(localStorage.userLogin, "", 1, true, getTime(), code)
+        editUserByLoginNew(localStorage.userLogin, {"checkState" : true, "checkCode" : code})
         SetCheckPressed(true);
         document.querySelector(".gameRightBlockBottom").removeEventListener("click", getCheckCode, false)
+        document.querySelector("#checkbtnText").innerHTML = "CHECKED"
     }
 
     function Check(gameUser){
@@ -105,7 +108,7 @@ export default function Game({ user}){
             let kol= 0;
             let fullDaysGone = Math.floor(interval  /1440);
             let checkState = gameUser.checkState
-            console.log(interval)
+            //console.log(interval)
             if(st =="stagefour" && interval < timeForStageFourAndThree){
                 return {
                     stage: st,
@@ -132,10 +135,10 @@ export default function Game({ user}){
                     console.log(todayWorkMinutes)
                 }
                 let kolForLastIcon = workMinutesPreviousDays/timeForStageFourAndThree + 2;
-                console.log((getTime()/1000/60%1440)/60)
+                //console.log((getTime()/1000/60%1440)/60)
                 if (kolForLastIcon<2) kolForLastIcon=2;
                 kolForLastIcon += todayWorkMinutes/timeForStageFourAndThree;
-                kol = Math.floor(workMinutesPreviousDays/timeForStageFourAndThree + 2)
+                kol = Math.floor(workMinutesPreviousDays/timeForStageFourAndThree + 1)
                 if (kol<2) kol=2;
                 kol += Math.floor(todayWorkMinutes/timeForStageFourAndThree)
                 //console.log(kol)
@@ -185,9 +188,9 @@ export default function Game({ user}){
                 if (kol3<0) kol3 = 1;
                 kol3 +=  Math.floor(todayWorkMinutes / timeForStageFourAndThree);
                 if (kol3>4) kol3 =4;
-                let kol4 = Math.floor(workMinutesPreviousDays / timeForStageFourAndThree - kol3);
+                let kol4 = Math.floor(workMinutesPreviousDays / timeForStageFourAndThree);// - kol3);
                 if(kol4 < 0) kol4 = 0;
-                kol4 += Math.floor(todayWorkMinutes / timeForStageFourAndThree-4);
+                kol4 += Math.floor(todayWorkMinutes / timeForStageFourAndThree- kol3);//-4);
                 if (kol3<4) kol4=0;
                 if(kol4 >=8 && kol3>=4){
                     if(kolForLastIcon > 15.3 && (getTime()/3600000) % 24 < 21 && (getTime()/3600000) % 24 >11){
@@ -297,10 +300,10 @@ export default function Game({ user}){
     function setStagePositionText(id){
         let stage;
         switch (id){
-            case "stagefour": stage = 1; break;
-            case "stagethree": stage = 2; break;
-            case "stagetwo": stage = 3; break;
-            case "stageone" : stage = 4; break;
+            case "stagefour": stage = 4; break;
+            case "stagethree": stage = 3; break;
+            case "stagetwo": stage = 2; break;
+            case "stageone" : stage = 1; break;
         }
         setStage(stage);
 
@@ -369,6 +372,7 @@ export default function Game({ user}){
         const gameUser = await getUserByLogin(localStorage.userLogin);
         setGameUser(gameUser);
         let jopa = Check(gameUser);
+        console.log(jopa)
         circlesInfo = jopa;
         setStagePositionText(gameUser.stage)
         if (jopa.stage === "stagetwo" || jopa.stage === "stagethree"){
@@ -478,11 +482,13 @@ export default function Game({ user}){
                 timeForStageTwoAndOne = 110
                 break
         }
+        test = true
         editUserByLoginNew(localStorage.userLogin, {"lastUpdate":getTime(), "stage":"stagefour", "checkState": false, "checkTime":0})
         gameUser.isAdmin = false
+        console.log(getTime())
         setGameUser(gameUser)
         setInterval(StartGameAlgorithm, 2000)
-        test = true
+
     }
 
     async function ShowOrHideCodeGame(){
