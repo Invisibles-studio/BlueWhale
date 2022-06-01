@@ -309,7 +309,7 @@
     width: 100%;
 }
 
-@media (max-height: 6400px) and (min-height: 1100px) {
+@media (max-height: 6400px) and (min-height: 971px) {
     .radarImage {
         background-image: url("../images/radar.png");
         width: 41.667vw;
@@ -1266,6 +1266,74 @@
 
 }
 
+.rulesBlock {
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+
+    background: rgba(34, 47, 49, 0.85);
+    border: 0.925vh solid #FCFF7F;
+    backdrop-filter: blur(1.302vw);
+    border-radius: 3.703vh;
+}
+
+.rulesBlockButtonOK {
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 14.375vw;
+    height: 11.018vh;
+    left: 42.813vw;
+    top: 84.629vh;
+
+    background: transparent;
+
+    border: 0.462vh solid #FCFF7F;
+    border-radius: 1.388vh;
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 3.333vw;
+    line-height: 7.129vh;
+
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.rulesBlockCrossButton {
+    background-image : url("../images/crossRules.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    position: absolute;
+    width: 3.020vw;
+    height: 5.277vh;
+    left: 95.156vw;
+    top: 2.407vh;
+
+    background-color: transparent;
+    outline: none;
+    border: 0;
+    cursor: pointer;
+}
+
+.rulesLabel {
+    position: absolute;
+    margin: 0;
+    left: 6.250vw;
+    top: 95.185vh;
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.250vw;
+    line-height: 3.611vh;
+
+    color: #FFFFFF;
+
+}
+
 .gameSignOutButtonOnMain {
     box-sizing: border-box;
 
@@ -1353,33 +1421,23 @@
     background-repeat: no-repeat;
 }
 
-.Star1, .Star2, .Star3, .Star4, .Star5 {
+.Star1, .Star2, .Star3{
     position: absolute;
     width: 2.344vw;
     height: 2.344vw;
 
-    left: 1.302vw;
-    top: 0;
-}
-
-.Star2 {
     left: 0.260vw;
     top: 3.333vw;
 }
 
-.Star3 {
+.Star2 {
     left: 0;
     top: 6.667vw;
 }
 
-.Star4 {
+.Star3 {
     left: 0.260vw;
     top: 10vw;
-}
-
-.Star5 {
-    left: 1.302vw;
-    top: 13.333vw;
 }
 
 .BlockHidden {

@@ -351,13 +351,11 @@ export default function Game({ user}){
                     document.getElementById("checkbtnText").innerHTML = "just wait";
                 }
                 else if(jopa.stage === "stageone"){
-                    document.getElementById("personal-code").innerHTML = " ";
                     document.getElementById("checkbtnText").innerHTML = "Requests";
 
                 }else if(jopa.stage === "stagefour"){
 
                 }
-                document.getElementById("personal-code").innerHTML = gameUser.personalCode
                 setTimeout(fetchData, 2000);
             }else{
                 setAdmin(true);
@@ -377,13 +375,11 @@ export default function Game({ user}){
             document.getElementById("checkbtnText").innerHTML = "just wait";
         }
         else if(jopa.stage === "stageone"){
-            document.getElementById("personal-code").innerHTML = " ";
             document.getElementById("checkbtnText").innerHTML = "Requests";
 
         }else if(jopa.stage === "stagefour"){
 
         }
-        document.getElementById("personal-code").innerHTML = gameUser.personalCode
     }
 
     function SelectCircle(){
@@ -428,7 +424,7 @@ export default function Game({ user}){
     }
 
     function AddStar(){
-        const starsCount = 5;
+        const starsCount = 3;
 
         for(let i = 1; i<= starsCount; i++){
 
@@ -442,7 +438,7 @@ export default function Game({ user}){
     }
 
     function RemoveStar(){
-        const starsCount = 5;
+        const starsCount = 3;
 
         for(let i = starsCount; i>=1; i--){
 
@@ -505,6 +501,14 @@ export default function Game({ user}){
         }
     }
 
+    function OpenRules() {
+        document.querySelector(".rulesBlock").classList.remove("hidden")
+    }
+
+    function CloseRules(){
+        document.querySelector(".rulesBlock").classList.add("hidden")
+    }
+
     return <div>
         <div className="window">
 
@@ -527,14 +531,17 @@ export default function Game({ user}){
                 <div className="Star1 StarNotSelected"/>
                 <div className="Star2 StarNotSelected"/>
                 <div className="Star3 StarNotSelected"/>
-                <div className="Star4 StarNotSelected"/>
-                <div className="Star5 StarNotSelected"/>
             </div>
-            <input className="rulesBtn" type="image" alt="Rules" src={RulesPng} />
+            <input className="rulesBtn" type="image" alt="Rules" src={RulesPng} onClick={OpenRules} />
+            <p className="rulesLabel">Rules</p>
             <div className="gameSignOutButtonOnMain" onClick={LogOut}>
                 <div className="gameSignOutButtonOnMainArrow"/>
             </div>
             <p className="gameSignOutButtonOnMainText">Log out</p>
+            <div className="rulesBlock hidden">
+                <input type="button" onClick={CloseRules} className="rulesBlockCrossButton"/>
+                <input type="button" onClick={CloseRules} value="OK" className="rulesBlockButtonOK"/>
+            </div>
         </div>
 
         <Modal
