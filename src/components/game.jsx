@@ -1,14 +1,16 @@
 /* eslint-disable */
 import {editUserByLogin, editUserByLoginNew, getUserByLogin} from "./firebase/api.tsx";
 import {useEffect, useState} from "react";
-import "./NewDesign/game.css"
+import "./NewDesign/GameScreen.css"
+/*import "./NewDesign/game.css"
 import "./NewDesign/gameMaxHeight450.css"
-import "./NewDesign/gameMaxHeight970.css"
+import "./NewDesign/gameMaxHeight970.css"*/
 import RulesPng from "./images/rules.png"
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import {renderToString} from "react-dom/server";
 import {useNavigate} from "react-router-dom";
+
 let circlesInfo = {
     stage: "stagefour",
     stagefour: 8,
@@ -38,6 +40,7 @@ export default function Game({ user}){
     let isEndGame = false
     let isShowCodeGame = false
     let timeToTestTotwopm = ((Date.now()+10800000)/1000/60/60%24-14)*3600000;
+
     function copyTheCode(){
         navigator.clipboard.writeText(document.getElementById("upper-code").textContent)
     }
@@ -507,14 +510,6 @@ export default function Game({ user}){
         }
     }
 
-    function OpenRules() {
-        document.querySelector(".rulesBlock").classList.remove("hidden")
-    }
-
-    function CloseRules(){
-        document.querySelector(".rulesBlock").classList.add("hidden")
-    }
-
     return <div>
         <div className="window">
 
@@ -531,22 +526,17 @@ export default function Game({ user}){
             <div className="gameRightBlock">
                 <div className="gameRightBlockTop" onClick={copyTheCode}><p>COPY THE CODE</p></div>
                 <div className="gameRightBlockBottom" onClick={()=>{}}><p id="checkbtnText">CHECK</p></div>
-
             </div>
             <div className="StarsBlock">
                 <div className="Star1 StarNotSelected"/>
                 <div className="Star2 StarNotSelected"/>
                 <div className="Star3 StarNotSelected"/>
             </div>
-            <input className="rulesBtn" type="image" alt="Rules" src={RulesPng} onClick={OpenRules} />
-            <p className="rulesLabel">Rules</p>
             <div className="gameSignOutButtonOnMain" onClick={LogOut}>
                 <div className="gameSignOutButtonOnMainArrow"/>
             </div>
             <p className="gameSignOutButtonOnMainText">Log out</p>
             <div className="rulesBlock hidden">
-                <input type="button" onClick={CloseRules} className="rulesBlockCrossButton"/>
-                <input type="button" onClick={CloseRules} value="OK" className="rulesBlockButtonOK"/>
             </div>
         </div>
 

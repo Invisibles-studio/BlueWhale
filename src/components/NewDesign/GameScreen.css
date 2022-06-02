@@ -1,0 +1,1079 @@
+.window {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.gameWindow {
+    width: 100%;
+    height: 100%;
+}
+
+.gameRadarTitle {
+    position: absolute;
+    width: 15.156vw;
+    height: 9.629vh;
+    left: 42.448vw;
+    top: 1.018vh;
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 4.479vw;
+    line-height: 9.629vh;
+
+    color: #60ECFF;
+
+    text-shadow: 0 0 2.656vw #60ECFF, 0 0.208vw 0 #51A4AF;
+    margin: 0;
+    user-select: none;
+}
+
+.radarImage {
+    background-image: url("../images/radar.png");
+    width: 74.074vh;
+    height: 74.074vh;
+    background-repeat: no-repeat;
+    position: absolute;
+    background-size: contain;
+    top: 50%;
+    left: 50%;
+
+    margin-top: -36.7vh;
+    margin-left: -37vh;
+}
+
+.gameRadarW {
+    position: absolute;
+    background: linear-gradient(180deg, rgba(145, 255, 209, 0.17) 0%, rgba(59, 130, 140, 0.18) 100%);
+    border: 0.417vw solid #60ECFF;
+    box-shadow: 0 0 4.844vw #91FFD1;
+    border-radius: 27.396vw;
+    width: 74.074vh;
+    height: 74.074vh;
+
+    top: 12.962vh;
+    left: 50%;
+    margin-left: -38vh;
+
+}
+
+.gameCodeBlock {
+    position: absolute;
+    background-image: url("../images/rectangleBlue.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    width: 19.141vw;
+    height: 6.666vh;
+
+    left: 7.057vw;
+    top: 28.148vh;
+}
+
+.gameCodeBlock p {
+    position: absolute;
+    left: 1.563vw;
+    top: 1.574vh;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.851vh;
+    line-height: 1.574vh;
+
+    color: #FCFF7F;
+    margin: 0;
+}
+
+.gameCodeBlockLabel {
+    position: absolute;
+
+    left: 9.844vw;
+    top: 25vh;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.042vw;
+    line-height: 2.222vh;
+
+    color: #FFFFFF;
+    margin: 0;
+
+}
+
+/*Left data block*/
+
+.gameLeftBlock {
+    position: absolute;
+    background-image: url("../images/leftBlock.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    width: 46.296vh;
+    height: 27.870vh;
+
+    top: 36.203vh;
+    left: 3.125vw;
+}
+
+.gameLeftBlockTop {
+    position: absolute;
+    background-image: url("../images/leftBlockTop.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    width: 19.271vw;
+    height: 5.37vh;
+
+    top: 1.851vh;
+    left: 2.161vw;
+}
+
+.gameLeftBlockTop p {
+    position: absolute;
+    left: 1.267vw;
+    top: 0.648vh;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 3.333vh;
+    line-height: 4.074vh;
+
+    color: #FFFFFF;
+    margin: 0;
+}
+
+.gameLeftBlockMiddle {
+    position: absolute;
+    background-image: url("../images/leftBlockMiddle.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    width: 18.620vw;
+    height: 5.37vh;
+
+    top: 9.166vh;
+    left: 1.718vw;
+}
+
+.gameLeftBlockMiddle p {
+    position: absolute;
+    left: 1.267vw;
+    top: 0.648vh;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 3.333vh;
+    line-height: 4.074vh;
+
+    color: #FFFFFF;
+    margin: 0;
+}
+
+.gameLeftBlockButton {
+    position: absolute;
+    background-image: url("../images/myCodeRectangle.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    width: 19.505vw;
+    height: 9.351vh;
+
+    top: 16.481vh;
+    left: 1.849vw;
+
+    cursor: pointer;
+}
+
+.gameLeftBlockButton p {
+    position: absolute;
+
+    top: 2.685vh;
+    left: 4.766vw;
+
+    font-style: normal;
+    font-weight: 600;
+    font-size: 3.333vh;
+    line-height: 4.074vh;
+
+    color: #4C4761;
+
+    margin: 0;
+
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
+}
+
+/*Right data block*/
+
+.gameRightBlock {
+    position: absolute;
+    background-image: url("../images/rightBlock.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    width: 46.296vh;
+    height: 27.87vh;
+
+    top: 36.203vh;
+    /*left: 70.833vw;*/
+    right: 3.125vw;
+}
+
+.gameRightBlockTop {
+    position: absolute;
+    background-image: url("../images/rightBlockTop.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    width: 34.259vh;
+    height: 9.351vh;
+
+    top: 2.87vh;
+    left: 4.688vw;
+    right: 1.667vw;
+
+    cursor: pointer;
+
+}
+
+.gameRightBlockTop p {
+    position: absolute;
+
+    top: 1.510vw;
+    left: 2.005vw;
+
+    font-style: normal;
+    font-weight: 600;
+    font-size: 3.333vh;
+    line-height: 4.074vh;
+
+    color: #4C4761;
+
+    margin: 0;
+
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
+}
+
+.gameRightBlockBottom {
+    position: absolute;
+    background-image: url("../images/rightBlockBottom.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    width: 34.814vh;
+    height: 9.351vh;
+
+    top: 15.462vh;
+    left: 4.688vw;
+    right: 1.771vw;
+
+    cursor: pointer;
+}
+
+.gameRightBlockBottom p{
+    position: absolute;
+
+    top: 2.685vh;
+    left: 11.481vh;
+
+    font-style: normal;
+    font-weight: 600;
+    font-size: 3.333vh;
+    line-height: 4.074vh;
+
+    color: #4C4761;
+
+    margin: 0;
+
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
+}
+
+/*Log out button*/
+
+.gameSignOutButtonOnMain {
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 3.906vw;
+    height: 10.09vh;
+    left: 90.990vw;
+    top: 6.2vh;
+
+    border: 0.462vh solid #60ECFF;
+    border-radius: 0.925vh;
+}
+
+.gameSignOutButtonOnMainArrow {
+    background-image : url("../images/leftArrow.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 1.042vw;
+    height: 3.70vh;
+    left: 1.432vw;
+    top: 2.87vh;
+}
+
+.gameSignOutButtonOnMainText {
+    position: absolute;
+    left: 89.531vw;
+    top: 17.59vh;
+
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.875vw;
+    line-height: 4.07vh;
+
+    color: #FFFFFF;
+    margin: 0;
+}
+
+/*Stars block*/
+
+.StarsBlock {
+    position: absolute;
+    width: 4.629vh;
+    height: 16.018vh;
+
+    left: 0.365vw;
+    top: 42.129vh;
+}
+
+.StarNotSelected {
+    background-image : url("../images/starNotSelected.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.StarSelected {
+    background-image : url("../images/starSelected.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.Star1, .Star2, .Star3{
+    position: absolute;
+    width: 4.166vh;
+    height: 4.166vh;
+
+    left: 0.260vw;
+    top: 0;
+}
+
+.Star2 {
+    left: 0;
+    top: 5.925vh;
+}
+
+.Star3 {
+    left: 0.260vw;
+    top: 11.851vh;
+}
+
+/*Admin account*/
+
+.AdminAccountModal {
+    position: absolute;
+    width: 73.490vw;
+    height: 76.296vh;
+    left: 12.708vw;
+    top: 9.722vh;
+    border-radius: 2.083vw;
+    background: rgba(255, 255, 255, 0.5);
+    border: 0.521vw solid #2B2346;
+    box-shadow: 0 0.208vw 0.208vw rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(1.042vw);
+    outline:none;
+}
+
+.AdminAccountModalTitle {
+    position: absolute;
+    left: 25.521vw;
+    top: 4.074vh;
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 3.333vw;
+    line-height: 4.010vw;
+
+    color: #2A2345;
+    margin: 0;
+    user-select: none;
+}
+
+.AdminAccountModalClose{
+    position: absolute;
+    width: 2.141vw;
+    height: 3.796vh;
+    left: 68.594vw;
+    top: 3.796vh;
+    background-image: url("../images/cross.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+}
+
+.AdminAccountModalChangeTextTitle {
+    position: absolute;
+    left: 5.156vw;
+    top: 17.685vh;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 2.083vw;
+    line-height: 2.500vw;
+
+    color: #000000;
+    margin: 0;
+}
+
+.AdminAccountModalSelectStageTitle {
+    position: absolute;
+    left: 21.875vw;
+    top: 17.685vh;
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 2.083vw;
+    line-height: 2.500vw;
+
+    color: #000000;
+    margin: 0;
+}
+
+.AdminAccountModalDisableCircleTitle {
+    position: absolute;
+    left: 38.646vw;
+    top: 17.685vh;
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 2.083vw;
+    line-height: 2.500vw;
+
+    color: #000000;
+    margin: 0;
+}
+
+.AdminAccountModalEnableCircleTitle {
+    position: absolute;
+    left: 56.146vw;
+    top: 17.685vh;
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 2.083vw;
+    line-height: 2.500vw;
+
+    color: #000000;
+    margin: 0;
+}
+
+.AdminAccountModalAlgSpeedTitle {
+    position: absolute;
+    left: 37.292vw;
+    top: 50.83vh;
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 2.083vw;
+    line-height: 4.44vh;
+
+    color: #000000;
+    margin: 0;
+}
+
+.AdminAccountModalStartAlgorithm {
+    position: absolute;
+    width: 10.729vw;
+    height: 4.90vh;
+    left: 37.292vw;
+    top: 63.79vh;
+
+    background: #555671;
+    border-radius: 0.313vw;
+    border: 0;
+    outline: none;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.250vw;
+    line-height: 1.510vw;
+
+    color: #FFFFFF;
+}
+
+#textId {
+    position: absolute;
+
+    width: 12.448vw;
+    height: 4.907vh;
+    left: 5.156vw;
+    top: 24.351vh;
+
+    background: #555671;
+    border-radius: 0.313vw;
+    border: 0;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.250vw;
+    line-height: 1.510vw;
+
+    color: #FFFFFF;
+}
+
+#txtarea {
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 12.344vw;
+    height: 12.314vh;
+    left: 5.260vw;
+    top: 30.740vh;
+
+    background: rgba(255, 255, 255, 0.15);
+    border: 0.260vw solid #555671;
+    border-radius: 0.521vw;
+    resize: none;
+    outline:none;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.729vw;
+    line-height: 0.885vw;
+
+
+    color: #4c4c4c;
+}
+
+#text-changer button {
+    position: absolute;
+    width: 12.448vw;
+    height: 4.907vh;
+    left: 5.156vw;
+    top: 45.925vh;
+
+    background: #555671;
+    border-radius: 0.313vw;
+    border: 0;
+    outline:none;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.250vw;
+    line-height: 1.510vw;
+
+    color: #FFFFFF;
+}
+
+#stars p {
+    position: absolute;
+    margin: 0;
+
+    left: 5.156vw;
+    top: 55.277vh;
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 2.083vw;
+    line-height: 2.500vw;
+
+    color: #000000;
+}
+
+#addStar {
+    position: absolute;
+    width: 12.448vw;
+    height: 4.907vh;
+    left: 5.156vw;
+    top: 63.148vh;
+
+    background: #555671;
+    border-radius: 0.313vw;
+
+    border: 0;
+    outline:none;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.250vw;
+    line-height: 1.510vw;
+
+    color: #FFFFFF;
+}
+
+#removeStar {
+    position: absolute;
+    width: 12.448vw;
+    height: 4.907vh;
+    left: 18.385vw;
+    top: 63.148vh;
+
+
+    background: #555671;
+    border-radius: 0.313vw;
+
+    border: 0;
+    outline:none;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.250vw;
+    line-height: 1.510vw;
+
+    color: #FFFFFF;
+}
+
+#position-id {
+    position: absolute;
+    width: 10.729vw;
+    height: 4.907vh;
+    left: 21.875vw;
+    top: 24.351vh;
+
+    background: #555671;
+    border-radius: 0.313vw;
+    border: 0;
+    outline: none;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.250vw;
+    line-height: 1.510vw;
+
+    color: #FFFFFF;
+}
+
+#circle-id {
+    position: absolute;
+    width: 10.729vw;
+    height: 4.907vh;
+    left: 21.875vw;
+    top: 29.814vh;
+
+    background: #555671;
+    border-radius: 0.313vw;
+    border: 0;
+    outline: none;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.250vw;
+    line-height: 1.510vw;
+
+    color: #FFFFFF;
+}
+
+#setPosition button{
+    position: absolute;
+    width: 9.323vw;
+    height: 4.907vh;
+    left: 21.875vw;
+    top: 36.388vh;
+
+    background: #555671;
+    border-radius: 0.313vw;
+    border: 0;
+    outline: none;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.250vw;
+    line-height: 1.510vw;
+
+    color: #FFFFFF;
+}
+
+#position-idD {
+    position: absolute;
+    width: 10.729vw;
+    height: 4.907vh;
+    left: 38.646vw;
+    top: 24.351vh;
+
+    background: #555671;
+    border-radius: 0.313vw;
+    border: 0;
+    outline: none;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.250vw;
+    line-height: 1.510vw;
+
+    color: #FFFFFF;
+}
+
+#circle-idD {
+    position: absolute;
+    width: 10.729vw;
+    height: 4.907vh;
+    left: 38.646vw;
+    top: 29.814vh;
+
+    background: #555671;
+    border-radius: 0.313vw;
+    border: 0;
+    outline: none;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.250vw;
+    line-height: 1.510vw;
+
+    color: #FFFFFF;
+}
+
+#disableCircle button {
+    position: absolute;
+    width: 9.323vw;
+    height: 4.907vh;
+    left: 38.646vw;
+    top: 36.388vh;
+
+    background: #555671;
+    border-radius: 0.313vw;
+    border: 0;
+    outline: none;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.250vw;
+    line-height: 1.510vw;
+
+    color: #FFFFFF;
+}
+
+#alg-speed {
+    position: absolute;
+    width: 10.729vw;
+    height: 4.90vh;
+    left: 37.292vw;
+    top: 57.22vh;
+
+    background: #555671;
+    border-radius: 0.313vw;
+    border: 0;
+    outline: none;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.250vw;
+    line-height: 1.510vw;
+
+    color: #FFFFFF;
+}
+
+#position-idE {
+    position: absolute;
+    width: 10.729vw;
+    height: 4.907vh;
+    left: 56.146vw;
+    top: 24.351vh;
+
+    background: #555671;
+    border-radius: 0.313vw;
+    border: 0;
+    outline: none;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.250vw;
+    line-height: 1.510vw;
+
+    color: #FFFFFF;
+}
+
+#circle-idE {
+    position: absolute;
+    width: 10.729vw;
+    height: 4.907vh;
+    left: 56.146vw;
+    top: 29.814vh;
+
+    background: #555671;
+    border-radius: 0.313vw;
+    border: 0;
+    outline: none;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.250vw;
+    line-height: 1.510vw;
+
+    color: #FFFFFF;
+}
+
+#enableCircle button{
+    position: absolute;
+    width: 9.323vw;
+    height: 4.907vh;
+    left: 56.146vw;
+    top: 36.388vh;
+
+    background: #555671;
+    border-radius: 0.313vw;
+    border: 0;
+    outline: none;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.250vw;
+    line-height: 1.510vw;
+
+    color: #FFFFFF;
+}
+
+/*Game circles*/
+
+.stagefour#first{
+    position: absolute;
+
+    top: 3.611vh;
+    left: 20.925vh;
+
+}
+
+.stagefour#second{
+    position: absolute;
+
+    top: 3.611vh;
+    left: 45.555vh;
+
+}
+
+.stagefour#third{
+    position: absolute;
+
+    top: 21.018vh;
+    left: 62.777vh;
+
+}
+
+.stagefour#fourth{
+    position: absolute;
+
+    top: 21.018vh;
+    left: 3.796vh;
+
+}
+
+.stagefour#fifth{
+    position: absolute;
+
+    top: 45.37vh;
+    left: 3.796vh;
+
+}
+
+.stagefour#sixth{
+    position: absolute;
+
+    top: 62.777vh;
+    left: 21.111vh;
+}
+
+.stagefour#seventh{
+    position: absolute;
+
+    top: 62.777vh;
+    left: 45.74vh;
+}
+
+.stagefour#eight{
+    position: absolute;
+    top: 45.37vh;
+    left: 62.87vh;
+}
+
+.stagethree#first{
+    position: absolute;
+    top: 17.037vh;
+    left: 49.629vh;
+}
+
+.stagethree#second{
+    position: absolute;
+    top: 17.037vh;
+    left: 17.222vh;
+}
+
+.stagethree#third{
+    position: absolute;
+    top: 49.537vh;
+    left: 17.222vh;
+}
+
+.stagethree#fourth{
+    position: absolute;
+    top: 49.537vh;
+    left: 49.629vh;
+}
+
+.stagetwo#first{
+    position: absolute;
+
+    top: 33.148vh;
+    left: 19.907vh;
+}
+
+.stagetwo#second{
+    position: absolute;
+    top: 33.148vh;
+    left: 46.851vh;
+}
+
+.stageone#first{
+    position: absolute;
+    left: 32.5vh;
+    top: 32.5vh;
+}
+
+.gameEllipse{
+    position: absolute;
+    width: 7.407vh;
+    height: 7.407vh;
+}
+
+.gameEllipseCenter {
+    position: absolute;
+    width: 9.259vh;
+    height: 9.259vh;
+}
+
+.GameEllipseColoredCircle {
+    position: absolute;
+    width: 6.666vh;
+    height: 6.666vh;
+    border-radius: 100%;
+}
+
+.GameEllipseColoredCircleCenter{
+    position: absolute;
+    width: 4.479vw;
+    height: 4.479vw;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 0;
+}
+
+.GameEllipseColoredSmallCircle {
+    position: absolute;
+    width: 5.555vh;
+    height: 5.555vh;
+    /*left: 0.925vh;*/
+    left: 50%;
+    top: 50%;
+    margin-left: -2.7775vh;
+    margin-top: -2.7775vh;
+
+    border-radius: 100%;
+    box-shadow: 0 0.208vw 0.208vw rgba(0, 0, 0, 0.5);
+    transform: rotate(0.47deg);
+}
+
+.GameEllipseColoredSelectedCircle {
+    position: absolute;
+    width: 6.666vh;
+    height: 6.666vh;
+}
+
+/*Game circle color*/
+
+.stagefourColor {
+    background: #FFEC45;
+}
+
+.stagefourRadius {
+    border: 0.260vw solid #FF5555;
+    filter: drop-shadow(0px 0.208vw 0.208vw rgba(0, 0, 0, 0.5));
+}
+
+.stagefourSelectedRadius {
+    border: 0.260vw solid #FF5555;
+    filter: drop-shadow(0px 0px 0.885vw #FF5555) drop-shadow(0px 0.208vw 0.208vw rgba(0, 0, 0, 0.5));
+    border-radius: 100%;
+}
+
+.stagefourSelectedCircle {
+    border: 0.260vw dashed #E7E859;
+    filter: drop-shadow(0px 0px 0.885vw #FF5555) drop-shadow(0px 0.208vw 0.208vw rgba(0, 0, 0, 0.5));
+    border-radius: 100%;
+}
+
+
+.stagethreeColor{
+    background: #A43276;
+}
+
+.stagethreeRadius {
+    border: 0.260vw solid #3166A7;
+    filter: drop-shadow(0px 0.208vw 0.208vw rgba(0, 0, 0, 0.5));
+}
+
+.stagethreeSelectedCircle {
+    border: 0.260vw dashed #FF21A6;
+    filter: drop-shadow(0 0.208vw 0.208vw rgba(0, 0, 0, 0.5)) drop-shadow(0px 0px 0.885vw #55A3FF);
+    border-radius: 100%;
+}
+
+.stagethreeSelectedRadius {
+    border: 0.260vw solid #55A3FF;
+    filter: drop-shadow(0px 0px 0.885vw #55A3FF);
+    border-radius: 100%;
+}
+
+
+.stagetwoColor{
+    background: #42AA3B;
+}
+
+.stagetwoRadius {
+    border: 0.260vw solid #A98833;
+    filter: drop-shadow(0px 0.208vw 0.208vw rgba(0, 0, 0, 0.5));
+}
+
+.stagetwoSelectedCircle {
+    border: 0.260vw dashed #7BAF78;
+    filter: drop-shadow(0px 0px 0.885vw #8AFF80);
+    border-radius: 100%;
+}
+
+.stagetwoSelectedRadius {
+    border: 0.260vw solid #A98833;
+    filter: drop-shadow(0px 0.208vw 0.208vw rgba(0, 0, 0, 0.5));
+}
+
+
+.stageoneColor{
+    background: #FF1010;
+    border-radius: 100%;
+}
+
+.stageoneRadius {
+    border: 0.365vw dashed #60ECFF;
+    filter: drop-shadow(0px 0px 0.885vw #E42F2C) drop-shadow(0px 0.208vw 0.208vw rgba(0, 0, 0, 0.5));
+}
+
+
+.stageoneSelected {
+    background: #FF1010;
+    box-shadow: 0 0 0.885vw #E42F2C, 0 0.208vw 0.208vw rgba(0, 0, 0, 0.5);
+    border-radius: 100%;
+}
+

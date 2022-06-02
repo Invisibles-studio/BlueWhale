@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import {getUserByLogin, addNewUser, addNewMemberByRef} from "../firebase/api.tsx"
-import "../NewDesign/game.css"
+//import "../NewDesign/game.css"
 import {Link, Navigate} from "react-router-dom"
 import { useLocation } from 'react-router-dom';;
 import { useNavigate } from "react-router-dom";
