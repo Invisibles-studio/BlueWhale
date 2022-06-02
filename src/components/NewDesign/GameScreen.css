@@ -1077,3 +1077,70 @@
     border-radius: 100%;
 }
 
+/*Start circle*/
+
+.gameStartCircle {
+    position: absolute;
+    width: 46.296vh;
+    height: 46.296vh;
+
+    left: 50%;
+    margin-left: -23.148vh;
+    top: 26.851vh;
+
+    background: #B491FF;
+    box-shadow: 0 0.677vw 0.521vw rgba(0, 0, 0, 0.2);
+    border-radius: 26.042vw;
+    cursor: pointer;
+}
+
+.gameStartCircle p {
+    position: absolute;
+
+    left: 8.611vh;
+    top: 17.777vh;
+
+    font-style: normal;
+    font-weight: 600;
+    font-size: 8.888vh;
+    line-height: 10.74vh;
+
+    color: #312244;
+    margin: 0;
+    text-align: center;
+}
+
+.gameBlur {
+    filter: blur(8px);
+    -webkit-filter: blur(0.417vw);
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.gamePersonalCode {
+    position: absolute;
+    width: 13.385vw;
+    height: 3.958vw;
+    left: 6.302vw;
+    top: 17.760vw;
+
+    background: radial-gradient(231.58% 231.58% at 50% 50%, #BB91FF 0%, #9670BB 100%);
+    border-radius: 0.990vw;
+    border: 0;
+
+    text-align: center;
+
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.042vw;
+    line-height: 1.250vw;
+
+    color: #8267A5;
+}
+
+.gamePersonalCode:focus {
+    outline: none;
+}
