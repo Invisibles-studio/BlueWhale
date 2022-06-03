@@ -943,138 +943,62 @@
     top: 32.5vh;
 }
 
-.gameEllipse{
-    position: absolute;
-    width: 7.407vh;
-    height: 7.407vh;
-}
-
-.gameEllipseCenter {
-    position: absolute;
-    width: 9.259vh;
-    height: 9.259vh;
-}
-
-.GameEllipseColoredCircle {
-    position: absolute;
-    width: 6.666vh;
-    height: 6.666vh;
-    border-radius: 100%;
-}
-
-.GameEllipseColoredCircleCenter{
-    position: absolute;
-    width: 4.479vw;
-    height: 4.479vw;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    top: 0;
-}
-
-.GameEllipseColoredSmallCircle {
-    position: absolute;
-    width: 5.555vh;
-    height: 5.555vh;
-    /*left: 0.925vh;*/
-    left: 50%;
-    top: 50%;
-    margin-left: -2.7775vh;
-    margin-top: -2.7775vh;
-
-    border-radius: 100%;
-    box-shadow: 0 0.208vw 0.208vw rgba(0, 0, 0, 0.5);
-    transform: rotate(0.47deg);
-}
-
-.GameEllipseColoredSelectedCircle {
-    position: absolute;
-    width: 6.666vh;
-    height: 6.666vh;
-}
-
 /*Game circle color*/
 
-.stagefourColor {
-    background: #FFEC45;
+.stagefourSelected {
+    width: 7.407vh;
+    height: 7.407vh;
+    background: url("../images/circles/stg4sel.png") no-repeat;
+    background-size: contain;
 }
 
-.stagefourRadius {
-    border: 0.260vw solid #FF5555;
-    filter: drop-shadow(0px 0.208vw 0.208vw rgba(0, 0, 0, 0.5));
+.stagefourNotSelected {
+    width: 7.407vh;
+    height: 7.407vh;
+    background: url("../images/circles/stg4.png") no-repeat;
+    background-size: contain;
 }
 
-.stagefourSelectedRadius {
-    border: 0.260vw solid #FF5555;
-    filter: drop-shadow(0px 0px 0.885vw #FF5555) drop-shadow(0px 0.208vw 0.208vw rgba(0, 0, 0, 0.5));
-    border-radius: 100%;
+.stagethreeSelected {
+    width: 7.407vh;
+    height: 7.407vh;
+    background: url("../images/circles/stg3sel.png") no-repeat;
+    background-size: contain;
 }
 
-.stagefourSelectedCircle {
-    border: 0.260vw dashed #E7E859;
-    filter: drop-shadow(0px 0px 0.885vw #FF5555) drop-shadow(0px 0.208vw 0.208vw rgba(0, 0, 0, 0.5));
-    border-radius: 100%;
+.stagethreeNotSelected {
+    width: 7.407vh;
+    height: 7.407vh;
+    background: url("../images/circles/stg3.png") no-repeat;
+    background-size: contain;
 }
 
-
-.stagethreeColor{
-    background: #A43276;
+.stagetwoSelected {
+    width: 7.407vh;
+    height: 7.407vh;
+    background: url("../images/circles/stg2sel.png") no-repeat;
+    background-size: contain;
 }
 
-.stagethreeRadius {
-    border: 0.260vw solid #3166A7;
-    filter: drop-shadow(0px 0.208vw 0.208vw rgba(0, 0, 0, 0.5));
+.stagetwoNotSelected {
+    width: 7.407vh;
+    height: 7.407vh;
+    background: url("../images/circles/stg2.png") no-repeat;
+    background-size: contain;
 }
-
-.stagethreeSelectedCircle {
-    border: 0.260vw dashed #FF21A6;
-    filter: drop-shadow(0 0.208vw 0.208vw rgba(0, 0, 0, 0.5)) drop-shadow(0px 0px 0.885vw #55A3FF);
-    border-radius: 100%;
-}
-
-.stagethreeSelectedRadius {
-    border: 0.260vw solid #55A3FF;
-    filter: drop-shadow(0px 0px 0.885vw #55A3FF);
-    border-radius: 100%;
-}
-
-
-.stagetwoColor{
-    background: #42AA3B;
-}
-
-.stagetwoRadius {
-    border: 0.260vw solid #A98833;
-    filter: drop-shadow(0px 0.208vw 0.208vw rgba(0, 0, 0, 0.5));
-}
-
-.stagetwoSelectedCircle {
-    border: 0.260vw dashed #7BAF78;
-    filter: drop-shadow(0px 0px 0.885vw #8AFF80);
-    border-radius: 100%;
-}
-
-.stagetwoSelectedRadius {
-    border: 0.260vw solid #A98833;
-    filter: drop-shadow(0px 0.208vw 0.208vw rgba(0, 0, 0, 0.5));
-}
-
-
-.stageoneColor{
-    background: #FF1010;
-    border-radius: 100%;
-}
-
-.stageoneRadius {
-    border: 0.365vw dashed #60ECFF;
-    filter: drop-shadow(0px 0px 0.885vw #E42F2C) drop-shadow(0px 0.208vw 0.208vw rgba(0, 0, 0, 0.5));
-}
-
 
 .stageoneSelected {
-    background: #FF1010;
-    box-shadow: 0 0 0.885vw #E42F2C, 0 0.208vw 0.208vw rgba(0, 0, 0, 0.5);
-    border-radius: 100%;
+    width: 9.259vh;
+    height: 9.259vh;
+    background: url("../images/circles/stg1sel.png") no-repeat;
+    background-size: contain;
+}
+
+.stageoneNotSelected {
+    width: 9.259vh;
+    height: 9.259vh;
+    background: url("../images/circles/stg1.png") no-repeat;
+    background-size: contain;
 }
 
 /*Start circle*/
@@ -1096,7 +1020,8 @@
 
 .gameStartCircle p {
     position: absolute;
-
+    width: 28.981vh;
+    height: 10.74vh;
     left: 8.611vh;
     top: 17.777vh;
 
@@ -1122,10 +1047,10 @@
 
 .gamePersonalCode {
     position: absolute;
-    width: 13.385vw;
-    height: 3.958vw;
-    left: 6.302vw;
-    top: 17.760vw;
+    width: 23.796vh;
+    height: 7.037vh;
+    left: 11.203vh;
+    top: 31.574vh;
 
     background: radial-gradient(231.58% 231.58% at 50% 50%, #BB91FF 0%, #9670BB 100%);
     border-radius: 0.990vw;
@@ -1135,8 +1060,8 @@
 
     font-style: normal;
     font-weight: 600;
-    font-size: 1.042vw;
-    line-height: 1.250vw;
+    font-size: 1.851vh;
+    line-height: 2.222vh;
 
     color: #8267A5;
 }

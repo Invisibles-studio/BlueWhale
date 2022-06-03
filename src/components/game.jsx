@@ -397,17 +397,11 @@ export default function Game({ user}){
         let classes
         let ellipseStage
         let ellipsePosition
-        if (document.querySelector(".SelectedEllipse") === null){
-            classes = document.querySelector(".stageoneSelected").classList.value.split(" ")
-            ellipsePosition = document.querySelector(".stageoneSelected").id
-            ellipseStage = classes[2]
-            document.querySelector(".stageoneSelected").outerHTML = renderToString(<EllipseDesign id={ellipsePosition} class={ellipseStage}/>)
-        }else{
-            classes = document.querySelector(".SelectedEllipse").classList.value.split(" ")
-            ellipseStage = classes[1]
-            ellipsePosition = document.querySelector(".SelectedEllipse").id
-            document.querySelector(".SelectedEllipse").outerHTML = renderToString(<EllipseDesign id={ellipsePosition} class={ellipseStage}/>)
-        }
+
+        classes = document.querySelector(".SelectedCircle").classList.value.split(" ")
+        ellipseStage = classes[0]
+        ellipsePosition = document.querySelector(".SelectedCircle").id
+        document.querySelector(".SelectedCircle").outerHTML = renderToString(<EllipseDesign id={ellipsePosition} class={ellipseStage}/>)
 
         document.querySelector("."+pos+"#"+circle).outerHTML = renderToString(<EllipseDesign id={circle} class={pos} isSelected={true}/>)
 
@@ -663,24 +657,12 @@ export default function Game({ user}){
 }
 
 const EllipseDesign = (props) => {
-    if (props.class === "stageone" && props.isSelected){
-        return <div key={props.key} className={"gameEllipseCenter stageoneSelected "+props.class} id={props.id}>
-            <div className={"GameEllipseColoredCircle GameEllipseColoredCircleCenter "+props.class+"Radius"}/>
-        </div>
-    }else if (props.class === "stageone"){
-        return <div key={props.key} className={"gameEllipseCenter stageoneColor "+props.class} id={props.id}>
-        </div>
-    } else if (props.isSelected){
-        return <div key={props.key} className={"gameEllipse "+props.class+" SelectedEllipse"} id={props.id}>
-            <div className={"GameEllipseColoredCircle "+props.class+"SelectedRadius"}/>
-            <div className={"GameEllipseColoredSmallCircle "+props.class+"Color"} />
-            <div className={"GameEllipseColoredSelectedCircle "+props.class+"SelectedCircle"} />
-        </div>
-    }else{
-        return <div key={props.key} className={"gameEllipse "+props.class} id={props.id}>
-            <div className={"GameEllipseColoredCircle "+props.class+"Radius"}/>
-            <div className={"GameEllipseColoredSmallCircle "+props.class+"Color"} />
-        </div>
+
+    if (props.isSelected){
+        return <div key={props.key} className={props.class+" "+props.class+"Selected"+" SelectedCircle"} id={props.id}/>
+    }
+    else {
+        return <div key={props.key} className={props.class+" "+props.class+"NotSelected"} id={props.id}/>
     }
 }
 
