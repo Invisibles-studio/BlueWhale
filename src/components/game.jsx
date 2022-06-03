@@ -92,6 +92,10 @@ export default function Game({ user}){
         document.querySelector("#checkbtnText").innerHTML = "CHECKED"
     }
 
+    function gameFinished() {
+        console.log('1');
+    }
+
     function Check(gameUser){
         if(gameUser == undefined) return;
         if (gameUser.lastUpdate === 1){
@@ -279,6 +283,7 @@ export default function Game({ user}){
                     kol4 = 8;
                     if (!isEndGame){
                         isEndGame = true
+                        gameFinished();
                     }
                 }
                 return {
