@@ -1,6 +1,7 @@
 /* eslint-disable */
 
 import {useNavigate} from "react-router-dom";
+import "./NewDesign/signout.css"
 
 export default function Signout(){
     localStorage.clear()

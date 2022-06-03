@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import {getUserByLogin, addNewUser, addNewMemberByRef} from "../firebase/api.tsx"
 //import "../NewDesign/game.css"
+import "../NewDesign/auth.css"
 import {Link, Navigate} from "react-router-dom"
 import { useLocation } from 'react-router-dom';;
 import { useNavigate } from "react-router-dom";
@@ -25,6 +26,7 @@ export default function Login({setToken,  SetUser}) {
 
       const parsed = location.search.toString().split("=");
       if(parsed[0] === "?ref"){
+          console.log("123123123123")
         addNewMemberByRef(parsed[1])
       }
       if (password === confirmPassword){
@@ -84,7 +86,7 @@ export default function Login({setToken,  SetUser}) {
                 <input className="loginInputAuth" type="text" placeholder="Login" maxLength="14" onChange={e => setUserName(e.target.value)}/>
                 <p className="passwordLabelAuth">Password:</p>
                 <input className="passwordInputAuth" type="password" placeholder="Password" maxLength="13" onChange={e => setPassword(e.target.value)}/>
-                <div className="buttonAuth" onClick={handleLogIn}><p>GO!</p></div>
+                <input type="button" value="GO!" onClick={handleLogIn} className="buttonAuth" />
             </div>
 
             <div className="registerBlock BlockHidden">
@@ -94,7 +96,7 @@ export default function Login({setToken,  SetUser}) {
                 <input className="passwordInputRegister" type="password" placeholder="Password" maxLength="13"/>
                 <p className="passwordConfirmLabelRegister">CONFIRM THE PASSWORD:</p>
                 <input className="passwordConfirmInputRegister" type="password" placeholder="Password" maxLength="13"/>
-                <div className="buttonRegister" onClick={handleRegister}><p>GO!</p></div>
+                <input type="button" value="GO!" onClick={handleRegister} className="buttonRegister" />
             </div>
         </div>
     </div>

@@ -1,0 +1,362 @@
+.authBlockMain {
+    position: absolute;
+
+    width: 37.623vw;
+    height: 68.888vh;
+
+    left: 29.844vw;
+    top: 15.555vh;
+}
+
+.authBlock {
+    position: absolute;
+    background-image: url("../images/authBlock.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    width: 35.800vw;
+    height: 59.166vh;
+
+    left: 1.823vw;
+    top: 9.722vh;
+    transition: .55s opacity, .55s visibility;
+}
+
+.registerBlock {
+    position: absolute;
+    background-image: url("../images/registerBlock.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    width: 35.781vw;
+    height: 77.592vh;
+
+    left: 1.823vw;
+    top: 1.042vw;
+    transition: .3s opacity, .3s visibility;
+}
+
+.loginLabelRegister {
+    position: absolute;
+    top: 1.944vh;
+    left: 6.875vw;
+    margin: 0;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2.962vh;
+    line-height: 3.611vh;
+
+    color: #FFFFFF;
+}
+
+.loginInputRegister {
+    position: absolute;
+    background-image: url("../images/authLoginTopInput.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: transparent;
+    border: 0;
+
+    width: 48.981vh;
+    height: 12.685vh;
+
+    top: 6.759vh;
+    left: 7.499vh;
+
+    text-align: center;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 5.925vh;
+    line-height: 7.129vh;
+
+    color: #FFFFFF;
+    outline: none;
+}
+
+.passwordLabelRegister {
+    position: absolute;
+    top: 20.648vh;
+    left: 5.573vw;
+    margin: 0;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2.962vh;
+    line-height: 3.611vh;
+
+    color: #FFFFFF;
+}
+
+.passwordInputRegister {
+    position: absolute;
+    background-image: url("../images/authPasswordBottomInput.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: transparent;
+    border: 0;
+
+    width: 50.555vh;
+    height: 12.685vh;
+
+    top: 25.925vh;
+    left: 6.666vh;
+
+    text-align: center;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 5.925vh;
+    line-height: 7.129vh;
+
+    color: #FFFFFF;
+    -webkit-text-security: square;
+    outline: none;
+}
+
+.passwordConfirmLabelRegister {
+    position: absolute;
+    top: 39.814vh;
+    left: 5.573vw;
+    margin: 0;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2.962vh;
+    line-height: 3.611vh;
+
+    color: #FFFFFF;
+}
+
+.passwordConfirmInputRegister {
+    position: absolute;
+    background-image: url("../images/authPasswordBottomInput.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: transparent;
+    border: 0;
+
+    width: 50.555vh;
+    height: 12.685vh;
+
+    top: 45.092vh;
+    left: 6.666vh;
+
+    text-align: center;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 5.925vh;
+    line-height: 7.129vh;
+
+    color: #FFFFFF;
+    -webkit-text-security: square;
+    outline: none;
+}
+
+.buttonRegister {
+    position: absolute;
+    background-image: url("../images/authButton.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: transparent;
+
+    width: 49.351vh;
+    height: 12.222vh;
+
+    left: 7.222vh;
+    top: 61.388vh;
+
+    cursor: pointer;
+
+    font-style: normal;
+    font-weight: 600;
+    font-size: 5.925vh;
+    line-height: 7.129vh;
+
+    color: #224442;
+    outline: none;
+    border: 0;
+}
+
+.buttonToLoginSelected {
+    background-image: url("../images/authSelectedLoginButton.png");
+    transform: translateY(0.37vh);
+}
+
+.buttonToLoginNotSelected {
+    background-image: url("../images/authLoginButton.png");
+    transform: translateY(-7.685vh);
+}
+
+.buttonToLogin {
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+
+    width: 27.222vh;
+    height: 8.333vh;
+
+    left: 36.74vh;
+    top: 0.37vh;
+
+    text-align: center;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2.962vh;
+    line-height: 3.611vh;
+
+    color: #FFFFFF;
+    padding: 0;
+    transition: transform 500ms ease;
+}
+
+.buttonToRegisterSelected {
+    background-image: url("../images/authSelectedRegisterButton.png");
+    transform: translateY(-7.685vh);
+}
+
+.buttonToRegisterNotSelected {
+    background-image: url("../images/authRegisterButton.png");
+}
+
+.buttonToRegister {
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+
+    width: 27.222vh;
+    height: 8.333vh;
+
+    left: 7.407vh;
+    top: 0.026vw;
+
+    text-align: center;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2.962vh;
+    line-height: 3.611vh;
+
+    color: #FFFFFF;
+    padding: 0;
+
+    transition: transform 500ms ease;
+}
+
+.BlockHidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loginLabelAuth {
+    position: absolute;
+    top: 1.851vh;
+    left: 12.222vh;
+    margin: 0;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2.962vh;
+    line-height: 3.611vh;
+
+    color: #FFFFFF;
+}
+
+.loginInputAuth {
+    position: absolute;
+    background-image: url("../images/authLoginTopInput.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: transparent;
+    border: 0;
+
+    width: 49.444vh;
+    height: 12.685vh;
+
+    top: 6.666vh;
+    left: 7.222vh;
+
+    text-align: center;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 5.925vh;
+    line-height: 7.129vh;
+
+    color: #FFFFFF;
+    outline: none;
+}
+
+.passwordLabelAuth {
+    position: absolute;
+    top: 20.555vh;
+    left: 9.907vh;
+    margin: 0;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2.962vh;
+    line-height: 3.611vh;
+
+    color: #FFFFFF;
+}
+
+.passwordInputAuth {
+    position: absolute;
+    background-image: url("../images/authPasswordBottomInput.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: transparent;
+    border: 0;
+
+    width: 50.37vh;
+    height: 12.685vh;
+
+    top: 25.833vh;
+    left: 6.574vh;
+
+    text-align: center;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 5.925vh;
+    line-height: 7.129vh;
+
+    color: #FFFFFF;
+    -webkit-text-security: square;
+    outline: none;
+}
+
+.buttonAuth {
+    position: absolute;
+    background-image: url("../images/authButton.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: transparent;
+
+    width: 49.351vh;
+    height: 12.222vh;
+
+    left: 7.222vh;
+    top: 43.33vh;
+
+    cursor: pointer;
+
+    font-style: normal;
+    font-weight: 600;
+    font-size: 5.925vh;
+    line-height: 7.129vh;
+
+    color: #224442;
+    outline: none;
+    border: 0;
+}

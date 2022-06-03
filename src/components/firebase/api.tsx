@@ -116,7 +116,8 @@ export async function getUserByRefCode(refCode: string){
     await get(child(ref(database), "Users/")).then((snapshot) => {
         if (snapshot.exists()){
             snapshot.forEach(function(child) {
-                if (child.val() && child.val().refCode == refCode) {
+                console.log(child.val().refCode)
+                if (child.val() && child.val().refCode.indexOf(refCode) > -1) {
                     user = child.val()
                     console.log(child.val().player);
                 }

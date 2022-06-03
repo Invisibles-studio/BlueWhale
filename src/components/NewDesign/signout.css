@@ -1,0 +1,74 @@
+.gameSignOutButtonOnMain {
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 3.906vw;
+    height: 10.09vh;
+    left: 90.990vw;
+    top: 6.2vh;
+
+    border: 0.462vh solid #60ECFF;
+    border-radius: 0.925vh;
+}
+
+.gameSignOutButtonOnMainArrow {
+    background-image : url("../images/leftArrow.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 1.042vw;
+    height: 3.70vh;
+    left: 1.432vw;
+    top: 2.87vh;
+}
+
+.gameSignOutButtonOnMainText {
+    position: absolute;
+    left: 89.531vw;
+    top: 17.59vh;
+
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.875vw;
+    line-height: 4.07vh;
+
+    color: #FFFFFF;
+    margin: 0;
+}
+
+.gameSignOutText {
+    position: absolute;
+    left: 35.104vw;
+    top: 20.92vh;
+
+    font-style: normal;
+    font-weight: 700;
+    font-size: 3.333vw;
+    line-height: 7.12vh;
+
+    color: #FFFFFF;
+
+    margin: 0;
+}
+
+.gameSignOutButton {
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 30.573vw;
+    height: 13.05vh;
+    left: 34.167vw;
+    top: 42.87vh;
+
+    background: rgba(96, 236, 255, 0.2);
+    border: 0.46vh solid #60ECFF;
+    box-shadow: 0 0.573vw 0.781vw rgba(0, 0, 0, 0.25);
+    border-radius: 1.85vh;
+
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2.500vw;
+    line-height: 5.37vh;
+
+    color: #FFFFFF;
+}
