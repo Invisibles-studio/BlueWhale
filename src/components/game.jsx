@@ -57,7 +57,7 @@ export default function Game({ user}){
     function startGame(){
         let code = document.getElementById("personalCodeStart").value
         if (code === "") return;
-        getUserByLogin(user.login).then((_user)=>{
+        getUserByLogin(localStorage.userLogin).then((_user)=>{
             if(_user.stage === ""){
 
                 editUserByLogin(user.login, "stagefour", getTime(), false, 0,  code)
