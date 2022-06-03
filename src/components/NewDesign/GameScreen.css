@@ -1069,3 +1069,74 @@
 .gamePersonalCode:focus {
     outline: none;
 }
+
+/*Ref block*/
+
+.refBlock {
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 26.563vw;
+    height: 9.907vh;
+
+    left: 36.823vw;
+    top: 45vh;
+
+    background: rgba(34, 47, 49, 0.85);
+    border: 0.277vh solid #FCFF7F;
+    backdrop-filter: blur(1.302vw);
+    border-radius: 1.111vh;
+}
+
+.refBlockLink {
+    position: absolute;
+    left: 0.938vw;
+    top: 4.259vh;
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.944vh;
+    line-height: 2.407vh;
+    text-align: center;
+
+    color: #FFFFFF;
+    margin: 0;
+}
+
+.refBlockCrossButton {
+    background-image : url("../images/crossRules.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    position: absolute;
+    width: 0.949vw;
+    height: 1.666vh;
+    left: 24.792vw;
+    top: 1.296vh;
+
+    background-color: transparent;
+    outline: none;
+    border: 0;
+    cursor: pointer;
+}
+
+.refBlockCopyLink {
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 4.792vw;
+    height: 2.407vh;
+    left: 20.781vw;
+    top: 4.259vh;
+
+    background: transparent;
+    border: 0.185vh solid #FFFFFF;
+    border-radius: 0.555vh;
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.111vh;
+    line-height: 1.388vh;
+
+    color: #FFFFFF;
+}

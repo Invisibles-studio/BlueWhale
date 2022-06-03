@@ -504,6 +504,23 @@ export default function Game({ user}){
         }
     }
 
+    function OpenRefBlock(id){
+        getUserByLogin(localStorage.userLogin).then((user) => {
+            document.querySelector(".refBlockLink").innerHTML = document.location+"/ref?="+user.refCode[id]
+            document.querySelector(".refBlock").classList.remove("hidden")
+        })
+
+    }
+
+    function CloseRefBlock(){
+        document.querySelector(".refBlock").classList.add("hidden")
+
+    }
+
+    function CopyRefLink(){
+        navigator.clipboard.writeText(document.querySelector(".refBlockLink").innerHTML)
+    }
+
     return <div>
         <div className="window">
 
@@ -522,15 +539,18 @@ export default function Game({ user}){
                 <div className="gameRightBlockBottom" onClick={()=>{}}><p id="checkbtnText">CHECK</p></div>
             </div>
             <div className="StarsBlock">
-                <div className="Star1 StarNotSelected"/>
-                <div className="Star2 StarNotSelected"/>
-                <div className="Star3 StarNotSelected"/>
+                <div className="Star1 StarNotSelected" onClick={() => OpenRefBlock(0)}/>
+                <div className="Star2 StarNotSelected" onClick={() => OpenRefBlock(1)}/>
+                <div className="Star3 StarNotSelected" onClick={() => OpenRefBlock(2)}/>
             </div>
             <div className="gameSignOutButtonOnMain" onClick={LogOut}>
                 <div className="gameSignOutButtonOnMainArrow"/>
             </div>
             <p className="gameSignOutButtonOnMainText">Log out</p>
-            <div className="rulesBlock hidden">
+            <div className="refBlock hidden">
+                <p className="refBlockLink">https://localhost:3000/?ref=12345</p>
+                <input type="button" className="refBlockCrossButton" onClick={CloseRefBlock}/>
+                <input type="button" className="refBlockCopyLink" onClick={CopyRefLink} value={"COPY"}/>
             </div>
         </div>
 

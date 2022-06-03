@@ -56,6 +56,12 @@ export async function addNewUser(username: string, passwordNotHashed: string, is
     if (!isExists){
         let passwordHash = MD5(passwordNotHashed)
 
+        let array = []
+
+        for (let i = 0; i < 3; i++){
+            array.push((Math.random() + 1).toString(36).substring(3))
+        }
+
         let user = {
             login: username,
             password: passwordHash,
@@ -68,7 +74,7 @@ export async function addNewUser(username: string, passwordNotHashed: string, is
             personalCode: personalCode,
             refUnicCount: 0,
             isBlogger: false,
-            refCode: (Math.random() + 1).toString(36).substring(3)
+            refCode: array
         }
 
         await set(ref(database, "Users/" + id + "/"), user)
