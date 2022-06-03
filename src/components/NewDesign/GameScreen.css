@@ -1138,3 +1138,74 @@
 
     color: #FFFFFF;
 }
+
+/*Game Finish Modal*/
+
+.GameFinishModal {
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 26.563vw;
+    height: 14.259vh;
+
+    left: 36.823vw;
+    top: 42.87vh;
+
+    background: rgba(34, 47, 49, 0.85);
+    border: 0.277vh solid #FCFF7F;
+    backdrop-filter: blur(1.302vw);
+    border-radius: 1.111vh;
+    outline:none;
+}
+
+.TitleGameFinish {
+    position: absolute;
+    left: 10.417vw;
+    top: 0.462vh;
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.944vh;
+    line-height: 2.407vh;
+    text-align: center;
+
+    color: #FFFFFF;
+    margin: 0;
+}
+
+.GameFinishCloseButton {
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 8.518vh;
+    height: 2.407vh;
+    left: 10.938vw;
+    top: 10.74vh;
+
+    background: transparent;
+    border: 0.185vh solid #FFFFFF;
+    border-radius: 0.555vh;
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.111vh;
+    line-height: 1.388vh;
+
+    color: #FFFFFF;
+}
+
+.TextGameFinish {
+    position: absolute;
+    left: 10.938vw;
+    top: 6.296vh;
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.296vh;
+    line-height: 1.574vh;
+
+    text-align: center;
+
+    color: #FFFFFF;
+    margin: 0;
+}

@@ -33,6 +33,7 @@ export default function Game({ user}){
     const [isAdmin, setAdmin] = useState(false);
     const [stage, setStage] = useState(4);
     const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [gameFinishIsOpen, setGameFinishIsOpen] = useState(false);
     let timeForStageFourAndThree = 90;
     let timeForStageTwoAndOne = 110
     const navigate = useNavigate()
@@ -93,7 +94,7 @@ export default function Game({ user}){
     }
 
     function gameFinished() {
-        console.log('1');
+        setGameFinishIsOpen(true)
     }
 
     function Check(gameUser){
@@ -533,6 +534,10 @@ export default function Game({ user}){
         navigator.clipboard.writeText(document.querySelector(".refBlockLink").innerHTML)
     }
 
+    function CloseGameFinishModal(){
+        setGameFinishIsOpen(false)
+    }
+
     return <div>
         <div className="window">
 
@@ -676,6 +681,17 @@ export default function Game({ user}){
                 </div>
             </Box>
         </Modal>
+         <Modal
+             open={gameFinishIsOpen}
+             onClose={CloseGameFinishModal}
+             aria-labelledby="modal-modal-title"
+             aria-describedby="modal-modal-description">
+             <Box className="GameFinishModal">
+                <p className="TitleGameFinish">Game Finish!</p>
+                <p className="TextGameFinish">Game is over!</p>
+                 <input type="button" onClick={CloseGameFinishModal} className="GameFinishCloseButton" value={"OK"}/>
+             </Box>
+         </Modal>
 
         <div className="gameStartCircle" onClick={startGame}>
             <p id="startTextbtn">START</p>
