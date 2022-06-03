@@ -365,6 +365,7 @@ export default function Game({ user}){
                 setTimeout(fetchData, 2000);
             }else{
                 setAdmin(true);
+                setTimeout(fetchData, 2000);
                 //document.getElementById("main-div").innerHTML = <Admin />;
             }
 
