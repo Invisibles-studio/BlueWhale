@@ -367,6 +367,15 @@ export default function Game({ user}){
                 setAdmin(true);
                 //document.getElementById("main-div").innerHTML = <Admin />;
             }
+
+            for (let i = 1; i < 3; i++){
+                RemoveStar()
+            }
+
+            for (let i = 1; i <= gameUser.refUnicCount; ++i){
+                AddStar()
+            }
+
         }
         fetchData();
     }, [])
@@ -426,11 +435,9 @@ export default function Game({ user}){
 
     function AddStar(){
         const starsCount = 3;
-
         for(let i = 1; i<= starsCount; i++){
 
             let star = document.querySelector(".Star"+i);
-            console.log(star);
             if(!star.classList.contains("StarSelected")) {
                 star.classList.add("StarSelected")
                 return;
