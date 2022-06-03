@@ -519,7 +519,7 @@ export default function Game({ user}){
 
     function OpenRefBlock(id){
         getUserByLogin(localStorage.userLogin).then((user) => {
-            document.querySelector(".refBlockLink").innerHTML = document.location.toString().split("/game")[0]+"/?ref="+user.refCode[id]
+            document.querySelector(".refBlockLink").innerHTML = "https://https://invisibles-studio.github.io/BlueWhale"+"/?ref="+user.refCode[id] //document.location.toString().split("/game")[0]+"/?ref="+user.refCode[id]
             document.querySelector(".refBlock").classList.remove("hidden")
         })
 
