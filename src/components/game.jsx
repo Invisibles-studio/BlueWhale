@@ -155,9 +155,11 @@ export default function Game({ user}){
                     if(kolForLastIcon > 11.3 && (getTime()/3600000) % 24 < 20 && (getTime()/3600000) % 24 > 10){
                         console.log(kolForLastIcon + "kol last icon")
                         getUserByLogin(gameUser.login).then((_user)=>{
+
                             editUserByLogin(gameUser.login, "stagethree", getTime(), false);
                         })
                     }else if(getTime()-gameUser.checkTime > 10800000 && (getTime()/3600000) % 24 < 20 && (getTime()/3600000) % 24 > 10){
+
                         getUserByLogin(gameUser.login).then((_user)=>{
                             editUserByLogin(gameUser.login, "stagethree", getTime(), false);
                         })
@@ -275,8 +277,10 @@ export default function Game({ user}){
                      if (todayWorkMinutes <0 ) todayWorkMinutes = 0;
                     console.log(todayWorkMinutes)
                 }
-                let kol2 = 2;
-                let kol3 = Math.floor((interval) / timeForStageTwoAndOne + 1);
+                let kol2 = Math.floor((interval) / timeForStageTwoAndOne - 1 )
+                if (kol2>2) kol2= 2;
+                let kol3 = Math.floor((interval) / timeForStageTwoAndOne -kol2);
+                if (kol2 <= 2) kol3 = 0
                 if (kol3>4) kol3 =4;
 
                 let kol4 = Math.floor((interval) / timeForStageTwoAndOne-kol3);
@@ -360,11 +364,13 @@ export default function Game({ user}){
                 //console.log(jopa)
                 setStagePositionText(gameUser.stage)
                 if (jopa.stage === "stagetwo" || jopa.stage === "stagethree"){
+                    document.querySelector(".gameRightBlockTop").classList.add("hidden")
                     document.getElementById("checkbtnText").innerHTML = "just wait";
                 }
                 else if(jopa.stage === "stageone"){
-                    document.getElementById("checkbtnText").innerHTML = "Requests";
-
+                    document.querySelector(".gameRightBlockTop").classList.add("hidden")
+                    document.querySelector(".requestText").classList.remove("hidden")
+                    document.querySelector(".gameRightBlockBottom").classList.add("hidden")
                 }else if(jopa.stage === "stagefour"){
 
                 }
@@ -394,11 +400,13 @@ export default function Game({ user}){
         circlesInfo = jopa;
         setStagePositionText(gameUser.stage)
         if (jopa.stage === "stagetwo" || jopa.stage === "stagethree"){
+            document.querySelector(".gameRightBlockTop").classList.add("hidden")
             document.getElementById("checkbtnText").innerHTML = "just wait";
         }
         else if(jopa.stage === "stageone"){
-            document.getElementById("checkbtnText").innerHTML = "Requests";
-
+            document.querySelector(".gameRightBlockTop").classList.add("hidden")
+            document.querySelector(".requestText").classList.remove("hidden")
+            document.querySelector(".gameRightBlockBottom").classList.add("hidden")
         }else if(jopa.stage === "stagefour"){
 
         }
@@ -468,11 +476,15 @@ export default function Game({ user}){
     function ChangeText(){
         let textId = document.querySelector("#textId").value;
         let textnameId = "";
+        let text = document.querySelector("#txtarea").value;
         if (textId == 2) textnameId = "position";
         else if (textId == 1) textnameId = "stage";
         else if (textId == 3) textnameId = "personal-code";
-        else if(textId == 4) textnameId = "upper-code";
-        let text = document.querySelector("#txtarea").value;
+        else if(textId == 4) {
+            textnameId = "upper-code";
+            editUserByLoginNew(localStorage.userLogin, {"personalCode": text})
+        }
+
         document.getElementById(textnameId).innerHTML = text;
     }
 
@@ -547,11 +559,12 @@ export default function Game({ user}){
             <p className="gameCodeBlockLabel hidden">Code:</p>
             <div className="gameCodeBlock hidden"><p id="upper-code"></p></div>
             <div className="gameLeftBlock">
-                <div className="gameLeftBlockTop stage" ><p id="stage">STAGE {stage}</p></div>
-                <div className="gameLeftBlockMiddle position"><p id="position">POSITION 4</p></div>
+                <div className="gameLeftBlockTop stage" ><p id="stage">STAGE 1</p></div>
+                <div className="gameLeftBlockMiddle position"><p id="position">POSITION {stage}</p></div>
                 <div className="gameLeftBlockButton codeleft" onClick={ShowOrHideCodeGame}><p id="personal-code">MY CODE</p></div>
             </div>
             <div className="gameRightBlock">
+                <div className="requestText hidden" style={{"margin": "30px"}}><p>Requests</p></div>
                 <div className="gameRightBlockTop" onClick={copyTheCode}><p>COPY THE CODE</p></div>
                 <div className="gameRightBlockBottom" onClick={()=>{}}><p id="checkbtnText">CHECK</p></div>
             </div>
@@ -661,7 +674,7 @@ export default function Game({ user}){
                     <select id="textId" >
                         <option value="1">Stage text</option>
                         <option value="2">Position text</option>
-                        <option value="3">Code left</option>
+                        {/*<option value="3">Code left</option>*/}
                         <option value="4">Upper code</option>
                     </select>
                     <div>
