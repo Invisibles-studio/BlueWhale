@@ -233,7 +233,7 @@ export default function Game({ user}){
                     console.log(todayWorkMinutes)
                 }
                 let kol2 = 2;
-                let kol3 = Math.floor(workMinutesPreviousDays/timeForStageTwoAndOne + 1)
+                let kol3 = Math.floor(workMinutesPreviousDays/timeForStageTwoAndOne )
                 if (kol3<0) kol3 = 1;
                 kol3 +=  Math.floor(todayWorkMinutes / timeForStageTwoAndOne);
                 if (kol3>4) kol3 =4;
@@ -277,13 +277,14 @@ export default function Game({ user}){
                      if (todayWorkMinutes <0 ) todayWorkMinutes = 0;
                     console.log(todayWorkMinutes)
                 }
-                let kol2 = Math.floor((interval) / timeForStageTwoAndOne - 1 )
+                let kol2 = Math.floor((interval) / timeForStageTwoAndOne )
                 if (kol2>2) kol2= 2;
                 let kol3 = Math.floor((interval) / timeForStageTwoAndOne -kol2);
-                if (kol2 <= 2) kol3 = 0
+                if (kol2 < 2) kol3 = 0
                 if (kol3>4) kol3 =4;
 
-                let kol4 = Math.floor((interval) / timeForStageTwoAndOne-kol3);
+                let kol4 = Math.floor((interval) / timeForStageTwoAndOne-kol3 - 2);
+                if (kol3<4) kol4=0
                 if (kol4 >= 8) {
                     kol4 = 8;
                     if (!isEndGame){
