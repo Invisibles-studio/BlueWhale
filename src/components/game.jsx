@@ -694,15 +694,14 @@ export default function Game({ user}){
                 </div>
             </Box>
         </Modal>
+
          <Modal
              open={gameFinishIsOpen}
-             onClose={CloseGameFinishModal}
              aria-labelledby="modal-modal-title"
              aria-describedby="modal-modal-description">
              <Box className="GameFinishModal">
                 <p className="TitleGameFinish">Game Finish!</p>
                 <p className="TextGameFinish">Game is over!</p>
-                 <input type="button" onClick={CloseGameFinishModal} className="GameFinishCloseButton" value={"OK"}/>
              </Box>
          </Modal>
 
