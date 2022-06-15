@@ -306,12 +306,12 @@
     box-sizing: border-box;
 
     position: absolute;
-    width: 3.906vw;
-    height: 10.09vh;
-    left: 90.990vw;
-    top: 6.2vh;
+    width: 1.719vw;
+    height: 4.444vh;
+    left: 92.500vw;
+    top: 9.722vh;
 
-    border: 0.462vh solid #60ECFF;
+    border: 0.277vh solid #60ECFF;
     border-radius: 0.925vh;
 }
 
@@ -320,21 +320,21 @@
     background-size: contain;
     background-repeat: no-repeat;
     position: absolute;
-    width: 1.042vw;
-    height: 3.70vh;
-    left: 1.432vw;
-    top: 2.87vh;
+    width: 0.521vw;
+    height: 1.94vh;
+    left: 0.573vw;
+    top: 1.296vh;
 }
 
 .gameSignOutButtonOnMainText {
     position: absolute;
-    left: 89.531vw;
-    top: 17.59vh;
+    left: 91.823vw;
+    top: 15.462vh;
 
     font-style: normal;
     font-weight: 600;
-    font-size: 1.875vw;
-    line-height: 4.07vh;
+    font-size: 0.833vw;
+    line-height: 1.759vh;
 
     color: #FFFFFF;
     margin: 0;
@@ -958,29 +958,29 @@
 }
 
 .stagethreeSelected {
-    width: 7.407vh;
-    height: 7.407vh;
+    width: 5.555vh;
+    height: 5.555vh;
     background: url("../images/circles/stg3sel.png") no-repeat;
     background-size: contain;
 }
 
 .stagethreeNotSelected {
-    width: 7.407vh;
-    height: 7.407vh;
+    width: 5.555vh;
+    height: 5.555vh;
     background: url("../images/circles/stg3.png") no-repeat;
     background-size: contain;
 }
 
 .stagetwoSelected {
-    width: 7.407vh;
-    height: 7.407vh;
+    width: 5.555vh;
+    height: 5.555vh;
     background: url("../images/circles/stg2sel.png") no-repeat;
     background-size: contain;
 }
 
 .stagetwoNotSelected {
-    width: 7.407vh;
-    height: 7.407vh;
+    width: 5.555vh;
+    height: 5.555vh;
     background: url("../images/circles/stg2.png") no-repeat;
     background-size: contain;
 }
