@@ -900,39 +900,39 @@
 
 .stagethree#first{
     position: absolute;
-    top: 17.037vh;
-    left: 49.629vh;
+    top: 17.962vh;
+    left: 50.555vh;
 }
 
 .stagethree#second{
     position: absolute;
-    top: 17.037vh;
-    left: 17.222vh;
+    top: 17.962vh;
+    left: 18.055vh;
 }
 
 .stagethree#third{
     position: absolute;
-    top: 49.537vh;
-    left: 17.222vh;
+    top: 50.462vh;
+    left: 18.055vh;
 }
 
 .stagethree#fourth{
     position: absolute;
-    top: 49.537vh;
-    left: 49.629vh;
+    top: 50.462vh;
+    left: 50.555vh;
 }
 
 .stagetwo#first{
     position: absolute;
 
-    top: 33.148vh;
-    left: 19.907vh;
+    top: 34.166vh;
+    left: 20.925vh;
 }
 
 .stagetwo#second{
     position: absolute;
-    top: 33.148vh;
-    left: 46.851vh;
+    top: 34.166vh;
+    left: 47.87vh;
 }
 
 .stageone#first{
