@@ -161,3 +161,26 @@ export async function editUserByLogin(username: string, stage: string = "", last
 
 }
 
+export async function getRequestCode(reqId){
+    let id = reqId-1
+
+    let user;
+    await get(child(ref(database), "Requests/"+id)).then((snapshot) => {
+        if (snapshot.exists()){
+            let json = snapshot.val()
+            user = json
+        }
+        else {
+            user = undefined
+        }
+    })
+
+    return user
+}
+
+export async function editRequestCode(reqId, text){
+    let updates = {}
+    updates["/Requests/"+(reqId-1)] = text
+    await update(ref(database), updates)
+}
+

@@ -1,5 +1,5 @@
 /* eslint-disable */
-import {editUserByLogin, editUserByLoginNew, getUserByLogin} from "./firebase/api.tsx";
+import {editUserByLogin, editUserByLoginNew, getUserByLogin, getRequestCode, editRequestCode} from "./firebase/api.tsx";
 import {useEffect, useState} from "react";
 import "./NewDesign/GameScreen.css"
 /*import "./NewDesign/game.css"
@@ -343,6 +343,12 @@ export default function Game({ user}){
 
     //  const [data, setData] = useState();
     useEffect(()=>{
+        for(let i = 1; i<9;i++){
+            getRequestCode(i).then((code) =>{
+                let d = "#r"+ i.toString()
+                document.querySelector(d).innerHTML = code;
+            })
+        }
         getUserByLogin(localStorage.userLogin).then((usr)=>{
             if (usr.lastUpdate != 1 ){
                 document.querySelector(".gameWindow").classList.remove("gameBlur")
@@ -408,6 +414,10 @@ export default function Game({ user}){
             document.querySelector(".gameRightBlockTop").classList.add("hidden")
             document.querySelector(".requestText").classList.remove("hidden")
             document.querySelector(".gameRightBlockBottom").classList.add("hidden")
+            for (let i= 0; i<jopa.stagefour; i++){
+                let d = ".requests#" + i.toString();
+                document.querySelector(d).classList.remove("hidden")
+            }
         }else if(jopa.stage === "stagefour"){
 
         }
@@ -421,7 +431,15 @@ export default function Game({ user}){
         let classes
         let ellipseStage
         let ellipsePosition
-
+        if (pos === "stageone"){
+            document.querySelector(".gameRightBlockTop").classList.add("hidden")
+            document.querySelector(".requestText").classList.remove("hidden")
+            document.querySelector(".gameRightBlockBottom").classList.add("hidden")
+            for (let i= 0; i<jopa.stagefour; i++){
+                let d = ".requests#" + i.toString();
+                document.querySelector(d).classList.remove("hidden")
+            }
+        }
         classes = document.querySelector(".SelectedCircle").classList.value.split(" ")
         ellipseStage = classes[0]
         ellipsePosition = document.querySelector(".SelectedCircle").id
@@ -448,6 +466,7 @@ export default function Game({ user}){
         }
     }
 
+
     function AddStar(){
         const starsCount = 3;
         for(let i = 1; i<= starsCount; i++){
@@ -472,6 +491,39 @@ export default function Game({ user}){
                 return;
             }
         }
+    }
+
+    function AddRequest(){
+        const reqCount = 8;
+        for (let i = 1; i<=reqCount; i++){
+            let d = "#r" + i.toString()
+            let req = document.querySelector(d)
+            if (req.classList.contains("hidden")){
+                req.classList.remove("hidden")
+                return;
+            }
+        }
+    }
+
+    function RemoveRequest(){
+        const reqCount = 8;
+        for (let i = reqCount; i>0; i--){
+            let d = "#r" + i.toString()
+            let req = document.querySelector(d)
+            if (!req.classList.contains("hidden")){
+                req.classList.add("hidden")
+                return;
+            }
+        }
+    }
+
+    function ChangeRequest(){
+        let textId = document.querySelector("#ReqId").value;
+        let text = document.querySelector("#txtareaRequest").value;
+        editRequestCode(textId, text)
+        //editUserByLoginNew(localStorage.userLogin, {"personalCode": text})
+        let textnameId = "#r" + textId.toString()
+        document.querySelector(textnameId ).innerHTML = text;
     }
 
     function ChangeText(){
@@ -565,7 +617,18 @@ export default function Game({ user}){
                 <div className="gameLeftBlockButton codeleft" onClick={ShowOrHideCodeGame}><p id="personal-code">MY CODE</p></div>
             </div>
             <div className="gameRightBlock">
-                <div className="requestText hidden" style={{"margin": "30px"}}><p>Requests</p></div>
+                <div className="requestText hidden" style={{"margin": "30px"}}><p>Requests</p>
+                    <div className="requests">
+                        <div id="r1" className="request hidden"></div>
+                        <div id="r2" className="request hidden"></div>
+                        <div id="r3" className="request hidden"></div>
+                        <div id="r4" className="request hidden"></div>
+                        <div id="r5" className="request hidden"></div>
+                        <div id="r6" className="request hidden"></div>
+                        <div id="r7" className="request hidden"></div>
+                        <div id="r8" className="request hidden"></div>
+                    </div>
+                </div>
                 <div className="gameRightBlockTop" onClick={copyTheCode}><p>COPY THE CODE</p></div>
                 <div className="gameRightBlockBottom" onClick={()=>{}}><p id="checkbtnText">CHECK</p></div>
             </div>
@@ -692,6 +755,35 @@ export default function Game({ user}){
                         <option value="normal">Normal</option>
                     </select>
                     <input type="button" className="AdminAccountModalStartAlgorithm" value="Start algorithm" onClick={StartAlgorithm}/>
+                </div>
+                <div id="request-changer">
+                    <p className="AdminAccountModalChangeTextTitle">Request text</p>
+                    <select id="ReqId" >
+                        <option value="1">Request 1</option>
+                        <option value="2">Request 2</option>
+                        <option value="3">Request 3</option>
+                        <option value="4">Request 4</option>
+                        <option value="5">Request 5</option>
+                        <option value="6">Request 6</option>
+                        <option value="7">Request 7</option>
+                        <option value="8">Request 8</option>
+                    </select>
+                    <div>
+                        <textarea placeholder="type text here" id="txtareaRequest"></textarea>
+                    </div>
+                    <div>
+                        <button type="submit" onClick={ChangeRequest}>Change</button>
+                    </div>
+                </div >
+                <div id="requestAddRemove">
+                    <p>Stars</p>
+                    <div>
+                        <button id="addReq" type="submit" onClick={AddRequest}>Add Request</button>
+                    </div>
+
+                    <div>
+                        <button id="removeReq" type="submit" onClick={RemoveRequest}>Remove Request</button>
+                    </div>
                 </div>
             </Box>
         </Modal>
