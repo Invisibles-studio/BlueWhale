@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,500&display=swap');
+
 .window {
     position: absolute;
     width: 100%;
@@ -1208,4 +1210,54 @@
 
     color: #FFFFFF;
     margin: 0;
+}
+
+/* Requests */
+
+.requestText {
+    position: absolute;
+    background-image : url("../images/RequestsBlock.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    width: 35vh;
+    height: 9.351vh;
+
+    left: 8.240vh;
+    top: 2.87vh;
+
+    cursor: pointer;
+
+}
+
+.requestText p {
+    position: absolute;
+
+    left: 10vh;
+    top: 2.685vh;
+
+    margin: 0;
+
+    font-family: 'Roboto Flex', sans-serif;
+    font-style: italic;
+    font-weight: 900;
+    font-size: 3.33vh;
+    line-height: 3.88vh;
+
+    color: #2A2345;
+    user-select: none;
+}
+
+.requestsBlock {
+    position: absolute;
+
+    width: 33.425vh;
+
+    background: #60ECFF;
+    border: 5px solid #FFF960;
+    box-shadow: 4px 10px 8px rgba(0, 0, 0, 0.25);
+
+    top: 13.055vh;
+    left: 9.814vh;
+
 }

@@ -617,17 +617,18 @@ export default function Game({ user}){
                 <div className="gameLeftBlockButton codeleft" onClick={ShowOrHideCodeGame}><p id="personal-code">MY CODE</p></div>
             </div>
             <div className="gameRightBlock">
-                <div className="requestText hidden" style={{"margin": "30px"}}><p>Requests</p>
-                    <div className="requests">
-                        <div id="r1" className="request hidden"></div>
-                        <div id="r2" className="request hidden"></div>
-                        <div id="r3" className="request hidden"></div>
-                        <div id="r4" className="request hidden"></div>
-                        <div id="r5" className="request hidden"></div>
-                        <div id="r6" className="request hidden"></div>
-                        <div id="r7" className="request hidden"></div>
-                        <div id="r8" className="request hidden"></div>
-                    </div>
+                <div className="requestText hidden">
+                    <p>REQUEST</p>
+                </div>
+                <div className="requestsBlock">
+                    <div id="r1" className="request hidden"></div>
+                    <div id="r2" className="request hidden"></div>
+                    <div id="r3" className="request hidden"></div>
+                    <div id="r4" className="request hidden"></div>
+                    <div id="r5" className="request hidden"></div>
+                    <div id="r6" className="request hidden"></div>
+                    <div id="r7" className="request hidden"></div>
+                    <div id="r8" className="request hidden"></div>
                 </div>
                 <div className="gameRightBlockTop" onClick={copyTheCode}><p>COPY THE CODE</p></div>
                 <div className="gameRightBlockBottom" onClick={()=>{}}><p id="checkbtnText">CHECK</p></div>
