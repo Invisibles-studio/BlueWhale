@@ -414,8 +414,8 @@ export default function Game({ user}){
             document.querySelector(".gameRightBlockTop").classList.add("hidden")
             document.querySelector(".requestText").classList.remove("hidden")
             document.querySelector(".gameRightBlockBottom").classList.add("hidden")
-            for (let i= 0; i<jopa.stagefour; i++){
-                let d = ".requests#" + i.toString();
+            for (let i= 1; i<=jopa.stagefour; i++){
+                let d = "#r" + i.toString();
                 document.querySelector(d).classList.remove("hidden")
             }
         }else if(jopa.stage === "stagefour"){
@@ -435,8 +435,8 @@ export default function Game({ user}){
             document.querySelector(".gameRightBlockTop").classList.add("hidden")
             document.querySelector(".requestText").classList.remove("hidden")
             document.querySelector(".gameRightBlockBottom").classList.add("hidden")
-            for (let i= 0; i<jopa.stagefour; i++){
-                let d = ".requests#" + i.toString();
+            for (let i= 1; i<=circlesInfo.stagefour; i++){
+                let d = "#r" + i.toString();
                 document.querySelector(d).classList.remove("hidden")
             }
         }
