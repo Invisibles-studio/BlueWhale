@@ -40,6 +40,7 @@ export default function Game({ user}){
     let test = false
     let isEndGame = false
     let isShowCodeGame = false
+    let isShowRequestBlock = false
     let timeToTestTotwopm = ((Date.now()+10800000)/1000/60/60%24-14)*3600000;
 
     function copyTheCode(){
@@ -346,7 +347,7 @@ export default function Game({ user}){
         for(let i = 1; i<9;i++){
             getRequestCode(i).then((code) =>{
                 let d = "#r"+ i.toString()
-                document.querySelector(d).innerHTML = code;
+                document.querySelector(d).querySelector(".requestTextAndButton").querySelector(".textRequest").innerHTML = code;
             })
         }
         getUserByLogin(localStorage.userLogin).then((usr)=>{
@@ -523,7 +524,7 @@ export default function Game({ user}){
         editRequestCode(textId, text)
         //editUserByLoginNew(localStorage.userLogin, {"personalCode": text})
         let textnameId = "#r" + textId.toString()
-        document.querySelector(textnameId ).innerHTML = text;
+        document.querySelector(textnameId).querySelector(".requestTextAndButton").querySelector(".textRequest").innerHTML = text;
     }
 
     function ChangeText(){
@@ -603,6 +604,17 @@ export default function Game({ user}){
         setGameFinishIsOpen(false)
     }
 
+    function ClickOnRequestsBlock(){
+        if (isShowRequestBlock){
+            document.querySelector(".requestsBlock").classList.add("hidden")
+            isShowRequestBlock = false
+        }
+        else{
+            document.querySelector(".requestsBlock").classList.remove("hidden")
+            isShowRequestBlock = true
+        }
+    }
+
     return <div>
         <div className="window">
 
@@ -617,18 +629,18 @@ export default function Game({ user}){
                 <div className="gameLeftBlockButton codeleft" onClick={ShowOrHideCodeGame}><p id="personal-code">MY CODE</p></div>
             </div>
             <div className="gameRightBlock">
-                <div className="requestText hidden">
+                <div className="requestText hidden" onClick={ClickOnRequestsBlock}>
                     <p>REQUEST</p>
                 </div>
-                <div className="requestsBlock">
-                    <div id="r1" className="request hidden"></div>
-                    <div id="r2" className="request hidden"></div>
-                    <div id="r3" className="request hidden"></div>
-                    <div id="r4" className="request hidden"></div>
-                    <div id="r5" className="request hidden"></div>
-                    <div id="r6" className="request hidden"></div>
-                    <div id="r7" className="request hidden"></div>
-                    <div id="r8" className="request hidden"></div>
+                <div className="requestsBlock hidden">
+                    <div id="r1" className="request hidden"><div className="requestTextAndButton"><p className="textRequest"></p><p className="buttonRequest">confirm</p></div></div>
+                    <div id="r2" className="request hidden"><div className="requestTextAndButton"><p className="textRequest"></p><p className="buttonRequest">confirm</p></div></div>
+                    <div id="r3" className="request hidden"><div className="requestTextAndButton"><p className="textRequest"></p><p className="buttonRequest">confirm</p></div></div>
+                    <div id="r4" className="request hidden"><div className="requestTextAndButton"><p className="textRequest"></p><p className="buttonRequest">confirm</p></div></div>
+                    <div id="r5" className="request hidden"><div className="requestTextAndButton"><p className="textRequest"></p><p className="buttonRequest">confirm</p></div></div>
+                    <div id="r6" className="request hidden"><div className="requestTextAndButton"><p className="textRequest"></p><p className="buttonRequest">confirm</p></div></div>
+                    <div id="r7" className="request hidden"><div className="requestTextAndButton"><p className="textRequest"></p><p className="buttonRequest">confirm</p></div></div>
+                    <div id="r8" className="request hidden"><div className="requestTextAndButton"><p className="textRequest"></p><p className="buttonRequest">confirm</p></div></div>
                 </div>
                 <div className="gameRightBlockTop" onClick={copyTheCode}><p>COPY THE CODE</p></div>
                 <div className="gameRightBlockBottom" onClick={()=>{}}><p id="checkbtnText">CHECK</p></div>
@@ -758,7 +770,7 @@ export default function Game({ user}){
                     <input type="button" className="AdminAccountModalStartAlgorithm" value="Start algorithm" onClick={StartAlgorithm}/>
                 </div>
                 <div id="request-changer">
-                    <p className="AdminAccountModalChangeTextTitle">Request text</p>
+                    <p className="AdminAccountModalChangeRequestTitle">Request text</p>
                     <select id="ReqId" >
                         <option value="1">Request 1</option>
                         <option value="2">Request 2</option>
@@ -777,7 +789,7 @@ export default function Game({ user}){
                     </div>
                 </div >
                 <div id="requestAddRemove">
-                    <p>Stars</p>
+                    <p>Requests count</p>
                     <div>
                         <button id="addReq" type="submit" onClick={AddRequest}>Add Request</button>
                     </div>

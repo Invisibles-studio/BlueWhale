@@ -516,6 +516,19 @@
     color: #FFFFFF;
 }
 
+.AdminAccountModalChangeRequestTitle {
+    position: absolute;
+    left: 56.250vw;
+    top: 47.037vh;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.130vw;
+    line-height: 1.354vw;
+
+    color: #000000;
+    margin: 0;
+}
+
 #textId {
     position: absolute;
 
@@ -536,6 +549,26 @@
     color: #FFFFFF;
 }
 
+#ReqId {
+    position: absolute;
+
+    width: 9.245vw;
+    height: 3.611vh;
+    left: 56.250vw;
+    top: 51.11vh;
+
+    background: #555671;
+    border-radius: 0.313vw;
+    border: 0;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.927vw;
+    line-height: 1.146vw;
+
+    color: #FFFFFF;
+}
+
 #txtarea {
     box-sizing: border-box;
 
@@ -544,6 +577,30 @@
     height: 12.314vh;
     left: 5.260vw;
     top: 30.740vh;
+
+    background: rgba(255, 255, 255, 0.15);
+    border: 0.260vw solid #555671;
+    border-radius: 0.521vw;
+    resize: none;
+    outline:none;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.729vw;
+    line-height: 0.885vw;
+
+
+    color: #4c4c4c;
+}
+
+#txtareaRequest {
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 9.167vw;
+    height: 9.166vh;
+    left: 56.250vw;
+    top: 55.833vh;
 
     background: rgba(255, 255, 255, 0.15);
     border: 0.260vw solid #555671;
@@ -580,6 +637,26 @@
     color: #FFFFFF;
 }
 
+#request-changer button {
+    position: absolute;
+    width: 9.245vw;
+    height: 3.611vh;
+    left: 56.250vw;
+    top: 67.129vh;
+
+    background: #555671;
+    border-radius: 0.313vw;
+    border: 0;
+    outline:none;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.927vw;
+    line-height: 1.146vw;
+
+    color: #FFFFFF;
+}
+
 #stars p {
     position: absolute;
     margin: 0;
@@ -591,6 +668,22 @@
     font-weight: 500;
     font-size: 2.083vw;
     line-height: 2.500vw;
+
+    color: #000000;
+}
+
+#requestAddRemove p {
+    position: absolute;
+    margin: 0;
+    left: 19.740vw;
+    top: 42.037vh;
+
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.438vw;
+    line-height: 1.719vw;
+
 
     color: #000000;
 }
@@ -616,6 +709,27 @@
     color: #FFFFFF;
 }
 
+#addReq {
+    position: absolute;
+    width: 8.594vw;
+    height: 3.425vh;
+    left: 19.740vw;
+    top: 47.5vh;
+
+    background: #555671;
+    border-radius: 0.313vw;
+
+    border: 0;
+    outline:none;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.865vw;
+    line-height: 1.042vw;
+
+    color: #FFFFFF;
+}
+
 #removeStar {
     position: absolute;
     width: 12.448vw;
@@ -634,6 +748,27 @@
     font-weight: 400;
     font-size: 1.250vw;
     line-height: 1.510vw;
+
+    color: #FFFFFF;
+}
+
+#removeReq {
+    position: absolute;
+    width: 8.594vw;
+    height: 3.425vh;
+    left: 28.906vw;
+    top: 47.5vh;
+
+    background: #555671;
+    border-radius: 0.313vw;
+
+    border: 0;
+    outline:none;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.865vw;
+    line-height: 1.042vw;
 
     color: #FFFFFF;
 }
@@ -1251,7 +1386,7 @@
 .requestsBlock {
     position: absolute;
 
-    width: 33.425vh;
+    width: 31.481vh;
 
     background: #60ECFF;
     border: 5px solid #FFF960;
@@ -1260,4 +1395,43 @@
     top: 13.055vh;
     left: 9.814vh;
 
+}
+
+.buttonRequest{
+    position: relative;
+    left: 16.61vh;
+    right: 2.037vh;
+
+    margin: 0;
+    width: 14.537vh;
+    font-family: 'Roboto Flex', sans-serif;
+    font-style: italic;
+    font-weight: 900;
+    font-size: 36px;
+    line-height: 42px;
+
+    background: linear-gradient(52.67deg, #313C5C 8.39%, #60ECFF 132.59%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    user-select: none;
+    cursor: pointer;
+}
+
+.textRequest{
+    position: absolute;
+    margin: 0;
+    left: 3.518vh;
+    width: 14.537vh;
+    font-family: 'Roboto Flex', sans-serif;
+    font-style: italic;
+    font-weight: 900;
+    font-size: 36px;
+    line-height: 42px;
+
+    color: #2A2345;
+}
+
+.request {
+    width: 31.481vh;
+    height: 5.092vh;
 }
