@@ -1389,7 +1389,7 @@
     width: 31.481vh;
 
     background: #60ECFF;
-    border: 5px solid #FFF960;
+    border: 0.4629vh solid #FFF960;
     box-shadow: 4px 10px 8px rgba(0, 0, 0, 0.25);
 
     top: 13.055vh;
@@ -1407,8 +1407,9 @@
     font-family: 'Roboto Flex', sans-serif;
     font-style: italic;
     font-weight: 900;
-    font-size: 36px;
-    line-height: 42px;
+    font-size: 3.33vh;
+    line-height: 3.88vh;
+
 
     background: linear-gradient(52.67deg, #313C5C 8.39%, #60ECFF 132.59%);
     -webkit-background-clip: text;
@@ -1425,8 +1426,8 @@
     font-family: 'Roboto Flex', sans-serif;
     font-style: italic;
     font-weight: 900;
-    font-size: 36px;
-    line-height: 42px;
+    font-size: 3.33vh;
+    line-height: 3.88vh;
 
     color: #2A2345;
 }
