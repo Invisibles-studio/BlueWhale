@@ -33,7 +33,7 @@ code {
     -o-background-size: cover;
     background-size: cover;
 
-    height: 56.250vw;
+    height: 100%;
     width: 100%;
   }
 }
