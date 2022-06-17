@@ -689,7 +689,7 @@ export default function Game({ user}){
                         <option value="eight">Circle 8</option>
                     </select>
                     <div>
-                        <button type="submit" onClick={SelectCircle}>Select</button>
+                        <button type="submit" class="AdminBtn" onClick={SelectCircle}>Select</button>
                     </div>
                 </div>
                 <div id="disableCircle">
@@ -711,7 +711,7 @@ export default function Game({ user}){
                         <option value="eight">Circle 8</option>
                     </select>
                     <div>
-                        <button type="submit" onClick={DisableCircle}>Disable</button>
+                        <button type="submit" class="AdminBtn" onClick={DisableCircle}>Disable</button>
                     </div>
                 </div>
                 <div id="enableCircle">
@@ -733,17 +733,17 @@ export default function Game({ user}){
                         <option value="eight">Circle 8</option>
                     </select>
                     <div>
-                        <button type="submit" onClick={EnableCircle}>Enable</button>
+                        <button type="submit" class="AdminBtn" onClick={EnableCircle}>Enable</button>
                     </div>
                 </div>
                 <div id="stars">
                     <p>Stars</p>
                     <div>
-                        <button id="addStar" type="submit" onClick={AddStar}>Add Star</button>
+                        <button id="addStar" class="AdminBtn" type="submit" onClick={AddStar}>Add Star</button>
                     </div>
 
                     <div>
-                        <button id="removeStar" type="submit" onClick={RemoveStar}>Remove Star</button>
+                        <button id="removeStar" class="AdminBtn" type="submit" onClick={RemoveStar}>Remove Star</button>
                     </div>
                 </div>
                 <div id="text-changer">
@@ -758,7 +758,7 @@ export default function Game({ user}){
                         <textarea placeholder="type text here" id="txtarea"></textarea>
                     </div>
                     <div>
-                        <button type="submit" onClick={ChangeText}>Change</button>
+                        <button type="submit" class="AdminBtn" onClick={ChangeText}>Change</button>
                     </div>
                 </div >
                 <div id="AlgorithmSpeed">
@@ -767,7 +767,7 @@ export default function Game({ user}){
                         <option value="fast">Fast</option>
                         <option value="normal">Normal</option>
                     </select>
-                    <input type="button" className="AdminAccountModalStartAlgorithm" value="Start algorithm" onClick={StartAlgorithm}/>
+                    <button type="submit" className="AdminBtn" onClick={StartAlgorithm}>Start algorithm</button>
                 </div>
                 <div id="request-changer">
                     <p className="AdminAccountModalChangeRequestTitle">Request text</p>
@@ -785,17 +785,17 @@ export default function Game({ user}){
                         <textarea placeholder="type text here" id="txtareaRequest"></textarea>
                     </div>
                     <div>
-                        <button type="submit" onClick={ChangeRequest}>Change</button>
+                        <button type="submit" class="AdminBtn" onClick={ChangeRequest}>Change</button>
                     </div>
                 </div >
                 <div id="requestAddRemove">
                     <p>Requests count</p>
                     <div>
-                        <button id="addReq" type="submit" onClick={AddRequest}>Add Request</button>
+                        <button id="addReq" type="submit" class="AdminBtn" onClick={AddRequest}>Add Request</button>
                     </div>
 
                     <div>
-                        <button id="removeReq" type="submit" onClick={RemoveRequest}>Remove Request</button>
+                        <button id="removeReq" type="submit" class="AdminBtn" onClick={RemoveRequest}>Remove Request</button>
                     </div>
                 </div>
             </Box>

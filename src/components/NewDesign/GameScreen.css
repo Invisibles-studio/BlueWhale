@@ -32,16 +32,16 @@
 
 .radarImage {
     background-image: url("../images/radar.png");
-    width: 74.074vh;
-    height: 74.074vh;
+    width: 100.7%;
+    height: 100.7%;
     background-repeat: no-repeat;
     position: absolute;
     background-size: contain;
     top: 50%;
     left: 50%;
 
-    margin-top: -36.7vh;
-    margin-left: -37vh;
+    margin-top: -37vh;
+    margin-left: -37.3vh;
 }
 
 .gameRadarW {
@@ -177,7 +177,7 @@
     background-repeat: no-repeat;
     background-size: contain;
 
-    width: 19.505vw;
+    width: 18.1vw;
     height: 9.351vh;
 
     top: 16.481vh;
@@ -270,7 +270,7 @@
     background-repeat: no-repeat;
     background-size: contain;
 
-    width: 34.814vh;
+    width: 33.259vh;
     height: 9.351vh;
 
     top: 15.462vh;
@@ -372,6 +372,8 @@
 
     left: 0.260vw;
     top: 0;
+
+    cursor: pointer;
 }
 
 .Star2 {
@@ -496,7 +498,20 @@
     margin: 0;
 }
 
-.AdminAccountModalStartAlgorithm {
+.AdminAccountModalChangeRequestTitle {
+    position: absolute;
+    left: 56.250vw;
+    top: 47.037vh;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.130vw;
+    line-height: 1.354vw;
+
+    color: #000000;
+    margin: 0;
+}
+
+#AlgorithmSpeed button {
     position: absolute;
     width: 10.729vw;
     height: 4.90vh;
@@ -514,19 +529,6 @@
     line-height: 1.510vw;
 
     color: #FFFFFF;
-}
-
-.AdminAccountModalChangeRequestTitle {
-    position: absolute;
-    left: 56.250vw;
-    top: 47.037vh;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 1.130vw;
-    line-height: 1.354vw;
-
-    color: #000000;
-    margin: 0;
 }
 
 #textId {
@@ -971,6 +973,24 @@
     line-height: 1.510vw;
 
     color: #FFFFFF;
+}
+
+.AdminBtn {
+    cursor: pointer;
+    -webkit-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+    -moz-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+    -ms-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+    -o-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+    transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+    display: block;
+    text-decoration: none;
+    color: rgba(30, 22, 54, 0.6);
+    box-shadow: rgba(30, 22, 54, 0.4) 0 0px 0px 2px inset;
+}
+
+.AdminBtn:hover {
+    color: rgba(255, 255, 255, 0.85);
+    box-shadow: rgba(30, 22, 54, 0.7) 0 0px 0px 40px inset;
 }
 
 /*Game circles*/
