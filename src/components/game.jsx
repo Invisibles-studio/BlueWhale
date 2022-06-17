@@ -433,6 +433,7 @@ export default function Game({ user}){
         let ellipseStage
         let ellipsePosition
         if (pos === "stageone"){
+            document.querySelector(".requestsBlock").classList.remove("hidden")
             document.querySelector(".gameRightBlockTop").classList.add("hidden")
             document.querySelector(".requestText").classList.remove("hidden")
             document.querySelector(".gameRightBlockBottom").classList.add("hidden")
@@ -442,8 +443,22 @@ export default function Game({ user}){
             }
         }
         else if (pos === "stagetwo" || pos === "stagethree"){
+            SetCheckPressed(true)
+            document.querySelector(".requestText").classList.add("hidden")
+            document.querySelector(".gameRightBlockBottom").classList.remove("hidden")
+            for (let i= 1; i<=circlesInfo.stagefour; i++){
+                let d = "#r" + i.toString();
+                document.querySelector(d).classList.add("hidden")
+            }
             document.querySelector(".gameRightBlockTop").classList.add("hidden")
             document.getElementById("checkbtnText").innerHTML = "just wait";
+            document.querySelector(".requestsBlock").classList.add("hidden")
+        }
+        else if(pos==="stagefour"){
+            SetCheckPressed(false)
+            document.querySelector(".requestsBlock").classList.add("hidden")
+            document.querySelector(".gameRightBlockTop").classList.remove("hidden")
+            document.getElementById("checkbtnText").innerHTML = "CHECK";
         }
         classes = document.querySelector(".SelectedCircle").classList.value.split(" ")
         ellipseStage = classes[0]
