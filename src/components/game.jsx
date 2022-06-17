@@ -441,6 +441,10 @@ export default function Game({ user}){
                 document.querySelector(d).classList.remove("hidden")
             }
         }
+        else if (pos === "stagetwo" || pos === "stagethree"){
+            document.querySelector(".gameRightBlockTop").classList.add("hidden")
+            document.getElementById("checkbtnText").innerHTML = "just wait";
+        }
         classes = document.querySelector(".SelectedCircle").classList.value.split(" ")
         ellipseStage = classes[0]
         ellipsePosition = document.querySelector(".SelectedCircle").id
@@ -466,7 +470,6 @@ export default function Game({ user}){
             document.querySelector("."+pos+"#"+circle).classList.remove("hidden")
         }
     }
-
 
     function AddStar(){
         const starsCount = 3;
