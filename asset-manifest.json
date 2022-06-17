@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/BlueWhale/static/css/main.9fd4d09d.css",
-    "main.js": "/BlueWhale/static/js/main.7b4228ff.js",
+    "main.css": "/BlueWhale/static/css/main.228d1a86.css",
+    "main.js": "/BlueWhale/static/js/main.71544ec3.js",
     "static/js/787.61acda1c.chunk.js": "/BlueWhale/static/js/787.61acda1c.chunk.js",
     "static/media/background.png": "/BlueWhale/static/media/background.cf8903962283cfc3e5ff.png",
     "static/media/registerBlock.png": "/BlueWhale/static/media/registerBlock.c125e8c878e51e87b6f3.png",
@@ -13,14 +13,14 @@
     "static/media/stg3sel.png": "/BlueWhale/static/media/stg3sel.acaec340a4fc3cb8ae3d.png",
     "static/media/stg3.png": "/BlueWhale/static/media/stg3.49ee8254ca4ecfa6742e.png",
     "static/media/stg2.png": "/BlueWhale/static/media/stg2.6fc41c7ff2a04570c8c9.png",
-    "static/media/leftbg.svg": "/BlueWhale/static/media/leftbg.0c476f2f2d0315fd1b76.svg",
+    "static/media/leftbg.svg": "/BlueWhale/static/media/leftbg.764d20e64c8e3a2c65c4.svg",
     "index.html": "/BlueWhale/index.html",
-    "main.9fd4d09d.css.map": "/BlueWhale/static/css/main.9fd4d09d.css.map",
-    "main.7b4228ff.js.map": "/BlueWhale/static/js/main.7b4228ff.js.map",
+    "main.228d1a86.css.map": "/BlueWhale/static/css/main.228d1a86.css.map",
+    "main.71544ec3.js.map": "/BlueWhale/static/js/main.71544ec3.js.map",
     "787.61acda1c.chunk.js.map": "/BlueWhale/static/js/787.61acda1c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9fd4d09d.css",
-    "static/js/main.7b4228ff.js"
+    "static/css/main.228d1a86.css",
+    "static/js/main.71544ec3.js"
   ]
 }
